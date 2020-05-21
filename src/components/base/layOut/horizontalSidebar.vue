@@ -6,11 +6,6 @@
 -->
 <template>
   <div class="horizontal-wrapper u-f">
-    <div class="companyName">
-      <img src="./companyAvatar.png" height="0" alt="">
-      <span class="name">{{ name }}</span>
-    </div>
-
     <div>
       <el-menu 
         mode="horizontal"
@@ -20,7 +15,6 @@
         active-text-color="#cccccc"
         unique-opened
         :default-active="$route.path"
-        :collapse="isCollapse"
         class="navTopMenu u-f"
       >
         <!--菜单项目items的组件-->
@@ -28,7 +22,7 @@
       </el-menu>
     </div>
 
-    <div class="avatar-container">
+    <!-- <div class="avatar-container">
       <div class="message">
         <icon-svg :icon-class="message"></icon-svg>
       </div>
@@ -36,20 +30,7 @@
         <icon-svg :icon-class="email"></icon-svg>
         <span class="email-num">16</span>
       </div>
-
-      <el-dropdown class="" trigger="click">
-        <div class="avatar-wrapper">
-          <!--<span class="name">{{name}}</span>-->
-          <img class="user-avatar" src="./avatar.png">
-          <i class="el-icon-caret-bottom"></i>
-        </div>
-        <el-dropdown-menu class="user-dropdown" slot="dropdown" style="padding-top: 0">
-          <el-dropdown-item divided style="margin-top: 0;border-top: 0"><span style="display:block">充值</span></el-dropdown-item>
-          <el-dropdown-item divided><span @click="logout" style="display:block;">修改密码</span></el-dropdown-item>
-          <el-dropdown-item divided><span @click="logout" style="display:block;">退出登录</span></el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-    </div>
+    </div> -->
   </div>
 
 </template>
@@ -62,8 +43,8 @@
     data () {
       return {
         horizontalFlag: true,
-        message: 'pc-message',
-        email: 'pc-email'
+        // message: 'pc-message',
+        // email: 'pc-email'
       }
     },
     components: {
@@ -77,9 +58,6 @@
         'name',
         'avatar'
       ]),
-      isCollapse () {
-        return false
-      }
     },
     created () {
     },

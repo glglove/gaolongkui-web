@@ -16,22 +16,25 @@
         .logoPic
           width 320px
           height 50px
+          &:hover
+            cursor pointer
         .versionWrap
-          font-size 14px
+          font-size 10px
           .ch
-            color #303133
-            font-weight bold !important
+            color #000
+            font-weight 400 !important
             &:hover
               color #DA000D
           .en
-            color #303133
-            font-weight bold !important
+            color #000
+            font-weight 400 !important
             &:hover
               color #DA000D            
 </style>
 
 <template>
 	<div class="app-wrapper">
+        currentLanguage: {{currentLanguage}}
         <el-row class="page-wrapper">
             <div class="horizontal-sidebar-wrap">
               <div class="logoBox u-f-jsb u-f-ac">
@@ -39,13 +42,16 @@
                     class="logoPic"
                     :src="logoUrl"
                     fit="fill"
+                    @click.native="clickLogo"
                 ></el-image>
                 <div class="versionWrap u-f-ajc">
-                  <el-button type="text" class="ch">中文</el-button>
-                  <el-button type="text" class="en">English</el-button>
+                  <el-button type="text" class="ch" @click.native="setChinese">中文</el-button>
+                  <el-button type="text" class="en" @click.native="setEnglish">English</el-button>
                 </div>
               </div>
-                <!-- <horizontal-sidebar class="horizontal-sidebar"></horizontal-sidebar> -->
+                <horizontal-sidebar class="horizontal-sidebar">
+
+                </horizontal-sidebar>
             </div>
         </el-row>
 
@@ -64,11 +70,11 @@
 
                 <!--具体的内容区域 直接用下面的组件 app-main 也可以-->
                 <div class="routerCotentBox">
-                <transition name="fade" mode="out-in">
-                    <!-- <keep-alive> -->
-                    <router-view></router-view>
-                    <!-- </keep-alive> -->
-                </transition>
+                  <transition name="fade" mode="out-in">
+                      <!-- <keep-alive> -->
+                      <router-view></router-view>
+                      <!-- </keep-alive> -->
+                  </transition>
                 </div>
 
                 <!--具体的内容区域-->
@@ -81,6 +87,7 @@
 <script>
 
 // import { Navbar, Sidebar, AppMain, horizontalSidebar } from '@/components/layout'
+import HorizontalSidebar from '@/components/base/layOut/horizontalSidebar'
 import { mapGetters } from 'vuex'
 import logoUrl from '../../../../static/logo.png'
 export default {
@@ -89,7 +96,7 @@ export default {
         // Navbar,
         // Sidebar,
         // AppMain,
-        // horizontalSidebar
+        HorizontalSidebar
     },
     data() {
         return {
@@ -99,10 +106,25 @@ export default {
     },
     computed: {
         ...mapGetters([
-
+          'currentLanguage'
         ])
     },
     created(){
+      // 加载路由
+      this.$store.dispatch("GenerateRoutes")
+    },
+    methods: {
+      clickLogo(){
+        this.$router.push({
+          path: '/home'
+        })
+      },
+      setChinese(){
+        this.$store.dispatch("setLanguage", 'ch')
+      },
+      setEnglish(){
+        this.$store.dispatch("setLanguage", 'en')
+      }
     }
 }
 </script>

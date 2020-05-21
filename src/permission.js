@@ -11,7 +11,7 @@ import { getToken } from '@/utils/auth' // 验权
 // }
 // register global progress.
 NProgress.configure({ showSpinner: false })
-const whiteList = ['/login', '/authredirect']// 不重定向白名单
+const whiteList = ['/login', '/authredirect','/index']// 不重定向白名单
 router.beforeEach((to, from, next) => {
   NProgress.start() // 开启Progress
   if (getToken()) { // 判断是否有token
@@ -38,10 +38,12 @@ router.beforeEach((to, from, next) => {
       }
     }
   } else {
+    debugger
     if (whiteList.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
       next()
     } else {
-      next('/login') // 否则全部重定向到登录页
+      // next('/login') // 否则全部重定向到登录页
+      next('/index')
       NProgress.done() // router在hash模式下 手动改变hash 重定向回来 不会触发afterEach 暂时hack方案
     }
   }

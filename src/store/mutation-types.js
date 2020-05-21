@@ -23,3 +23,5 @@ export const SET_NAME = 'SET_NAME'
 export const SET_AVATAR = 'SET_AVATAR'
 
 export const SET_GENERATE = 'SET_GENERATE'
+
+export const SET_LANGUAGE = 'SET_LANGUAGE'

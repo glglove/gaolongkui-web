@@ -6,7 +6,8 @@ const app = {
     sidebar: {
       opened: !+Cookies.get('sidebarStatus')
     },
-    visitedViews: []
+    visitedViews: [],
+    currentLanguage: 'ch', // 中文： ch   英文: en 
   },
   mutations: {
     [types.SET_TOGGLE_SIDEBAR] (state, sidebarStatus) {
@@ -14,6 +15,9 @@ const app = {
     },
     [types.SET_VISITED_VIEWS] (state, view) {
       state.visitedViews = view
+    },
+    [types.SET_LANGUAGE] ( state, language ) {
+      state.currentLanguage = language
     }
   },
   actions: {
@@ -48,6 +52,10 @@ const app = {
         commit(types.SET_VISITED_VIEWS, arr)
         resolve([...arr])
       })
+    },
+    // 设置语言
+    setLanguage({ commit, state }, language){
+      commit(types.SET_LANGUAGE, language)
     }
   }
 }

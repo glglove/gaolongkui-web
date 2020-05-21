@@ -1,5 +1,5 @@
 import * as types from '../mutation-types'
-import { asyncRouterMap } from '@/router/index'
+import { constantRouterMap, asyncRouterMap } from '@/router/index'
 
 /**
  * 通过meta.role判断是否与当前用户权限匹配
@@ -56,8 +56,9 @@ const permission = {
         // } else {
         //   accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
         // }
-        commit(types.SET_ROUTERS, asyncRouterMap)
-        commit(types.SET_ADD_ROUTERS, asyncRouterMap)
+        let accessedRouters = constantRouterMap.concat(asyncRouterMap)        
+        commit(types.SET_ROUTERS, accessedRouters)
+        commit(types.SET_ADD_ROUTERS, accessedRouters)
         resolve()
       })
     }
