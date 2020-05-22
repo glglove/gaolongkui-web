@@ -12,7 +12,16 @@ import { getToken } from '@/utils/auth' // 验权
 // register global progress.
 NProgress.configure({ showSpinner: false })
 const whiteList = ['/login', '/authredirect','/index']// 不重定向白名单
+
+
+store.dispatch("GenerateRoutes").then(res => {
+  // 生成可访问的路由表
+  router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
+  console.log(router)
+})  
+
 router.beforeEach((to, from, next) => {
+  // 加载路由
   NProgress.start() // 开启Progress
   if (getToken()) { // 判断是否有token
     if (to.path === '/login') {
@@ -43,7 +52,7 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       // next('/login') // 否则全部重定向到登录页
-      next('/index')
+      next()
       NProgress.done() // router在hash模式下 手动改变hash 重定向回来 不会触发afterEach 暂时hack方案
     }
   }

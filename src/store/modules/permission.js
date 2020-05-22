@@ -34,8 +34,8 @@ import { constantRouterMap, asyncRouterMap } from '@/router/index'
 
 const permission = {
   state: {
-    routers: {},
-    addRouters: []
+    routers: {},   // 所有的路由
+    addRouters: []  // 异步添加的路由
   },
   mutations: {
     [types.SET_ROUTERS] (state, routers) {
@@ -56,9 +56,9 @@ const permission = {
         // } else {
         //   accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
         // }
-        let accessedRouters = constantRouterMap.concat(asyncRouterMap)        
+        let accessedRouters = constantRouterMap.concat(asyncRouterMap)    
         commit(types.SET_ROUTERS, accessedRouters)
-        commit(types.SET_ADD_ROUTERS, accessedRouters)
+        commit(types.SET_ADD_ROUTERS, asyncRouterMap)
         resolve()
       })
     }

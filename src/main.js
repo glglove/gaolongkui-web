@@ -18,8 +18,8 @@ Vue.use(ElementUI)
 Vue.prototype.$bus = new Vue()
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  // el: '#app',
   render: h => h(App),
   router,
   store
-})
+}).$mount("#app")

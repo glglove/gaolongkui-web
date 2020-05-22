@@ -4,23 +4,30 @@
   by： gaol
   功能：home页面 顶部的 横向导航组件
 -->
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+.horizontal-wrapper
+  height 40px
+  .navTopMenu
+    height 100%
+    border-bottom none !important
+</style>
+
 <template>
-  <div class="horizontal-wrapper u-f">
-    <div>
-      <el-menu 
-        mode="horizontal"
-        theme="dark"
-        background-color="#3b8be3"
-        text-color="#fff"
-        active-text-color="#cccccc"
-        unique-opened
-        :default-active="$route.path"
-        class="navTopMenu u-f"
-      >
-        <!--菜单项目items的组件-->
-        <sidebar-item :routes='permissionRouters' :horizontalFlag="horizontalFlag"></sidebar-item>
-      </el-menu>
-    </div>
+  <div class="horizontal-wrapper">
+    <!-- permissionRouters: {{permissionRouters}} -->
+    <el-menu 
+      mode="horizontal"
+      theme="dark"
+      background-color="#E90000"
+      text-color="#fff"
+      active-text-color="#fff"
+      unique-opened
+      :default-active="$route.path"
+      class="navTopMenu u-f"
+    >
+      <!--菜单项目items的组件-->
+      <sidebar-item :routes='permissionRouters' :horizontalFlag="horizontalFlag"></sidebar-item>
+    </el-menu>
 
     <!-- <div class="avatar-container">
       <div class="message">
@@ -70,71 +77,3 @@
     }
   }
 </script>
-
-<style lang="stylus" rel="stylesheet/stylus" scoped>
-  .horizontal-wrapper
-    .nav-el-menu
-      .el-icon-arrow-down:before
-        content: " "
-    .companyName
-      display: inline-block;
-      min-height: 50px;
-      vertical-align: top;
-      line-height: 50px;
-      color: #ffffff;
-      margin: 0 27px;
-      img
-        vertical-align: top;
-        margin-top: 11px;
-        margin-right 15px
-    .avatar-container
-      height: 50px
-      display: inline-block
-      position: absolute
-      right: 20px
-      .message, .email
-        display: inline-block;
-        position relative;
-        vertical-align: top;
-        margin-right 20px
-        .email-num
-          position: absolute;
-          display: block;
-          font-size: 12px;
-          padding: 4px;
-          background: red;
-          border-radius: 50%;
-          color: #ffffff;
-          font-size: 12px;
-          top: 7px;
-          left: 13px;
-        svg
-          width 22px
-          height 22px
-          margin-top 14px
-          &:hover
-            cursor pointer
-            opacity 0.7
-      .avatar-wrapper
-        cursor: pointer
-        position: relative
-        width 70px
-        height: 50px
-        line-height: 50px
-        .name
-          display: inline-block
-          vertical-align: top
-        .user-avatar
-          width: 40px
-          height: 40px
-          border-radius: 50%
-          margin-top 5px
-        .el-icon-caret-bottom
-          position: absolute;
-          top: 15px;
-          font-size: 20px;
-          margin-left: 5px;
-          color: #fff;
-          &:hover
-            color #cccccc
-</style>
