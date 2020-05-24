@@ -7,7 +7,9 @@ const app = {
       opened: !+Cookies.get('sidebarStatus')
     },
     visitedViews: [],
-    currentLanguage: 'ch', // 中文： ch   英文: en 
+    currentLanguage: 'ch', // 中文： ch   英文: en,
+    leftSidebar: [],
+    leftParentSidebar: {},
   },
   mutations: {
     [types.SET_TOGGLE_SIDEBAR] (state, sidebarStatus) {
@@ -18,6 +20,12 @@ const app = {
     },
     [types.SET_LANGUAGE] ( state, language ) {
       state.currentLanguage = language
+    },
+    [types.SET_LEFTSIDEBAR] (state, leftSidebar) {
+      state.leftSidebar = leftSidebar
+    },
+    [types.SET_LEFTPARENT_SIDEBAR] (state, leftParentSidebar) {
+      state.leftParentSidebar = leftParentSidebar
     }
   },
   actions: {
@@ -56,6 +64,13 @@ const app = {
     // 设置语言
     setLanguage({ commit, state }, language){
       commit(types.SET_LANGUAGE, language)
+    },
+    //设置当前的sidebar
+    setLeftSidebar( {commit, state}, leftSidebar){
+      commit(types.SET_LEFTSIDEBAR, leftSidebar)
+    },
+    setLeftParentSidebar ({ commit, state }, leftParentSidebar ) {
+      commit(types.SET_LEFTPARENT_SIDEBAR, leftParentSidebar)
     }
   }
 }

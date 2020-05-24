@@ -18,6 +18,8 @@ const vuexLocal = new VuexPersistense({
       //引入app模板，对象里面可配置需要持久化的status
       app: {
         currentLanguage: val.app.currentLanguage,
+        leftSidebar: val.app.leftSidebar,
+        leftParentSidebar: val.app.leftParentSidebar
       },
       permission: {
         addRouters: val.permission.addRouters,

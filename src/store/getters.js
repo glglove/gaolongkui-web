@@ -4,6 +4,13 @@ export const visitedViews = state => state.app.visitedViews
 
 export const currentLanguage = state => state.app.currentLanguage
 
+export const currentLeftSideBar = state => state.app.leftSidebar
+
+export const currentLeftParentSideBar = state => state.app.leftParentSidebar
+
+
+
+
 export const token = state => state.user.token
 
 export const avatar = state => state.user.avatar

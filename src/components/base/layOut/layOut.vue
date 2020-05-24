@@ -13,10 +13,10 @@
     font-size 16px
     .horizontal-sidebar-wrap
       position relative
-      height 360px
+      height 320px
       width 100%
       .carouselBox
-        width 80%
+        width 100%
         min-width 1024px
         height 100%
         margin 0 auto
@@ -24,7 +24,7 @@
         .el-carousel
           height 100% !important
           .el-carousel__container
-            height 360px !important
+            height 320px !important
       .topBox
         position absolute
         top 0
@@ -49,71 +49,63 @@
               color #000
               font-weight 400 !important
               &:hover
-                color #DA000D            
+                color #DA000D     
+    .containerWrapper
+      min-height calc(100vh - 360px)
 </style>
 
 <template>
 	<div class="app-wrapper">
-        <!-- currentLanguage: {{currentLanguage}}
-        ---
-        permissionRouters: {{permissionRouters}} -->
-        <el-row class="">
-            <div class="horizontal-sidebar-wrap">
-              <div class="carouselBox">
-                <el-carousel class="carousel">
-                  <el-carousel-item v-for="item in carouselPic" :key="item">
-                    <!-- <h3 class="small">{{ item }}</h3> -->
-                    <el-image class="pic"  style="height:100%" fit="cover" :src="item"></el-image>
-                  </el-carousel-item>
-                </el-carousel>
-              </div> 
-              <div class="topBox page-wrapper">
-                <!---logo区--->
-                <div class="logoBox u-f-jsb u-f-ac">
-                  <el-image
-                      class="logoPic"
-                      :src="logoUrl"
-                      fit="fill"
-                      @click.native="clickLogo"
-                  ></el-image>
-                  <div class="versionWrap u-f-ajc">
-                    <el-button type="text" class="ch" @click.native="setChinese">中文</el-button>
-                    <el-button type="text" class="en" @click.native="setEnglish">English</el-button>
-                  </div>
-                </div>
-                <!--导航区--->
-                <horizontal-sidebar class="horizontal-sidebar"></horizontal-sidebar>                
-              </div>             
+    <!-- currentLanguage: {{currentLanguage}}
+    ---
+    permissionRouters: {{permissionRouters}} -->
+    <el-row class="">
+        <div class="horizontal-sidebar-wrap">
+          <div class="carouselBox">
+            <el-carousel 
+              arrow="never"
+              class="carousel">
+              <el-carousel-item v-for="item in carouselPic" :key="item">
+                <!-- <h3 class="small">{{ item }}</h3> -->
+                <el-image class="pic"  style="height:100%;width:100%" fit="fill" :src="item"></el-image>
+              </el-carousel-item>
+            </el-carousel>
+          </div> 
+          <div class="topBox page-wrapper">
+            <!---logo区--->
+            <div class="logoBox u-f-jsb u-f-ac">
+              <el-image
+                  class="logoPic"
+                  :src="logoUrl"
+                  fit="fill"
+                  @click.native="clickLogo"
+              ></el-image>
+              <div class="versionWrap u-f-ajc">
+                <el-button type="text" class="ch" @click.native="setChinese">中文</el-button>
+                <el-button type="text" class="en" @click.native="setEnglish">English</el-button>
+              </div>
             </div>
-        </el-row>
-
-        <!---顶部导航区下方的内容区域-->
-        <div class="containerWrapper">
-
-            <!---左边sidebar 区域--->
-            <!-- <sidebar class="sidebar-container"></sidebar> -->
-
-            <!--右方内容区-->
-            <div class="main-container" v-loading="loading">
-                <!--navbar 为 内容区上方的 面包屑 和 动态 tag标签组件-->
-                <div class="navBarBox" style="height:50px; position:absolute;top:50px">
-                <!-- <navbar></navbar> -->
-               
-                </div>
-
-                <!--具体的内容区域 直接用下面的组件 app-main 也可以-->
-                <div class="routerCotentBox">
-                  <transition name="fade" mode="out-in">
-                      <keep-alive>
-                        <router-view></router-view>
-                      </keep-alive>
-                  </transition>
-                </div>
-
-                <!--具体的内容区域-->
-                <!-- <app-main></app-main> -->
-            </div>
+            <!--导航区--->
+            <horizontal-sidebar class="horizontal-sidebar"></horizontal-sidebar>                
+          </div>             
         </div>
+    </el-row>
+
+    <!---顶部导航区下方的内容区域-->
+    <div class="containerWrapper">
+      <div class="main-container" v-loading="loading">
+        <!--具体的内容区域 直接用下面的组件 app-main 也可以-->
+        <div class="routerCotentBox">
+          <transition name="fade" mode="out-in">
+              <!-- <keep-alive> -->
+                <router-view></router-view>
+              <!-- </keep-alive> -->
+          </transition>
+        </div>
+        <!--具体的内容区域-->
+        <!-- <app-main></app-main> -->
+      </div>
+    </div>
 	</div>
 </template>
 
@@ -126,6 +118,7 @@ import logoUrl from '../../../../static/logo.png'
 import ban from '../../../../static/ban.jpg'
 import ban2 from '../../../../static/ban2.jpg'
 import router from '../../../router'
+
 export default {
     name: 'layout',
     components: {
@@ -138,7 +131,9 @@ export default {
         return {
             loading: false,
             logoUrl: logoUrl,
-            carouselPic: [ban, ban2]
+            carouselPic: [ban, ban2],
+            parentRoute:{},
+            currentLeftSidebar: []
         }
     },
     computed: {
@@ -148,9 +143,16 @@ export default {
           'addRouters'
         ])
     },
+    watch: {
+      '$route' (to, from) {
+          debugger
+          if(to.path && to.path != '/' && to.path != '/index'){
+              this.getLeftSideBar(to)
+          }        
+      }      
+    },
     created(){
       debugger
-
     },
     methods: {
       clickLogo(){
@@ -158,6 +160,19 @@ export default {
           path: '/about'
         })
       },
+      getLeftSideBar(routeInfo){
+          debugger
+          let routerMatched = routeInfo.matched
+          this.parentRoute = routerMatched[0]  
+          this.currentLeftSidebar = this.permissionRouters.filter((item, key) => {
+              if(item.path == this.parentRoute.path){
+                  return item.children
+              }
+          })
+
+          this.$store.dispatch("setLeftSidebar", this.currentLeftSidebar)
+          this.$store.dispatch("setLeftParentSidebar", this.parentRoute)
+      },      
       setChinese(){
         this.$store.dispatch("setLanguage", 'ch')
       },

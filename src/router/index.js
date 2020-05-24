@@ -26,7 +26,7 @@ export const constantRouterMap = [
     children: [
       {
         path: 'index',
-        // component: () => import('@/components/base/layOut/layOut'),
+        component: () => import('@/components/home/home'),
         name: '简述',
         icon: 'people',
         noDropdown: true,
@@ -48,7 +48,8 @@ export const constantRouterMap = [
     children: [
       {
         path: 'companyProfile',
-        component: () => import('@/components/about/companyProfile'),
+        // component: () => import('@/components/about/companyProfile'),
+        component: () => import('@/components/base/container'),        
         name: '公司简介',
         hidden: true
       },
@@ -71,39 +72,44 @@ export const constantRouterMap = [
         hidden: true
       }      
     ]
-  },  
+  },    
 ]
 
 export const asyncRouterMap = [
   {
     path: '/news',
     component: () => import('@/components/base/layOut/layOut'),
+    redirect: '/news/companyProfile',
     name: '新闻资讯',
     noDropdown: false,
     icon: 'notice',
     hidden: false,
     children: [
       {
-        path: 'companyProfile',
-        component: () => import('@/components/about/companyProfile'),
+        path: 'companyNews',
+        // component: () => import('@/components/about/companyProfile'),
+        component: () => import('@/components/base/container'),
         name: '企业新闻',
         hidden: true
       },
       {
-        path: 'speech',
-        component: () => import('@/components/about/speech'),
+        path: 'hotNews',
+        // component: () => import('@/components/about/speech'),
+        component: () => import('@/components/base/container'),        
         name: '热点资讯',
         hidden: true
       },
       {
-        path: 'companyFramework',
-        component: () => import('@/components/about/companyFramework'),
+        path: 'industryInformation',
+        // component: () => import('@/components/about/companyFramework'),
+        component: () => import('@/components/base/container'),        
         name: '行业资讯',
         hidden: true
       },
       {
-        path: 'companyCulture',
-        component: () => import('@/components/about/companyCulture'),
+        path: 'technicalArtical',
+        // component: () => import('@/components/about/companyCulture'),
+        component: () => import('@/components/base/container'),        
         name: '技术文章',
         hidden: true
       }      
@@ -112,53 +118,58 @@ export const asyncRouterMap = [
   {
     path: '/productShow',
     component: () => import('@/components/base/layOut/layOut'),
+    redirect: '/productShow/more',
     name: '产品展示',
     noDropdown: false,
     icon: 'notice',
     hidden: false,
     children: [
       {
-        path: 'companyProfile',
-        component: () => import('@/components/about/companyProfile'),
+        path: 'more',
+        component: () => import('@/components/products/more'),
         name: '多层板',
-        hidden: true
+        hidden: true,
+        noDropdown: false,
+        icon: 'notice'
       },
       {
-        path: 'speech',
-        component: () => import('@/components/about/speech'),
+        path: 'high',
+        component: () => import('@/components/products/high'),
         name: '高频板',
-        hidden: true
+        hidden: true,
+        noDropdown: false,
+        icon: 'notice',
       },
-      {
-        path: 'companyFramework',
-        component: () => import('@/components/about/companyFramework'),
-        name: '铝基板',
-        hidden: true
-      },
-      {
-        path: 'companyCulture',
-        component: () => import('@/components/about/companyCulture'),
-        name: '手机板',
-        hidden: true
-      },
-      {
-        path: 'companyCulture',
-        component: () => import('@/components/about/companyCulture'),
-        name: '双面板',
-        hidden: true
-      },
-      {
-        path: 'companyCulture',
-        component: () => import('@/components/about/companyCulture'),
-        name: '阻抗板',
-        hidden: true
-      },
-      {
-        path: 'companyCulture',
-        component: () => import('@/components/about/companyCulture'),
-        name: '特殊工艺板类',
-        hidden: true
-      }                     
+      // {
+      //   path: 'aluminium',
+      //   component: () => import('@/components/products/aluminium'),
+      //   name: '铝基板',
+      //   hidden: true
+      // },
+      // {
+      //   path: 'phone',
+      //   component: () => import('@/components/products/phone'),
+      //   name: '手机板',
+      //   hidden: true
+      // },
+      // {
+      //   path: 'double',
+      //   component: () => import('@/components/products/double'),
+      //   name: '双面板',
+      //   hidden: true
+      // },
+      // {
+      //   path: 'impedance',
+      //   component: () => import('@/components/products/impedance'),
+      //   name: '阻抗板',
+      //   hidden: true
+      // },
+      // {
+      //   path: 'special',
+      //   component: () => import('@/components/products/special'),
+      //   name: '特殊工艺板类',
+      //   hidden: true
+      // }                     
     ]
   },
   {
