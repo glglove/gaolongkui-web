@@ -6,61 +6,72 @@
 -->
 <template>
     <div class="secondMenuCmp">
-        contentList: {{contentList}}
-       <div class="common-product-more-cmp" v-if="strFlag == 'more'">
-            common  ——  more _ list
-       </div>
-       <div class="common-product-high-cmp" v-if="strFlag == 'high'">
-            common  ——  high _ list
-       </div>       
+      <levelbar-cmp></levelbar-cmp>
+
+      contentList: {{contentList}}
+      <div class="common-product-more-cmp" v-if="strFlag == 'more'">
+          common  ——  more _ list
+      </div>
+      <div class="common-product-high-cmp" v-if="strFlag == 'high'">
+          common  ——  high _ list
+      </div>       
     </div>
 </template>
 
 <script>
-// import { 
-//     getProductCatList
-// } from '@/api/productShow'
-export default {
+  import { 
+      getAboutCatList
+  } from '@/api/about'        
+  import { 
+      getProductCatList
+  } from '@/api/productShow'  
+  import { 
+      getNewsCatList
+  } from '@/api/news'
+  import levelbarCmp from './layOut/Levelbar'
+  export default {
+    components: {
+      levelbarCmp
+    },
     props: {
-        strFlag: {
-            type: String,
-            default: ''
-        },
-        contentList: {
-            type: Array,
-            default: () => {
-                return []
-            }
+      strFlag: {
+        type: String,
+        default: ''
+      },
+      contentList:{
+        type: Object,
+        default: () => {
+          return {}
         }
-    },
-  components: {
-  },
-  created () {
-
-  },
-  data () {
-    return {
-      levelList: null,
-    //   contentList: []
-    }
-  },
-  methods: {
-    getBreadcrumb () {
-      // debugger
-      let matched = this.$route.matched.filter(item => item.name)
-      const first = matched[0]
-      if (first && (first.name !== '首页' || first.path !== '')) {
-        matched = [{ name: '首页', path: '/' }].concat(matched)
       }
-      this.levelList = matched
     },
-  },
-  watch: {
-    '$route' (to, from) {
-      // debugger
-    }
+    created () {
+
+    },
+    mounted(){
+      debugger
+
+    },
+    data () {
+      return {
+        levelList: null,
+      }
+    },
+    watch: {
+     
+    },
+    methods: {
+      getBreadcrumb () {
+        // debugger
+        let matched = this.$route.matched.filter(item => item.name)
+        const first = matched[0]
+        if (first && (first.name !== '首页' || first.path !== '')) {
+          matched = [{ name: '首页', path: '/' }].concat(matched)
+        }
+        this.levelList = matched
+      },
+    },
   }
-}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

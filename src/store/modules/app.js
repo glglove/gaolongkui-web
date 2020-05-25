@@ -9,7 +9,7 @@ const app = {
     visitedViews: [],
     currentLanguage: 'ch', // 中文： ch   英文: en,
     leftSidebar: [],
-    leftParentSidebar: {},
+    leftParentSidebar: null,
   },
   mutations: {
     [types.SET_TOGGLE_SIDEBAR] (state, sidebarStatus) {
@@ -67,9 +67,11 @@ const app = {
     },
     //设置当前的sidebar
     setLeftSidebar( {commit, state}, leftSidebar){
+      debugger
       commit(types.SET_LEFTSIDEBAR, leftSidebar)
     },
     setLeftParentSidebar ({ commit, state }, leftParentSidebar ) {
+      debugger
       commit(types.SET_LEFTPARENT_SIDEBAR, leftParentSidebar)
     }
   }

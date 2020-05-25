@@ -9,7 +9,7 @@
 
 <template>
 	<div class="companyNews">
-       企业新闻
+       <container-cmp strFlag="companyNews"></container-cmp>
 	</div>
 </template>
 

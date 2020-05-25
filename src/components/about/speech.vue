@@ -9,7 +9,7 @@
 
 <template>
 	<div class="speech">
-       董事长致辞页面 
+       <container-cmp strFlag="speech"></container-cmp> 
 	</div>
 </template>
 

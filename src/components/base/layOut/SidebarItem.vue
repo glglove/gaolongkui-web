@@ -12,7 +12,7 @@
         <router-link 
           class="menu-nav u-f0"
           v-if="!item.hidden&&item.noDropdown"
-          :to="item.path"
+          :to="{path: item.path, query: {tagId: item.tagId, str: item.str}}"
           tag="li"
           active-class="activeClass"
           @mouseover.native="navMouseover(item, key)"
@@ -26,13 +26,14 @@
         <router-link
           class="menu-nav u-f0"
           v-if="!item.hidden&&!item.noDropdown&&item.children.length>0"
-          :to="item.path"
+          :to="{path: item.path, query: {tagId: item.tagId, str: item.str}}"
           tag="li"
           event="click"
           @mouseover.native="navMouseover(item, key)"
           active-class="activeClass"
           :style="key==currentKey? currentStyle: ''">
           <a class="navitem" :style="key==currentKey? currentStyle: ''">
+            <!-- {{item.path}}--- -->
            {{item.name}}
           </a> 
 
@@ -42,7 +43,7 @@
                 v-for="(firstChild, key) in item.children"
                 :key="key"
                 class="first-item u-f0"
-                :to="item.path +'/' + item.children[key].path"
+                :to="{path: item.path +'/' + item.children[key].path, query: {tagId: firstChild.tagId, str: firstChild.str}}"
               >
                 <a class="tit">{{firstChild.name}}</a>
               </router-link>
@@ -78,8 +79,8 @@
 
 <script>
   import iconSvg from '@/base/Icon-svg/index'
+  import { mapGetters } from 'vuex'
   export default {
-    name: 'SidebarItem',
     props: {
       routes: {
         type: Array
@@ -91,6 +92,8 @@
     },
     data(){
       return {
+        parentRoute: {},
+        currentLeftSidebar: [],
         currentKey: 0,
         currentStyle: "background-Color: #ffffff;color: #CC0000; boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)",
         showSecondNavStyle: 'display: block; color: #DA000D'
@@ -100,6 +103,19 @@
       // debugger
       // console.log(this.routes)
     },
+    computed: {
+      ...mapGetters([
+        'permissionRouters',
+      ]),      
+    },
+    watch: {
+      '$route'(to, from){
+        debugger
+        if(to.path && to.path != '/' && to.path != '/index'){
+          this.getLeftSideBar(to)
+        }        
+      }        
+    },    
     components: {
       iconSvg
     },
@@ -108,6 +124,44 @@
         // debugger
         this.currentKey = key
       },
+      getLeftSideBar(routeInfo){
+        debugger
+        let routerMatched = routeInfo.matched
+        this.parentRoute = routerMatched[0]
+        let currentName =   routerMatched[0].name
+        let currentPath = routerMatched[0].path
+        switch(currentPath){
+          case '/about':
+          case '/news':
+          case '/productShow':
+          case '/productShow':
+            this.currentLeftSidebar = this.permissionRouters.filter((item, key) => {
+                // if(item.path ==  (this.parentRoute.path)){
+                //   // item.parent = JSON.parse(JSON.stringify(item))
+                //   // return JSON.parse(JSON.stringify(item))
+                //   return JSON.parse(JSON.stringify(item))
+                // }
+                return item.path == this.parentRoute.path
+            })  
+          break  
+          
+          case '/companyDevice':         
+          case '/processCapability':             
+          case '/productionLine':             
+          case '/contact':     
+            this.currentLeftSidebar = [
+              {
+                path: currentPath,
+                name: currentName,
+                children: this.permissionRouters
+              }  
+            ]
+          break          
+        }
+
+        this.$store.dispatch("setLeftSidebar", this.currentLeftSidebar)
+        this.$store.dispatch("setLeftParentSidebar", this.parentRoute)
+      },      
     }
   }
 </script>

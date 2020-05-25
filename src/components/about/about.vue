@@ -9,7 +9,7 @@
 
 <template>
 	<div class="about">
-       关于我们
+       <container-cmp strFlag="about"></container-cmp>
 	</div>
 </template>
 

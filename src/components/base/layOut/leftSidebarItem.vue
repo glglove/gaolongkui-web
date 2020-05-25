@@ -6,16 +6,18 @@
 -->
 <template>
   <div class='left-sidebar'>
-      <levelbar-cmp></levelbar-cmp>
-    <h3 class="marginT30 marginB20">深圳福满电子:{{currentLeftParentSideBar.name}}</h3>
+      <!-- <levelbar-cmp></levelbar-cmp> -->
+    <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳福满电子:{{currentLeftSideBar[0].name}}</h3>
     <!-- permissionRouters: {{permissionRouters}} -->
       <!-- currentLeftSideBar: {{currentLeftSideBar}} -->
+      <!-- ----
+      currentLeftParentSideBar: {{currentLeftParentSideBar}} -->
       <!-- routes: {{routes}} -->
     <div class="tabs-view"
-                 v-for="tag in leftRouters[0].children"
-                 :key="tag.path"
-                 @click="clickLeftSideBar(tag, leftRouters)"
-                 >
+        v-for="tag in currentLeftSideBar[0].children"
+        :key="tag.path"
+        @click="clickLeftSideBar(tag, currentLeftSideBar)"
+      >
         <div class="u-f-jsb">
             <span>{{tag.name}}</span>
             <span class="el-icon-arrow-right"></span>
@@ -37,10 +39,10 @@ export default {
     },  
     props: {
         routes: {
-            type: Array,
-            default: () => {
-                return []
-            }
+          type: Array,
+          default: () => {
+              return []
+          }
         }
     },
   computed: {
@@ -51,13 +53,10 @@ export default {
       return arr.slice(-5)
     },
     ...mapGetters([
-        'permissionRouters',
-        'currentLeftSideBar',
-        'currentLeftParentSideBar'
-    ]),
-    leftRouters(){
-        return JSON.parse(JSON.stringify(this.currentLeftSideBar))
-    }
+      'permissionRouters',
+      'currentLeftSideBar',
+      'currentLeftParentSideBar'
+    ])
   },
   data(){
       return {
@@ -114,8 +113,6 @@ export default {
 
         this.$emit("switchRouter", tag, allTag)
     },
-  },
-  watch: {
   }
 }
 </script>

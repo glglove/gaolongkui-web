@@ -9,7 +9,7 @@
 
 <template>
 	<div class="companyCulture">
-       企业文化页面
+       <container-cmp strFlag="companyCulture"></container-cmp>
 	</div>
 </template>
 

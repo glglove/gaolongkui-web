@@ -6,12 +6,16 @@
 -->
 <template>
   <div class='product-aluminium'>
-    铝基版
+    <container-cmp strFlag="more"></container-cmp>    
   </div>
 </template>
 
 <script>
+import containerCmp from '@/components/base/container'
 export default {
+  components: {
+    containerCmp
+  },
   computed: {
 
   },

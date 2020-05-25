@@ -6,12 +6,16 @@
 -->
 <template>
   <div class='product-double'>
-    双面板
+    <container-cmp strFlag="double"></container-cmp>
   </div>
 </template>
 
 <script>
+import containerCmp from '@/components/base/container'
 export default {
+  components: {
+    containerCmp
+  },
   computed: {
 
   },

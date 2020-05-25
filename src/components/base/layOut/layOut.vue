@@ -144,12 +144,7 @@ export default {
         ])
     },
     watch: {
-      '$route' (to, from) {
-          debugger
-          if(to.path && to.path != '/' && to.path != '/index'){
-              this.getLeftSideBar(to)
-          }        
-      }      
+    
     },
     created(){
       debugger
@@ -159,20 +154,7 @@ export default {
         this.$router.push({
           path: '/about'
         })
-      },
-      getLeftSideBar(routeInfo){
-          debugger
-          let routerMatched = routeInfo.matched
-          this.parentRoute = routerMatched[0]  
-          this.currentLeftSidebar = this.permissionRouters.filter((item, key) => {
-              if(item.path == this.parentRoute.path){
-                  return item.children
-              }
-          })
-
-          this.$store.dispatch("setLeftSidebar", this.currentLeftSidebar)
-          this.$store.dispatch("setLeftParentSidebar", this.parentRoute)
-      },      
+      },     
       setChinese(){
         this.$store.dispatch("setLanguage", 'ch')
       },

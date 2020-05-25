@@ -9,7 +9,7 @@
 
 <template>
 	<div class="companyProfile">
-      公司简介页面
+      <container-cmp strFlag="companyProfile"></container-cmp>
 	</div>
 </template>
 

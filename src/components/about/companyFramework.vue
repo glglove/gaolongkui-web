@@ -9,7 +9,7 @@
 
 <template>
 	<div class="companyFramwork">
-       企业架构页面 
+       <container-cmp strFlag="companyFramwork"></container-cmp> 
 	</div>
 </template>
 

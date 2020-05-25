@@ -5,10 +5,10 @@
   功能：
 -->
 <template>
-  <div class='product-more'>
+  <div class='companyDevice'>
       <!-- permissionRouters: {{permissionRouters}} -->
       <!-- <left-siderbaritem-cmp :routes="currentLeftSidebar[0]"></left-siderbaritem-cmp> -->
-      <container-cmp strFlag="more"></container-cmp>
+      <container-cmp strFlag="companyDevice"></container-cmp>
   </div>
 </template>
 

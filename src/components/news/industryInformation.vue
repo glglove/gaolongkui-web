@@ -9,7 +9,7 @@
 
 <template>
 	<div class="industryInformation">
-       行业资讯
+       <container-cmp strFlag="industryInformation"></container-cmp>
 	</div>
 </template>
 

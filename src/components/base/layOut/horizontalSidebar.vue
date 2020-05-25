@@ -66,14 +66,23 @@
         'avatar'
       ]),
     },
+    watch: {
+      // '$route' (to, from) {
+      //   debugger
+      //   if(to.path && to.path != '/' && to.path != '/index'){
+      //     this.getLeftSideBar(to)
+      //   }        
+      // }        
+    },    
     created () {
+
     },
     methods: {
       logout () {
         this.$store.dispatch('LogOut').then(() => {
           location.reload()
         })
-      }
+      },      
     }
   }
 </script>

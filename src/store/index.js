@@ -19,7 +19,7 @@ const vuexLocal = new VuexPersistense({
       app: {
         currentLanguage: val.app.currentLanguage,
         leftSidebar: val.app.leftSidebar,
-        leftParentSidebar: val.app.leftParentSidebar
+        // leftParentSidebar: val.app.leftParentSidebar
       },
       permission: {
         addRouters: val.permission.addRouters,

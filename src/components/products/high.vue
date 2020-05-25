@@ -13,9 +13,9 @@
 <script>
 import containerCmp from '@/components/base/container'
 export default {
-    components: {
-        containerCmp
-    },
+  components: {
+      containerCmp
+  },
   computed: {
 
   },

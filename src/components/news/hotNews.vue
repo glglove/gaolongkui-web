@@ -9,7 +9,7 @@
 
 <template>
 	<div class="hotNews">
-       热点新闻
+        <container-cmp strFlag="hotNews"></container-cmp>
 	</div>
 </template>
 

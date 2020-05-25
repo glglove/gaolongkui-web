@@ -6,12 +6,16 @@
 -->
 <template>
   <div class='product-special'>
-    特殊工艺板
+    <container-cmp strFlag="special"></container-cmp>
   </div>
 </template>
 
 <script>
+import containerCmp from '@/components/base/container'
 export default {
+  components: {
+    containerCmp
+  },
   computed: {
 
   },

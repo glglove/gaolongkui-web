@@ -62,7 +62,7 @@ export default {
     }
   },
   watch: {
-    $route () {
+    '$route' (to, from) {
       this.addViewTabs()
     }
   }

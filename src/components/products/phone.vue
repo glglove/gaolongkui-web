@@ -6,12 +6,16 @@
 -->
 <template>
   <div class='product-phone'>
-    手机板
+    <container-cmp strFlag="phone"></container-cmp>
   </div>
 </template>
 
 <script>
+import containerCmp from '@/components/base/container'
 export default {
+  components: {
+    containerCmp
+  },
   computed: {
 
   },

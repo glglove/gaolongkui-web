@@ -6,12 +6,16 @@
 -->
 <template>
   <div class='product-impedance'>
-    阻抗板
+    <container-cmp strFlag="impedance"></container-cmp>
   </div>
 </template>
 
 <script>
+import containerCmp from '@/components/base/container'
 export default {
+  components: {
+    containerCmp
+  },
   computed: {
 
   },

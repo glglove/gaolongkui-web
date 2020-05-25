@@ -9,7 +9,7 @@
 
 <template>
 	<div class="technicalArtical">
-       技术文章
+        <container-cmp strFlag="technicalArtical"></container-cmp>
 	</div>
 </template>
 
