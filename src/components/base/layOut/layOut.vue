@@ -106,10 +106,11 @@
         <!-- <app-main></app-main> -->
       </div>
     </div>
+
 	</div>
 </template>
 
-<script>
+<script>  
 
 // import { Navbar, Sidebar, AppMain, horizontalSidebar } from '@/components/layout'
 import HorizontalSidebar from '@/components/base/layOut/horizontalSidebar'

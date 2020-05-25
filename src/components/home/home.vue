@@ -16,6 +16,11 @@
             <a class="tipTit">{{ item.tip }}</a>
             </el-carousel-item>
         </el-carousel>
+
+        <!--分享--->
+        <div class="shareWrap" style="width: 500px">
+          <bds-hare-cmp :hasMore="false"></bds-hare-cmp>
+        </div>        
       </div>
     </el-row>
 

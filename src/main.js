@@ -16,6 +16,9 @@ import './permission' // 权限
 import ContainerCmp from '@/components/base/container'
 Vue.component("containerCmp", ContainerCmp)
 
+import BdsHareCmp from '@/components/base/share'
+Vue.component("bdsHareCmp", BdsHareCmp)
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.prototype.$bus = new Vue()

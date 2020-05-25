@@ -316,12 +316,12 @@ export const asyncRouterMap = [
       {
         path: 'index',
         component: () => import('@/components/contact/index'),
-        name: '生产流程',
+        name: '联系我们',
         icon: 'people',
         noDropdown: true,
         hidden: false,        
         meta: {
-          title: '生产流程-首页'
+          title: '联系我们-首页'
         }
       }
     ]       
