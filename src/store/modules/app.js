@@ -7,7 +7,7 @@ const app = {
       opened: !+Cookies.get('sidebarStatus')
     },
     visitedViews: [],
-    currentLanguage: 'ch', // 中文： ch   英文: en,
+    currentLanguage: 'zh', // 中文： zh   英文: en,
     leftSidebar: [],
     leftParentSidebar: null,
   },

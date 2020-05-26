@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import LayOut from '@/components/base/layOut/layOut'
+
+import {englishRouterMap} from './En-router'
+import {chinesRouterMap} from './ZH-router'
 /* layout */
 // import Layout from '@/base/layout/Layout'
 Vue.use(Router)
@@ -328,8 +331,14 @@ export const asyncRouterMap = [
   }       
 ]
 
+
+
+
 export default new Router({
   // mode: 'history', //后端支持可开
   linkActiveClass: 'is-active',
-  routes: constantRouterMap
+  // routes: constantRouterMap
+  routes: chinesRouterMap
 })
+
+

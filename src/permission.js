@@ -13,12 +13,19 @@ import { getToken } from '@/utils/auth' // 验权
 NProgress.configure({ showSpinner: false })
 const whiteList = ['/login', '/authredirect','/index']// 不重定向白名单
 
-
-store.dispatch("GenerateRoutes").then(res => {
-  // 生成可访问的路由表
-  router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
-  console.log(router)
-})  
+if(store.getters.currentLanguage == 'zh'){
+  store.dispatch("GenerateRoutes").then(res => {
+    // 生成可访问的路由表
+    // router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
+    console.log(router)
+  }) 
+}else {
+  store.dispatch("GenerateRoutes_english").then(res => {
+    // 生成可访问的路由表
+    // router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
+    console.log(router)
+  })   
+} 
 
 router.beforeEach((to, from, next) => {
   // 加载路由

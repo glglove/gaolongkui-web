@@ -33,25 +33,49 @@
         z-index 1000
         .logoBox
           margin 20px 20px 30px 20px
+          .logoPic.english
+            opacity 1
+            width 500px
+            height 50px
+            transition  all .5s
+            &:hover
+              cursor pointer            
           .logoPic
             width 320px
             height 50px
             &:hover
               cursor pointer
           .versionWrap
-            font-size 10px
+            font-size 12px
             .ch
               color #000
               font-weight 400 !important
+              margin-right 10px
+              &:before
+                display inline-block
+                content ''
+                width 20px
+                height 10px
+                margin-right 3px
+                background url('../../../../static/cn.jpg') no-repeat
               &:hover
                 color #DA000D
+                cursor pointer
             .en
               color #000
               font-weight 400 !important
+              &:before
+                display inline-block
+                content ''
+                width 20px
+                height 10px
+                margin-right 3px
+                background url('../../../../static/en.jpg') no-repeat              
               &:hover
-                color #DA000D     
+                color #DA000D    
+                cursor pointer 
     .containerWrapper
-      min-height calc(100vh - 360px)
+      min-height calc(100vh - 420px)
 </style>
 
 <template>
@@ -74,14 +98,32 @@
           <div class="topBox page-wrapper">
             <!---logo区--->
             <div class="logoBox u-f-jsb u-f-ac">
+              <!-- <el-image
+                  :src="getLogoUrl"
+                  fit="fill"
+                  :class="['logoPic', !isChinese? 'english':'']"
+                  @click.native="clickLogo"
+              ></el-image> -->
               <el-image
-                  class="logoPic"
+                  v-show="currentLanguage == 'zh'"
                   :src="logoUrl"
                   fit="fill"
+                  :class="['logoPic']"
                   @click.native="clickLogo"
               ></el-image>
+              <el-image
+                  v-show="currentLanguage == 'en'"
+                  :src="logoUrl_en"
+                  fit="fill"
+                  :class="['logoPic', 'english']"
+                  @click.native="clickLogo"
+              ></el-image>                            
               <div class="versionWrap u-f-ajc">
-                <el-button type="text" class="ch" @click.native="setChinese">中文</el-button>
+                <el-button 
+                  type="text" 
+                  class="ch" 
+                  @click.native="setChinese"
+                >中文</el-button>
                 <el-button type="text" class="en" @click.native="setEnglish">English</el-button>
               </div>
             </div>
@@ -107,6 +149,11 @@
       </div>
     </div>
 
+
+        <!--分享(addthis)--->
+    <div class="shareWrap-addthis" v-if="currentLanguage == 'en'">
+      <addthis-hare-cmp v-if="currentLanguage == 'en'"></addthis-hare-cmp>
+    </div> 
 	</div>
 </template>
 
@@ -116,6 +163,7 @@
 import HorizontalSidebar from '@/components/base/layOut/horizontalSidebar'
 import { mapGetters } from 'vuex'
 import logoUrl from '../../../../static/logo.png'
+import logoUrl_en from '../../../../static/logo_en.png'
 import ban from '../../../../static/ban.jpg'
 import ban2 from '../../../../static/ban2.jpg'
 import router from '../../../router'
@@ -131,18 +179,29 @@ export default {
     data() {
         return {
             loading: false,
+            isChinese: true,
             logoUrl: logoUrl,
+            logoUrl_en: logoUrl_en,
             carouselPic: [ban, ban2],
             parentRoute:{},
             currentLeftSidebar: []
         }
     },
     computed: {
-        ...mapGetters([
-          'currentLanguage',
-          'permissionRouters',
-          'addRouters'
-        ])
+      ...mapGetters([
+        'currentLanguage',
+        'permissionRouters',
+        'addRouters'
+      ]),
+      getLogoUrl(){
+        if(this.currentLanguage == 'zh'){
+          this.isChinese = true
+          return this.logoUrl
+        }else {
+          this.isChinese = false
+          return this.logoUrl_en
+        }
+      }
     },
     watch: {
     
@@ -157,10 +216,14 @@ export default {
         })
       },     
       setChinese(){
-        this.$store.dispatch("setLanguage", 'ch')
+        this.$store.dispatch("setLanguage", 'zh')
+        // 主动刷新一下页面
+        location.reload()         
       },
       setEnglish(){
         this.$store.dispatch("setLanguage", 'en')
+        // 主动刷新一下页面
+        location.reload()         
       }
     }
 }

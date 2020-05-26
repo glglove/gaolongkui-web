@@ -16,6 +16,7 @@
           tag="li"
           active-class="activeClass"
           @mouseover.native="navMouseover(item, key)"
+          @mouseout.native="navMouseout(item, key)"
           >
           <a class="navitem" :style="key==currentKey? currentStyle: ''">
            {{item.name}}
@@ -30,19 +31,25 @@
           tag="li"
           event="click"
           @mouseover.native="navMouseover(item, key)"
+          @mouseout.native="navMouseout(item, key)"
           active-class="activeClass"
           :style="key==currentKey? currentStyle: ''">
-          <a class="navitem" :style="key==currentKey? currentStyle: ''">
+          <a
+            :class="['navitem',currentLanguage == 'en'? 'en': '']" 
+            :style="key==currentKey? currentStyle: ''">
             <!-- {{item.path}}--- -->
            {{item.name}}
           </a> 
 
-          <div class="firstChildwrap" :style="key==currentKey? showSecondNavStyle:''">
-            <ul class="u-f-jst">
+          <div 
+              :class="['firstChildwrap',currentLanguage == 'en'? 'enStyle': 'zhStyle']" 
+              :style="key==currentKey? showSecondNavStyle:''"
+          >
+            <ul :class="['u-f-nowrap',currentLanguage == 'en'? 'u-f-jsr': 'u-f-jst']">
               <router-link 
                 v-for="(firstChild, key) in item.children"
                 :key="key"
-                class="first-item u-f0"
+                class="first-item"
                 :to="{path: item.path +'/' + item.children[key].path, query: {tagId: firstChild.tagId, str: firstChild.str}}"
               >
                 <a class="tit">{{firstChild.name}}</a>
@@ -94,8 +101,8 @@
       return {
         parentRoute: {},
         currentLeftSidebar: [],
-        currentKey: 0,
-        currentStyle: "background-Color: #ffffff;color: #CC0000; boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)",
+        currentKey: -1,
+        currentStyle: "display:inline-bolck;color: #CC0000; boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)",
         showSecondNavStyle: 'display: block; color: #DA000D'
       }
     },
@@ -106,6 +113,7 @@
     computed: {
       ...mapGetters([
         'permissionRouters',
+        'currentLanguage'
       ]),      
     },
     watch: {
@@ -123,6 +131,10 @@
       navMouseover(item, key){
         // debugger
         this.currentKey = key
+      },
+      navMouseout(item, key){
+        // debugger
+        this.currentKey = '-1'
       },
       getLeftSideBar(routeInfo){
         debugger
@@ -197,22 +209,114 @@
       display none
       position absolute
       top 40px
+      // width 450px
       // box-shadow 0 2px 1px 1px blue
-      box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)
+      box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
       ul
         font-size 0
         background-color #ffffff
+      &.zhStyle       
         .first-item
           display inline-block
           font-size 12px
           text-align center
-          min-width 70px
+          // min-width 80px
           margin 0px 5px
           &:hover
           a
+            display inline-block
+            min-width 80px
             color: #DA000D
             .tit
               cursor pointer
-              color #000000
+              color #000000  
+    &.en
+    &:nth-of-type(2)      
+      .firstChildwrap
+        display none
+        position absolute
+        top 40px
+        width 500px
+        // box-shadow 0 2px 1px 1px blue
+        box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+        ul
+          font-size 0
+          background-color #ffffff
+        &.enStyle
+          left -100px
+          right -400px        
+          .first-item
+            display inline-block
+            font-size 12px
+            text-align center
+            // min-width 80px
+            margin 0px 5px
+            &:hover
+            a
+              display inline-block
+              min-width 80px
+              color: #DA000D
+              .tit
+                cursor pointer
+                color #000000
+    &.en
+    &:nth-of-type(3)      
+      .firstChildwrap
+        display none
+        position absolute
+        top 40px
+        width 500px
+        // box-shadow 0 2px 1px 1px blue
+        box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+        ul
+          font-size 0
+          background-color #ffffff
+        &.enStyle
+          left -100px
+          right -400px        
+          .first-item
+            display inline-block
+            font-size 12px
+            text-align center
+            // min-width 80px
+            margin 0px 5px
+            &:hover
+            a
+              display inline-block
+              min-width 80px
+              color: #DA000D
+              .tit
+                cursor pointer
+                color #000000      
+    &.en
+    &:nth-of-type(4)      
+      .firstChildwrap
+        display none
+        position absolute
+        top 40px
+        width 750px
+        // box-shadow 0 2px 1px 1px blue
+        box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+        ul
+          font-size 0
+          background-color #ffffff
+        &.enStyle
+          left -100px
+          right -400px        
+          .first-item
+            display inline-block
+            font-size 12px
+            text-align center
+            // min-width 80px
+            margin 0px 5px
+            &:hover
+            a
+              display inline-block
+              min-width 80px
+              color: #DA000D
+              .tit
+                cursor pointer
+                color #000000                  
+
 </style>
 

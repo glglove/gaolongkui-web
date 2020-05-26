@@ -2,21 +2,28 @@
     User: xxxxxxx
   Date: ******
   by：****
-  功能：百度一键分享插件
+  功能：分享插件 (baidu分享)
 -->
 <template>
-    <div class="bdsharebuttonbox">
-      <!-- 以下链接和setShare()中的bdSelectMiniList属性相对应 -->
-      <a href="#" class="bds_more" data-cmd="more" v-if="hasMore"></a>
-      <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-      <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-      <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-      <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-      <!-- <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> -->
-    </div>
+    <div class="Comprehensive-share-cmp" >
+        <!-- currentLanguage: {{currentLanguage}} -->
+        <div 
+            class="bdsharebuttonbox" 
+            v-if="currentLanguage == 'zh'"
+        >
+            <!-- 以下链接和setShare()中的bdSelectMiniList属性相对应 -->
+            <a href="#" class="bds_more" data-cmd="more" v-if="hasMore"></a>
+            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+            <!-- <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> -->
+        </div>
+    </div>    
 </template>
 
 <script>      
+import { mapGetters } from 'vuex'
 export default {
     props: {
         hasMore: {
@@ -29,11 +36,17 @@ export default {
     },
     created () {
     },
+    computed:{
+        ...mapGetters([
+            'currentLanguage'
+        ])
+    },
     mounted(){  
         const that = this;
+        //中文  采用 百度一件分享
         setTimeout(() => {
-            that.setShare();
-        }, 0);         
+            that.setShare()
+        }, 0) 
     },
     data () {
         return {
@@ -59,7 +72,7 @@ export default {
                 slide : [{   
                     bdImg : 0,
                     bdPos : "right",
-                    bdTop : 100
+                    bdTop : 200
                 }],
                 image : [{
                     viewType : 'list',
@@ -82,7 +95,7 @@ export default {
             if (window._bd_share_main) {
                 window._bd_share_main.init();
             }            
-        }
+        },
     }
 }
 </script>

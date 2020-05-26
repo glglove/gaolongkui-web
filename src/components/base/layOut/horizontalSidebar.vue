@@ -19,8 +19,8 @@
       mode="horizontal"
       theme="dark"
       background-color="#E90000"
-      text-color="#fff"
-      active-text-color="#fff"
+      text-color="#ffffff"
+      active-text-color="#ffffff"
       unique-opened
       :default-active="$route.path"
       class="navTopMenu u-f"

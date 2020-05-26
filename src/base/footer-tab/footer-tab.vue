@@ -8,28 +8,45 @@
   <div class="footer-tab">
     <div class="page-wrapper u-f-ajc">
       <div class="picBox u-f-ac">
-        <el-image fit="fill" :src="logoUrl" lazy></el-image>
+        <el-image 
+          v-show="currentLanguage=='zh'"
+          fit="fill" 
+          :src="logoUrl"></el-image>
+        <el-image 
+          v-show="currentLanguage=='en'"
+          fit="fill" 
+          :src="logoUrl_en"></el-image>          
       </div>
       <div class="textBox marginL20">
         <div class="catBox u-f">
-          <a class="catTit">联系我们</a>
-          <a class="catTit">公司设备</a>
-          <a class="catTit">新闻资讯</a>
-          <a class="catTit">产品中心</a>
-          <a class="catTit">站长统计</a>
+          <a class="catTit">{{$t("footer.contact")}}</a>
+          <a class="catTit">{{$t("footer.Equipment")}}</a>
+          <a class="catTit">{{$t("footer.News")}}</a>
+          <a class="catTit">{{$t("footer.Product")}}</a>
+          <a class="catTit">{{$t("footer.Count")}}</a>
         </div>
-        <div class="marginT10">Copyright © 2013 深圳市满福电子有限公司 版权所有   粤ICP备18100547号-1</div>
+        <div class="marginT10">{{$t("footer.copyRight")}}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import logoUrl from '../../../static/logo.png'
+  import { mapGetters } from 'vuex'
+  import logoUrl from '../../../static/foot_logo.png'
+  import logoUrl_en from '../../../static/foot_logo_en.png'
   export default {
+    computed: {
+      ...mapGetters([
+        'currentLanguage',
+        'permissionRouters',
+        'addRouters'
+      ]),   
+    }, 
     data(){
       return {
-        logoUrl:logoUrl
+        logoUrl:logoUrl,
+        logoUrl_en:logoUrl_en,
       }
     }
   }
@@ -42,7 +59,7 @@
     // bottom: 0
     // left: 0
     width: 100%
-    height 80px
+    height 100px
     // line-height 50px
     color red
     background rgba(227,227,227,.4)
@@ -53,7 +70,7 @@
       height 80px
       .el-image
         width 160px
-        height 30px
+        height 50px
     .textBox
       font-size 12px
       color #595959
