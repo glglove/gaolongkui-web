@@ -126,8 +126,10 @@ export default {
       font-size 12px
       margin-left 10px
       padding 10px 5px
-      border-bottom 1px solid #000000
+      border-bottom 1px solid #f1ecec
       box-sizing border-box
-      background-color red
+      background-color #ffffff
       cursor pointer
+      &:hover
+        background red
 </style>

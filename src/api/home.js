@@ -54,56 +54,56 @@ export function getHomeInfo (){
                 {
                     id: 9,
                     str: 'product',
-                    picUrl: '../../../static/index_linetwo01.jpg',
+                    picUrl: '../../../static/index_linetwo_01.jpg',
                     picTit:'4层沉金HDI板'                    
                 },
                 {
                     id: 10,
                     str: 'product',
-                    picUrl: '../../../static/index_linetwo02.jpg',
+                    picUrl: '../../../static/index_linetwo_02.jpg',
                     picTit:'8层HDI板'                    
                 },  
                 {
                     id: 11,
                     str: 'product',
-                    picUrl: '../../../static/index_linetwo03.jpg',
+                    picUrl: '../../../static/index_linetwo_03.jpg',
                     picTit:'双面喷锡板'                    
                 },   
                 {
                     id: 12,
                     str: 'product',
-                    picUrl: '../../../static/index_linetwo04.jpg',
+                    picUrl: '../../../static/index_linetwo_04.jpg',
                     picTit:'双面金手指板'                    
                 },    
                 {
                     id: 13,
                     str: 'product',
-                    picUrl: '../../../static/index_linetwo05.jpg',
+                    picUrl: '../../../static/index_linetwo_05.jpg',
                     picTit:'4层沉金HDI板'                    
                 },   
                 {
                     id: 14,
                     str: 'product',
-                    picUrl: '../../../static/index_linetwo06.jpg',
+                    picUrl: '../../../static/index_linetwo_06.jpg',
                     picTit:'8层HDI板'                    
                 },   
                 {
                     id: 15,
                     str: 'product',
-                    picUrl: '../../../static/index_linetwo07.jpg',
+                    picUrl: '../../../static/index_linetwo_07.jpg',
                     picTit:'双面喷锡板'                    
                 },  
                 {
                     id: 16,
                     str: 'product',
-                    picUrl: '../../../static/index_linetwo08.jpg',
+                    picUrl: '../../../static/index_linetwo_08.jpg',
                     picTit:'双面金手指板'                    
                 },                                                                                            
             ],
             midInfoCompanyInfo: {
                 state: 1,
                 id: 1,
-                pic: '../../../static/company.jpg',
+                picUrl: '../../../static/company.jpg',
                 str: 'about',
                 content: '是一家专业制造高精密双面及多层线路板的生产型企业.拥有近8000平方米的生产厂房。 现有员工400余人。年生产力30万平方米。拥有进出口权，可以转厂。公司产品质量符合美国IPC-A-600F标准,通过了欧盟RoHS指令标准...'
             }

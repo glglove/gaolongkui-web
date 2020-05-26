@@ -37,28 +37,32 @@
           >
             <el-carousel-item v-for="(item,key) in LeftContentTop" :key="key">
               <el-image :src="item.picUrl" fit="fill" style="width: 80px;height: 110px"></el-image>              
-              <p class="tipTit">{{ item.picTit }}</p>
+              <p class="tipTit center" style="font-size:12px">{{ item.picTit }}</p>
             </el-carousel-item>
           </el-carousel>
 
 
           <el-carousel 
-            class="marginT20"
+            class="marginT10"
             indicator-position="none"
             :autoplay="true"
             arrow="never"
           >
-            <el-carousel-item v-for="(item,key) in LeftContentBottom" :key="key">
+            <el-carousel-item 
+              v-for="(item,key) in LeftContentBottom" 
+              :key="key">
               <el-image :src="item.picUrl" fit="fill" style="width: 80px;height: 110px"></el-image>
-              <p class="tipTit">{{ item.picTit }}</p>
+              <p class="tipTit center" style="font-size:12px">{{ item.picTit }}</p>
             </el-carousel-item>
           </el-carousel>          
         </div>
 
 
         <div class="newsItem u-f0">
-          <el-image :src="midConent.picUrl" fit="fill"></el-image>
-          <h3>{{$t("homeContent.midtit")}}</h3>
+          <!-- midConent: {{midConent}} -->
+          <el-image :src="midConent.picUrl" style="height:100px;width:100%" fit="fill"></el-image>
+          <h3 class="marginT10" style="text-align:center">{{$t("homeContent.midtit")}}</h3>
+          <p class="marginT20" style="font-size: 12px;line-height:28px">{{midConent.content}}</p>
         </div>
 
 
@@ -153,6 +157,7 @@ export default {
     },
     _getHomeInfo(){
       getHomeInfo().then(res => {
+        debugger
         this.LeftContent = res.leftInfoNewProductInfo
         this.midConent = res.midInfoCompanyInfo
       })
@@ -184,8 +189,11 @@ export default {
   height 380px
   margin-top 30px
   .newsItem
-    height 320px
+    height 280px
     padding 20px
+    .el-carousel__container
+      .el-carousel__item    
+        width 80px
     &:nth-of-type(1)
       width 30%
       box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)
@@ -199,7 +207,7 @@ export default {
     .el-carousel__container
       height 130px
   .keyWord
-    margin-top 40px
+    margin-top 30px
     text-align center
     .headline
       font-size 13px
