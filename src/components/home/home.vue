@@ -39,12 +39,13 @@
                 :style="currentHoverTopitemKey==idx? 'currentHoverTopStyle':''"
                 @mouseenter="topItemmouseenter (topItem, idx)"
                 @mouseleave="topItemmouseleave(topItem, idx)"
+                @click="joinDetail(topItem, idx)"
               >
                 <!-- currentHoverTopitemKey: {{currentHoverTopitemKey}}
                 ----
                 idx: {{idx}} -->
                 <el-image :src="topItem.picUrl" fit="fill" style="width: 80px;height: 110px"></el-image>              
-                <p class="tipTit center" style="font-size:10px">{{ topItem.picTit }}</p>                
+                <p class="tipTit center" style="font-size:10px">{{ topItem.headTit }}</p>                
               </li>
             </ul>
           </div>
@@ -59,9 +60,10 @@
                 :key="index"
                 @mouseenter="bottomItemmouseenter (bottomitem, index)"
                 @mouseleave="bottomItemmouseleave(bottomitem, index)"
+                @click="joinDetail(bottomitem, index)"
               >
                 <el-image :src="bottomitem.picUrl" fit="fill" style="width: 80px;height: 110px"></el-image>              
-                <p class="tipTit center" style="font-size:10px">{{ bottomitem.picTit }}</p>                
+                <p class="tipTit center" style="font-size:10px">{{ bottomitem.headTit }}</p>                
               </li>
             </ul>
           </div>          
@@ -243,8 +245,11 @@ export default {
     },
     joinDetail(item, key){
       // 进入到详情页面
+      debugger
+      let url = `${item.str}/${item.tagId}`
       this.$router.push({
-        path: '/news/companyNews',
+        // path: '/news/companyNews',
+        path: url,
         query: {
           str: item.str,
           tagId: item.tagId,

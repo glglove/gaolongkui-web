@@ -49,6 +49,15 @@
               font-size 12px
               line-height 24px
               margin-top 10px
+    .productShow_cat
+      .itemWrap
+        .item
+          padding 3px
+          box-sizing border-box
+          &:hover
+            cursor pointer
+            border 1px solid silver
+            box-shadow 0px 2px 12px 0px rgba(0, 0, 0, 0.5)
 
 </style>
 
@@ -91,12 +100,49 @@
           </ul>
         </div>
 
-        <!---关于我们---->
+        <!---产品展示---->
         <div 
-          class="about_us" 
-          v-if="strFlag == 'about'"
+          class="productShow_cat" 
+          v-if="strFlag == 'productShow'"
           style="font-size: 12px;line-height:24px">
-
+          <ul class="itemWrap u-f-jst u-f-wrap">
+            <li 
+              v-for="(productShowItem, key) in contentList.data" 
+              :key="key"
+              @click="scanDetail(productShowItem, key)"              
+              class="item u-f-column u-f u-f-jst" 
+              style="width:30%;margin:10px"
+            >
+              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
+                <el-image :src="productShowItem.picUrl" fit="fill"></el-image>
+                <p class="itemTit marginT5 center">{{productShowItem.headTit}}</p>
+              </div>
+            </li>
+            <!-- <li class="item u-f-column u-f u-f-jst" style="width:30%;margin:10px">
+              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
+                <el-image src="../../../static/left.png" fit="fill"></el-image>
+                <p class="itemTit marginT5 center">单面喷金基板</p>
+              </div>
+            </li>
+            <li class="item u-f-column u-f u-f-jst" style="width:30%;margin:10px">
+              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
+                <el-image src="../../../static/left.png" fit="fill"></el-image>
+                <p class="itemTit marginT5 center">单面喷金基板</p>
+              </div>
+            </li>
+            <li class="item u-f-column u-f u-f-jst" style="width:30%;margin:10px">
+              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
+                <el-image src="../../../static/left.png" fit="fill"></el-image>
+                <p class="itemTit marginT5 center">单面喷金基板</p>
+              </div>
+            </li>
+            <li class="item u-f-column u-f u-f-jst" style="width:30%;margin:10px">
+              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
+                <el-image src="../../../static/left.png" fit="fill"></el-image>
+                <p class="itemTit marginT5 center">单面喷金基板</p>
+              </div>
+            </li>                                                 -->
+          </ul>
         </div>
       </div>
 
@@ -116,7 +162,12 @@
         <!---news下---->
         <div class="aboutDetail" v-if="strFlag == 'news'">
           <div style="position:relative" v-html="currentNewsDetail"></div>
-        </div>        
+        </div>     
+
+        <!---productShow下---->   
+        <div class="productShowDetail" v-if="strFlag == 'productShow'">
+          <div style="position:relative" v-html="currentNewsDetail"></div>
+        </div>           
       </div> 
     </div>
 </template>

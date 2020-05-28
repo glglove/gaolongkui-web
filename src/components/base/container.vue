@@ -22,8 +22,6 @@
                     :contentList.sync="contentList"
                 ></common-page-cmp>
 
-                <!---详情信息---->
-                <router-view></router-view>
             </el-col>
         </el-row>
     </div>
