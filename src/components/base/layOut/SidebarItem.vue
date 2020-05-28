@@ -139,40 +139,41 @@
       getLeftSideBar(routeInfo){
         debugger
         let routerMatched = routeInfo.matched
-        this.parentRoute = routerMatched[0]
-        let currentName =   routerMatched[0].name
-        let currentPath = routerMatched[0].path
-        switch(currentPath){
-          case '/about':
-          case '/news':
-          case '/productShow':
-          case '/productShow':
-            this.currentLeftSidebar = this.permissionRouters.filter((item, key) => {
-                // if(item.path ==  (this.parentRoute.path)){
-                //   // item.parent = JSON.parse(JSON.stringify(item))
-                //   // return JSON.parse(JSON.stringify(item))
-                //   return JSON.parse(JSON.stringify(item))
-                // }
-                return item.path == this.parentRoute.path
-            })  
-          break  
-          
-          case '/companyDevice':         
-          case '/processCapability':             
-          case '/productionLine':             
-          case '/contact':     
-            this.currentLeftSidebar = [
-              {
-                path: currentPath,
-                name: currentName,
-                children: this.permissionRouters
-              }  
-            ]
-          break          
+        if(!routeInfo.hidden){
+          this.parentRoute = routerMatched[0]
+          let currentName =   routerMatched[0].name
+          let currentPath = routerMatched[0].path
+          switch(currentPath){
+            case '/about':
+            case '/news':
+            case '/productShow':
+            case '/productShow':
+              this.currentLeftSidebar = this.permissionRouters.filter((item, key) => {
+                  // if(item.path ==  (this.parentRoute.path)){
+                  //   // item.parent = JSON.parse(JSON.stringify(item))
+                  //   // return JSON.parse(JSON.stringify(item))
+                  //   return JSON.parse(JSON.stringify(item))
+                  // }
+                  return item.path == this.parentRoute.path
+              })  
+            break  
+            
+            case '/companyDevice':         
+            case '/processCapability':             
+            case '/productionLine':             
+            case '/contact':     
+              this.currentLeftSidebar = [
+                {
+                  path: currentPath,
+                  name: currentName,
+                  children: this.permissionRouters
+                }  
+              ]
+            break     
+          }        
+          this.$store.dispatch("setLeftSidebar", this.currentLeftSidebar)
+          this.$store.dispatch("setLeftParentSidebar", this.parentRoute)                        
         }
-
-        this.$store.dispatch("setLeftSidebar", this.currentLeftSidebar)
-        this.$store.dispatch("setLeftParentSidebar", this.parentRoute)
       },      
     }
   }

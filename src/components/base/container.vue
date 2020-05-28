@@ -10,12 +10,20 @@
             <el-col :span="6">
                 <left-sidebaritem-cmp @switchRouter="switchRouter"></left-sidebaritem-cmp>
             </el-col>
+
             <el-col :span="18">
                 <!-- contentList: {{contentList}} -->
+                showCatOrDetail: {{showCatOrDetail}}
                 <common-page-cmp
-                    :strFlag="strFlag"
-                    :contentList="contentList"
+                    :levelList="levelList"
+                    :strFlag="globalStrFlag"
+                    :tagId="globalTagId"
+                    :showCatOrDetail.sync="showCatOrDetail"
+                    :contentList.sync="contentList"
                 ></common-page-cmp>
+
+                <!---详情信息---->
+                <router-view></router-view>
             </el-col>
         </el-row>
     </div>
@@ -24,6 +32,7 @@
 <script>
     import LeftSidebaritemCmp from '@/components/base/layOut/leftSidebarItem'
     import commonPageCmp from '@/components/base/commonPage'
+    import { mapGetters } from 'vuex'
     import { 
         getAboutCatList
     } from '@/api/about'        
@@ -53,16 +62,13 @@ export default {
       commonPageCmp
   },
   created () {
-    this.$nextTick(()=>{
-      try {
-        debugger
-        this.strFlag = this.$route.query.str
-        this.currentTagId = this.$route.query.tagId
-      } catch (error) {
-        
-      }       
-      this.getBreadcrumb()
-    })
+
+  },
+  computed: {
+    ...mapGetters([
+      'globalStrFlag',
+      'globalTagId',
+    ])
   },
   mounted(){   
   },
@@ -71,23 +77,32 @@ export default {
       levelList: null,
       strFlag: '',
       currentTagId: '',
-      contentList: []
+      contentList: [],
+      showCatOrDetail: true
     }
   },
   watch: {
-    '$route' (to, from) {
-      // debugger
-      this.getBreadcrumb()
+    '$route' (to, from) {     
+      // this.getBreadcrumb()
     },
-    strFlag: {
+    globalStrFlag: {
+      handler(newValue, oldValue){
+        debugger
+        if(newValue == 'about'){
+          this.showCatOrDetail = false
+        }
+      },
+      immediate: true
+    },
+    globalTagId: {
       handler(newValue, oldValue){
         debugger
         if(newValue){
           this._getData()
         }
       },
-      // immediate: true
-    }     
+      immediate: true
+    }           
   },  
   methods: {
     getBreadcrumb () {
@@ -101,10 +116,10 @@ export default {
     },
     _getData(){
       debugger
-      switch(this.strFlag){
+      switch(this.globalStrFlag){
         // 产品展示
         case 'productShow':
-        getProductCatList(this.currentTagId).then(res => {
+        getProductCatList(this.globalTagId).then(res => {
           debugger
           console.log("-----------",res)
           this.contentList = res
@@ -113,7 +128,7 @@ export default {
 
         // 新闻
         case 'news':
-        getNewsCatList(this.currentTagId).then(res => {
+        getNewsCatList(this.globalTagId).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -121,7 +136,7 @@ export default {
 
         // 关于我们
         case 'about':
-        getAboutCatList(this.currentTagId).then(res => {
+        getAboutCatList(this.globalTagId).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -129,7 +144,7 @@ export default {
 
         // 公司设备
         case 'companyDevice':
-        getCompanyDeviceCatList(this.currentTagId).then(res => {
+        getCompanyDeviceCatList(this.globalTagId).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -137,7 +152,7 @@ export default {
         
         // 制程能力
         case 'processCapability':
-        getProcessCapabilityCatList(this.currentTagId).then(res => {
+        getProcessCapabilityCatList(this.globalTagId).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -145,7 +160,7 @@ export default {
         
         // 生产流程
         case 'productionLine':
-        getProductionLineCatList(this.currentTagId).then(res => {
+        getProductionLineCatList(this.globalTagId).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -153,7 +168,7 @@ export default {
         
         // 联系我们
         case 'contact':
-        getContactCatList(this.currentTagId).then(res => {
+        getContactCatList(this.globalTagId).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -162,92 +177,71 @@ export default {
     },    
     switchRouter(tag, allTag){
         debugger
-        this.strFlag = tag.path
+        this.showCatOrDetail = true
+        if(this.globalStrFlag == 'about'){
+          this.showCatOrDetail = false
+        }
         switch(tag.path){
             case 'more':
-              this.$router.push({
-                path: '/productShow/more',
-                query: {
-                  tagId: tag.path,
-                  str: tag.str
-                }
-              }).catch(data => {  })
-            break
             case 'high':
-              this.$router.push({
-                path: '/productShow/high',
-                query: {
-                  tagId: tag.path,
-                  str: tag.str
-                }
-              }).catch(data => {  })
-            break
-            case 'aluminium':
-              this.$router.push({
-                path: '/productShow/aluminium',
-                query: {
-                  tagId: tag.path,
-                  str: tag.str
-                }
-              }).catch(data => {  })
-            break              
+            case 'aluminium':           
             case 'phone':
-              getProductCatList(tag.path).then(res => {
-                debugger
-                console.log("-----------",res)
-                this.contentList = res
-              }).catch(data => {  })                
-            break
-
-            case 'double':
-              getProductCatList(tag.path).then(res => {
-                debugger
-                console.log("-----------",res)
-                this.contentList = res
-              }).catch(data => {  })                
-            break       
-            
-            case 'impedance':
-              getProductCatList(tag.path).then(res => {
-                debugger
-                console.log("-----------",res)
-                this.contentList = res
-              }).catch(data => {  })                
-            break    
-            
-            case 'special':
-              getProductCatList(tag.path).then(res => {
-                debugger
-                console.log("-----------",res)
-                this.contentList = res
-              }).catch(data => {  })                
+            case 'double':  
+            case 'impedance':    
+            case 'special':     
+              this.$router.push({
+                path: '/productShow/' + tag.path,
+                query: {
+                  tagId: tag.path,
+                  str: tag.str
+                }
+              }).catch(data => {  })  
+              // 获取数据      
+              this._getData()                                   
             break             
 
+            // 新闻资讯
             case 'companyNews':
             case 'hotNews':
             case 'industryInformation':
             case 'technicalArtical':
-            // getNewsCatList(tag.path).then(res => {
-            //     console.log("-----------",res)
-            //     this.contentList = res                    
-            // })
-            break
+              debugger
+              this.$router.push({
+                path: '/news/'+tag.path,
+                query: {
+                  tagId: tag.path,
+                  str: tag.str
+                }
+              }).catch(data => {  })      
+              // 获取数据      
+              this._getData()                  
+            break              
 
+
+            // 关于我们
             case 'companyProfile':
             case 'speech':
             case 'companyFramework':
             case 'companyCulture':
-            getAboutCatList(tag.path).then(res => {
-                console.log("-----------",res)
-                this.contentList = res                    
-            })
+              this.$router.push({
+                path: '/about/'+ tag.path,
+                query: {
+                  tagId: tag.path,
+                  str: tag.str
+                }
+              }).catch(data => {  })   
             break      
+              
             
+            // 网站首页
             case '/':
               this.$router.push({
                 path:'/index',
+                tagId: 'home',
+                str: 'home'
               })
-              break
+            break
+
             case '/about':
               this.$router.push({
                 path:'/about/companyProfile',
@@ -256,7 +250,8 @@ export default {
                   str: 'about'
                 }
               })
-              break              
+            break        
+
             case '/news':
               this.$router.push({
                 path:'/news/companyNews',
@@ -265,7 +260,8 @@ export default {
                   str: 'news'
                 }
               })   
-              break           
+            break    
+
             case '/productShow':
               this.$router.push({
                 path:'/productShow/more',
@@ -274,7 +270,8 @@ export default {
                   str: 'productShow'
                 }
               })
-              break                  
+            break          
+
             case '/companyDevice':
               this.$router.push({
                 path:'/companyDevice/index',
@@ -283,7 +280,8 @@ export default {
                   str: 'companyDevice'
                 }
               })       
-              break         
+            break       
+
             case '/processCapability':
               this.$router.push({
                 path:'/processCapability/index',
@@ -292,7 +290,8 @@ export default {
                   str: 'processCapability'
                 }
               })   
-              break              
+            break        
+
             case '/productionLine':
               this.$router.push({
                 path:'/productionLine/index',
@@ -301,7 +300,8 @@ export default {
                   str: 'productionLine'
                 }
               })    
-              break             
+            break     
+
             case '/contact':
               this.$router.push({
                 path:'/contact/index',

@@ -41,6 +41,10 @@ export const chinesRouterMap = [
       hidden: false,
       str: 'about',
       tagId: 'companyProfile',
+      meta: {
+        str: 'about',
+        tagId: 'companyProfile'      
+      },
       children: [
         {
           path: 'companyProfile',
@@ -52,36 +56,55 @@ export const chinesRouterMap = [
           hidden: false,
           str: 'about',
           tagId: 'companyProfile',
+          meta: {
+            str: 'about',
+            tagId: 'companyProfile',   
+          },          
         },
         {
           path: 'speech',
-          component: () => import('@/components/about/speech'),
+          // component: () => import('@/components/about/speech'),
+          component: () => import('@/components/base/container'),   
           name: '董事长致辞',
           noDropdown: false,
           icon: 'notice',
           hidden: false,
           str: 'about',
-          tagId: 'speech'        
+          tagId: 'speech',
+          meta: {
+            str: 'about',
+            tagId: 'speech'
+          }                       
         },
         {
           path: 'companyFramework',
-          component: () => import('@/components/about/companyFramework'),
+          // component: () => import('@/components/about/companyFramework'),
+          component: () => import('@/components/base/container'),   
           name: '企业架构',
           noDropdown: false,
           icon: 'notice',
           hidden: false,
           str: 'about',
-          tagId: 'companyFramework'             
+          tagId: 'companyFramework',
+          meta: {
+            str: 'about',
+            tagId: 'companyFramework'
+          }                         
         },
         {
           path: 'companyCulture',
-          component: () => import('@/components/about/companyCulture'),
+          // component: () => import('@/components/about/companyCulture'),
+          component: () => import('@/components/base/container'),   
           name: '企业文化',
           noDropdown: false,
           icon: 'notice',
           hidden: false,
           str: 'about',
-          tagId: 'companyCulture'    
+          tagId: 'companyCulture',
+          meta: {
+            str: 'about',
+            tagId: 'companyCulture',
+          }                
         }      
       ]
     },
@@ -95,6 +118,10 @@ export const chinesRouterMap = [
       hidden: false,
       str: 'news',
       tagId: 'companyNews',
+      meta: {
+        str: 'news',
+        tagId: 'companyNews',
+      },        
       children: [
         {
           path: 'companyNews',
@@ -104,7 +131,11 @@ export const chinesRouterMap = [
           icon: 'notice',
           hidden: false,
           str: 'news',
-          tagId: 'companyNews'
+          tagId: 'companyNews',
+          meta: {
+            str: 'news',
+            tagId: 'companyNews'
+          }
         },
         {
           path: 'hotNews',
@@ -114,7 +145,11 @@ export const chinesRouterMap = [
           icon: 'notice',
           hidden: false,
           str: 'news',
-          tagId: 'hotNews'
+          tagId: 'hotNews',
+          meta: {
+            str: 'news',
+            tagId: 'hotNews',
+          }           
         },
         {
           path: 'industryInformation',
@@ -124,7 +159,11 @@ export const chinesRouterMap = [
           icon: 'notice',
           hidden: false,
           str: 'news',
-          tagId: 'industryInformation'
+          tagId: 'industryInformation',
+          meta: {
+            str: 'news',
+            tagId: 'industryInformation'
+          }             
         },
         {
           path: 'technicalArtical',
@@ -134,7 +173,11 @@ export const chinesRouterMap = [
           icon: 'notice',
           hidden: false,
           str: 'news',
-          tagId: 'technicalArtical'
+          tagId: 'technicalArtical',
+          meta: {
+            str: 'news',
+            tagId: 'technicalArtical',
+          }            
         }      
       ]
     }, 
@@ -148,6 +191,10 @@ export const chinesRouterMap = [
       hidden: false,
       str: 'productShow',
       tagId: 'more',
+      meta: {
+        str: 'productShow',
+        tagId: 'more',
+      },      
       children: [
         {
           path: 'more',
@@ -157,7 +204,11 @@ export const chinesRouterMap = [
           noDropdown: false,
           icon: 'notice',
           str: 'productShow',
-          tagId: 'more'       
+          tagId: 'more',
+          meta: {
+            str: 'productShow',
+            tagId: 'more',
+          },                 
         },
         {
           path: 'high',
@@ -167,7 +218,11 @@ export const chinesRouterMap = [
           noDropdown: false,
           icon: 'notice',
           str: 'productShow',
-          tagId: 'high'         
+          tagId: 'high',
+          meta: {
+            str: 'productShow',
+            tagId: 'high',
+          },                  
         },
         {
           path: 'aluminium',
@@ -177,7 +232,11 @@ export const chinesRouterMap = [
           noDropdown: false,
           icon: 'notice',
           str: 'productShow',
-          tagId: 'aluminium'           
+          tagId: 'aluminium',
+          meta: {
+            str: 'productShow',
+            tagId: 'aluminium',
+          },                      
         },
         {
           path: 'phone',
@@ -187,7 +246,11 @@ export const chinesRouterMap = [
           noDropdown: false,
           icon: 'notice',
           str: 'productShow',
-          tagId: 'phone'          
+          tagId: 'phone',
+          meta: {
+            str: 'productShow',
+            tagId: 'phone',
+          },                        
         },
         {
           path: 'double',
@@ -197,7 +260,11 @@ export const chinesRouterMap = [
           noDropdown: false,
           icon: 'notice',
           str: 'productShow',
-          tagId: 'double'        
+          tagId: 'double',
+          meta: {
+            str: 'productShow',
+            tagId: 'double',
+          },                 
         },
         {
           path: 'impedance',
@@ -207,7 +274,11 @@ export const chinesRouterMap = [
           noDropdown: false,
           icon: 'notice',
           str: 'productShow',
-          tagId: 'impedance'          
+          tagId: 'impedance',
+          meta: {
+            str: 'productShow',
+            tagId: 'impedance',
+          },                   
         },
         {
           path: 'special',
@@ -217,7 +288,11 @@ export const chinesRouterMap = [
           noDropdown: false,
           icon: 'notice',
           str: 'productShow',
-          tagId: 'special'          
+          tagId: 'special',
+          meta: {
+            str: 'productShow',
+            tagId: 'special',
+          },                      
         }                     
       ]
     },
@@ -231,6 +306,10 @@ export const chinesRouterMap = [
       icon: 'notice',
       str: 'companyDevice',
       tagId: 'companyDevice',
+      meta: {
+        str: 'companyDevice',
+        tagId: 'companyDevice',
+      },         
       children: [
         {
           path: 'index',
@@ -238,10 +317,13 @@ export const chinesRouterMap = [
           name: '公司设备',
           icon: 'people',
           noDropdown: true,
-          hidden: true,        
+          hidden: true,   
+          str: 'companyDevice',
+          tagId: 'companyDevice',               
           meta: {
-            title: '公司设备-首页'
-          }
+            str: 'companyDevice',
+            tagId: 'companyDevice',
+          },    
         }
       ]    
     },
@@ -255,6 +337,10 @@ export const chinesRouterMap = [
       icon: 'notice',
       str: 'processCapability',
       tagId: 'processCapability',
+      meta: {
+        str: 'processCapability',
+        tagId: 'processCapability',
+      },        
       children: [
         {
           path: 'index',
@@ -262,10 +348,13 @@ export const chinesRouterMap = [
           name: '制程能力',
           icon: 'people',
           noDropdown: true,
-          hidden: true,        
+          hidden: true, 
+          str: 'processCapability',
+          tagId: 'processCapability',                 
           meta: {
-            title: '制程能力-首页'
-          }
+            str: 'processCapability',
+            tagId: 'processCapability',
+          },              
         }
       ]        
     },
@@ -279,6 +368,10 @@ export const chinesRouterMap = [
       icon: 'notice',
       str: 'productionLine',
       tagId: 'productionLine',
+      meta: {
+        str: 'productionLine',
+        tagId: 'productionLine',
+      },          
       children: [
         {
           path: 'index',
@@ -286,10 +379,13 @@ export const chinesRouterMap = [
           name: '生产流程',
           icon: 'people',
           noDropdown: true,
-          hidden: false,        
+          hidden: false,    
+          str: 'productionLine',
+          tagId: 'productionLine',              
           meta: {
-            title: '生产流程-首页'
-          }
+            str: 'productionLine',
+            tagId: 'productionLine',
+          },    
         }
       ]     
     },    
@@ -303,6 +399,10 @@ export const chinesRouterMap = [
       icon: 'notice',
       str: 'contact',
       tagId: 'contact',
+      meta: {
+        str: 'contact',
+        tagId: 'contact',
+      },       
       children: [
         {
           path: 'index',
@@ -310,10 +410,13 @@ export const chinesRouterMap = [
           name: '联系我们',
           icon: 'people',
           noDropdown: true,
-          hidden: false,        
+          hidden: false,   
+          str: 'contact',
+          tagId: 'contact',               
           meta: {
-            title: '联系我们-首页'
-          }
+            str: 'contact',
+            tagId: 'contact',
+          },    
         }
       ]       
     }         

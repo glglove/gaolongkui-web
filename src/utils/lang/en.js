@@ -15,7 +15,8 @@ module.exports = {
         lefttit: 'NEW PRODUCTS',
         midtit: 'Shenzhen ManFu Electronics',
         righttit1: 'COMPANY NEWS',
-        righttit2: 'INDUSTRY NEWS'
+        righttit2: 'INDUSTRY NEWS',
+        rightMore: 'MORE',        
     },    
     footer: {
         contact: 'Contact Us',

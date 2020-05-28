@@ -19,11 +19,11 @@
       </div>
       <div class="textBox marginL20">
         <div class="catBox u-f">
-          <a class="catTit">{{$t("footer.contact")}}</a>
-          <a class="catTit">{{$t("footer.Equipment")}}</a>
-          <a class="catTit">{{$t("footer.News")}}</a>
-          <a class="catTit">{{$t("footer.Product")}}</a>
-          <a class="catTit">{{$t("footer.Count")}}</a>
+          <span class="catTit" @click="handlerClickTit('contact','contact')">{{$t("footer.contact")}}</span>
+          <span class="catTit" @click="handlerClickTit('companyDevice','companyDevice')">{{$t("footer.Equipment")}}</span>
+          <span class="catTit" @click="handlerClickTit('companyNews','news')">{{$t("footer.News")}}</span>
+          <span class="catTit" @click="handlerClickTit('more','productShow')">{{$t("footer.Product")}}</span>
+          <span class="catTit" @click="handlerClickTit('#','#')">{{$t("footer.Count")}}</span>
         </div>
         <div class="marginT10">{{$t("footer.copyRight")}}</div>
       </div>
@@ -48,6 +48,37 @@
         logoUrl:logoUrl,
         logoUrl_en:logoUrl_en,
       }
+    },
+    methods: {
+      handlerClickTit(tagId, str){
+        debugger
+        let url = ''
+        switch(str){
+          case 'companyDevice':
+            url = '/' + str + '/index'
+            break
+          case 'contact':
+            url = '/' + str + '/index'
+            break
+          case 'news':
+            url = '/' + str + '/' + tagId
+            break
+          case 'productShow':
+            url = '/' + str + '/' + tagId
+            break
+          case '#':
+            url = '/' + '#'
+            break       
+        }
+        this.$router.push({
+          path: url,
+          query: {
+            str: str,
+            tagId: tagId
+          }
+        })
+        
+      },    
     }
   }
 </script>

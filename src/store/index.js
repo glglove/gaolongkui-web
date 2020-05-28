@@ -20,10 +20,12 @@ const vuexLocal = new VuexPersistense({
         currentLanguage: val.app.currentLanguage,
         leftSidebar: val.app.leftSidebar,
         // leftParentSidebar: val.app.leftParentSidebar
+        globalStrFlag: val.app.globalStrFlag,
+        globalTagId: val.app.globalTagId
       },
       permission: {
         addRouters: val.permission.addRouters,
-        routers: val.permission.routers,
+        routers: val.permission.routers
       }
     }
   }

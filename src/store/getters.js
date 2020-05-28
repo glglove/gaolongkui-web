@@ -8,6 +8,10 @@ export const currentLeftSideBar = state => state.app.leftSidebar
 
 export const currentLeftParentSideBar = state => state.app.leftParentSidebar
 
+export const globalStrFlag = state => state.app.globalStrFlag
+
+export const globalTagId = state => state.app.globalTagId
+
 
 
 

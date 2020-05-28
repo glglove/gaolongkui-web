@@ -7,19 +7,44 @@
 <template>
   <el-breadcrumb class="app-levelbar" separator="/">
     <el-breadcrumb-item v-for="(item,index)  in levelList" :key="item.path">
-      <span v-if='item.redirect==="noredirect"||index==levelList.length-1' class="no-redirect">{{item.name}}</span>
-      <router-link v-else :to="item.redirect||item.path">{{item.name}}</router-link>
+      <span 
+        v-if='item.redirect==="noredirect"||index==levelList.length-1' 
+        class="no-redirect"
+      >{{item.name}}</span>
+
+      <router-link 
+        v-else 
+        :to="{path:item.redirect||item.path, query: {
+          str: globalStrFlag,
+          tagId: globalTagId
+        }}"
+        @click.native="nav_click(item)"
+      >{{item.name}}</router-link>
+
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   created () {
     this.$nextTick(()=>{
       this.getBreadcrumb()
     })
   },
+  computed: {
+    ...mapGetters([
+      'globalStrFlag',
+      'globalTagId',
+    ])    
+  },
+  watch: {
+    '$route' (to, from) {
+      // debugger
+      this.getBreadcrumb()
+    }
+  },  
   data () {
     return {
       levelList: null
@@ -27,20 +52,33 @@ export default {
   },
   methods: {
     getBreadcrumb () {
-      // debugger
+      debugger
       let matched = this.$route.matched.filter(item => item.name)
       const first = matched[0]
       if (first && (first.name !== '首页' || first.path !== '')) {
-        matched = [{ name: '首页', path: '/' }].concat(matched)
+        matched = [
+            { 
+              name: '首页', 
+              path: '/' ,
+              meta: {
+                str: 'home',
+                tag: 'home'
+              }
+            }
+        ].concat(matched)
       }
       this.levelList = matched
-    }
-  },
-  watch: {
-    '$route' (to, from) {
-      // debugger
-      this.getBreadcrumb()
-    }
+    },
+    nav_click(itemObj){
+      debugger
+      try {
+        // if(this.globalTagId == itemObj.meta.tagId){
+          this.$emit("changeParentData", true)
+        // }
+      } catch (error) {
+        debugger
+      }
+    },
   }
 }
 </script>

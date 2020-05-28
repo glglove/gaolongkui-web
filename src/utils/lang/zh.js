@@ -15,7 +15,8 @@ module.exports = {
         lefttit: '最新产品',
         midtit: '深圳市满福电子有限公司',
         righttit1: '新闻动态',
-        righttit2: '行业资讯'
+        righttit2: '行业资讯',
+        rightMore: '更多',
     },
     footer: {
         contact: '联系我们',

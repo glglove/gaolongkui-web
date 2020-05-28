@@ -64,7 +64,8 @@ export const constantRouterMap = [
       },
       {
         path: 'speech',
-        component: () => import('@/components/about/speech'),
+        // component: () => import('@/components/about/speech'),
+        component: () => import('@/components/base/container'),  
         name: '董事长致辞',
         noDropdown: false,
         icon: 'notice',
@@ -74,7 +75,8 @@ export const constantRouterMap = [
       },
       {
         path: 'companyFramework',
-        component: () => import('@/components/about/companyFramework'),
+        // component: () => import('@/components/about/companyFramework'),
+        component: () => import('@/components/base/container'),  
         name: '企业架构',
         noDropdown: false,
         icon: 'notice',
@@ -84,7 +86,8 @@ export const constantRouterMap = [
       },
       {
         path: 'companyCulture',
-        component: () => import('@/components/about/companyCulture'),
+        // component: () => import('@/components/about/companyCulture'),
+        component: () => import('@/components/base/container'),  
         name: '企业文化',
         noDropdown: false,
         icon: 'notice',

@@ -8,6 +8,8 @@ const app = {
     },
     visitedViews: [],
     currentLanguage: 'zh', // 中文： zh   英文: en,
+    globalStrFlag: '',
+    globalTagId: '',
     leftSidebar: [],
     leftParentSidebar: null,
   },
@@ -26,7 +28,13 @@ const app = {
     },
     [types.SET_LEFTPARENT_SIDEBAR] (state, leftParentSidebar) {
       state.leftParentSidebar = leftParentSidebar
-    }
+    },
+    [types.SET_GLOBAL_STRFLAG] (state, strFlag) {
+      state.globalStrFlag = strFlag
+    },
+    [types.SET_GLOBAL_TAGID] (state, tagId) {
+      state.globalTagId = tagId
+    }    
   },
   actions: {
     // 切换左侧导航栏
@@ -62,18 +70,26 @@ const app = {
       })
     },
     // 设置语言
-    setLanguage({ commit, state }, language){
+    setLanguage ({commit, state }, language){
       commit(types.SET_LANGUAGE, language)
     },
     //设置当前的sidebar
-    setLeftSidebar( {commit, state}, leftSidebar){
+    setLeftSidebar ({commit, state}, leftSidebar){
       debugger
       commit(types.SET_LEFTSIDEBAR, leftSidebar)
     },
     setLeftParentSidebar ({ commit, state }, leftParentSidebar ) {
       debugger
       commit(types.SET_LEFTPARENT_SIDEBAR, leftParentSidebar)
-    }
+    },
+    // 设置当前的 strFlag
+    setGlobalStrFlag ({ commit, state }, strFlag) {
+      commit(types.SET_GLOBAL_STRFLAG, strFlag)
+    },
+    // 设置当前的 strFlag
+    setGlobalTagId ({ commit, state }, tagId) {
+      commit(types.SET_GLOBAL_TAGID, tagId)
+    } 
   }
 }
 

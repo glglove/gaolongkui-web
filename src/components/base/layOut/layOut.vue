@@ -9,7 +9,7 @@
     position relative
     height 100%
     width 100%
-    min-width 1024px
+    // min-width 1024px
     font-size 16px
     .horizontal-sidebar-wrap
       position relative
@@ -17,7 +17,7 @@
       width 100%
       .carouselBox
         width 100%
-        min-width 1024px
+        // min-width 1024px
         height 100%
         margin 0 auto
         background-color rgba(0,0,0,.2)
@@ -184,7 +184,9 @@ export default {
             logoUrl_en: logoUrl_en,
             carouselPic: [ban, ban2],
             parentRoute:{},
-            currentLeftSidebar: []
+            currentLeftSidebar: [],
+            strFlag: '',
+            currentTagId: ''
         }
     },
     computed: {
@@ -204,7 +206,20 @@ export default {
       }
     },
     watch: {
-    
+      '$route' (to, from) {
+        debugger
+        // window.alert(666)
+        try {
+          debugger
+          this.strFlag = this.$route.query.str
+          this.currentTagId = this.$route.query.tagId
+          // 将 strFlag 和 currentTagId 存入全局中
+          this.$store.dispatch("setGlobalStrFlag", this.strFlag)
+          this.$store.dispatch("setGlobalTagId", this.currentTagId)
+        } catch (error) {
+          
+        }   
+      }
     },
     created(){
       debugger
@@ -215,14 +230,28 @@ export default {
           path: '/about'
         })
       },     
-      setChinese(){
-        this.$store.dispatch("setLanguage", 'zh')
+      async setChinese(){
+        await this.$store.dispatch("setLanguage", 'zh')
         // 主动刷新一下页面
+        this.$router.push({
+          path: '/',
+          query: {
+            str: 'home',
+            tagId: 'home'
+          }
+        })
         location.reload()         
       },
-      setEnglish(){
-        this.$store.dispatch("setLanguage", 'en')
+      async setEnglish(){
+        await this.$store.dispatch("setLanguage", 'en')
         // 主动刷新一下页面
+        this.$router.push({
+          path: '/',
+          query: {
+            str: 'home',
+            tagId: 'home'
+          }
+        })        
         location.reload()         
       }
     }
