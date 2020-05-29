@@ -11,9 +11,9 @@
                 <left-sidebaritem-cmp @switchRouter="switchRouter"></left-sidebaritem-cmp>
             </el-col>
 
-            <el-col :span="18">
+            <el-col :span="18" style="border-left: 1px solid #eee;min-height:500px">
                 <!-- contentList: {{contentList}} -->
-                showCatOrDetail: {{showCatOrDetail}}
+                <!-- showCatOrDetail: {{showCatOrDetail}} -->
                 <common-page-cmp
                     :levelList="levelList"
                     :strFlag="globalStrFlag"
@@ -86,7 +86,9 @@ export default {
     globalStrFlag: {
       handler(newValue, oldValue){
         debugger
-        if(newValue == 'about'){
+        if(newValue == 'about' || newValue == 'processCapability'
+            || newValue == 'productionLine' || newValue == 'contact'){
+          // 
           this.showCatOrDetail = false
         }
       },

@@ -4,13 +4,13 @@
   功能：home页中 顶部 和 左边的导航—— 菜单项目items的组件，被 horizontalFlagSidebar.vue组件 和 leftSidebarItem组件所 引用
 -->
 <template>
-    <div class="menuItemCmp u-f-jsr page-wrapper">
+    <div class="menuItemCmp u-fi-jsr page-wrapper">
       <template 
         class='menu-wrapper'
         v-for="(item,key) in routes">
         <!--菜单只有主菜单一级的情况-->
         <router-link 
-          class="menu-nav u-f0"
+          class="menu-nav u-f0 white-space-nowrap"
           v-if="!item.hidden&&item.noDropdown"
           :to="{path: item.path, query: {tagId: item.tagId, str: item.str}}"
           tag="li"
@@ -25,7 +25,7 @@
 
         <!---一级菜单下面有下级菜单的情况---->
         <router-link
-          class="menu-nav u-f0"
+          class="menu-nav u-f0 white-space-nowrap"
           v-if="!item.hidden&&!item.noDropdown&&item.children.length>0"
           :to="{path: item.path, query: {tagId: item.tagId, str: item.str}}"
           tag="li"
@@ -45,11 +45,11 @@
               :class="['firstChildwrap',currentLanguage == 'en'? 'enStyle': 'zhStyle']" 
               :style="key==currentKey? showSecondNavStyle:''"
           >
-            <ul :class="['u-f-nowrap',currentLanguage == 'en'? 'u-f-jsr': 'u-f-jst']">
+            <ul :class="['u-f-nowrap',currentLanguage == 'en'? 'u-fi-jst': 'u-fi-jst']">
               <router-link 
                 v-for="(firstChild, key) in item.children"
                 :key="key"
-                class="first-item"
+                class="first-item white-space-nowrap"
                 :to="{path: item.path +'/' + item.children[key].path, query: {tagId: firstChild.tagId, str: firstChild.str}}"
               >
                 <a class="tit">{{firstChild.name}}</a>
@@ -211,7 +211,6 @@
       position absolute
       top 40px
       // width 450px
-      // box-shadow 0 2px 1px 1px blue
       box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
       ul
         font-size 0
@@ -237,15 +236,16 @@
         display none
         position absolute
         top 40px
-        width 500px
+        // width 500px
         // box-shadow 0 2px 1px 1px blue
         box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+        z-index 1000
         ul
           font-size 0
           background-color #ffffff
         &.enStyle
-          left -100px
-          right -400px        
+          // left -100px
+          // right -400px        
           .first-item
             display inline-block
             font-size 12px
@@ -266,15 +266,16 @@
         display none
         position absolute
         top 40px
-        width 500px
+        // width 500px
         // box-shadow 0 2px 1px 1px blue
-        box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+        box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)   
+        z-index 1000 
         ul
           font-size 0
           background-color #ffffff
         &.enStyle
-          left -100px
-          right -400px        
+          // left -100px
+          // right -400px        
           .first-item
             display inline-block
             font-size 12px
@@ -295,15 +296,15 @@
         display none
         position absolute
         top 40px
-        width 750px
-        // box-shadow 0 2px 1px 1px blue
+        // width 750px
         box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+        z-index 1000
         ul
           font-size 0
           background-color #ffffff
         &.enStyle
-          left -100px
-          right -400px        
+          // left -100px
+          // right -400px        
           .first-item
             display inline-block
             font-size 12px

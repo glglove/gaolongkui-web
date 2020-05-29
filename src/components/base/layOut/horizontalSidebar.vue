@@ -7,6 +7,7 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 .horizontal-wrapper
   height 40px
+  text-align center
   .navTopMenu
     height 100%
     border-bottom none !important
@@ -15,15 +16,16 @@
 <template>
   <div class="horizontal-wrapper">
     <!-- permissionRouters: {{permissionRouters}} -->
+    <!-- $route.path: {{$route.path}} -->
     <el-menu 
-      mode="horizontal"
+      mode="vertical"
       theme="dark"
       background-color="#E90000"
       text-color="#ffffff"
       active-text-color="#ffffff"
       unique-opened
       :default-active="$route.path"
-      class="navTopMenu u-f"
+      class="navTopMenu u-fi-jst"
     >
       <!--菜单项目items的组件-->
       <sidebar-item :routes='permissionRouters' :horizontalFlag="horizontalFlag"></sidebar-item>

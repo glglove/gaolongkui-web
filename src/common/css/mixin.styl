@@ -147,6 +147,19 @@ leave-active()
   flex-wrap: nowrap !important
 }
 
+// 英文不换行
+.white-space-nowrap{
+  white-space nowrap
+}
+
+// 不换行 超出一定(10px)宽度 显示...
+.white-space-nowrapEllepsis {
+  white-space:nowrap; 
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  width: 10px
+}
+
 
 /* flex布局 */
 .u-f,.u-f-ac,.u-f-jc,.u-f-ajc,.u-f-jst,.u-f-jfd,.u-f-jsb,.u-f-jsr{

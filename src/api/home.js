@@ -7,7 +7,7 @@ export function getHomeInfo (){
                     id: 1,
                     str: 'productShow',
                     tagId: 'phone',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_line01.jpg',
                     headTit: '二阶盲埋沉金HDI',
                     headTime: '日期：13-08-22 04:17',
                     intro: '...',
@@ -48,7 +48,7 @@ export function getHomeInfo (){
                     id: 2,
                     str: 'productShow',
                     tagId: 'phone',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_line02.jpg',
                     headTit: '盲孔HDI板',
                     headTime: '日期：18-08-23 21:22',
                     intro: '...',
@@ -85,7 +85,7 @@ export function getHomeInfo (){
                     id: 3,
                     str: 'productShow',
                     tagId: 'phone',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_line03.jpg',
                     headTit: '6层BGA手机板',
                     headTime: '日期：18-08-23 21:22',
                     intro: '...',
@@ -122,7 +122,7 @@ export function getHomeInfo (){
                     id: 4,
                     str: 'productShow',
                     tagId: 'phone',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_line04.jpg',
                     headTit: '8层沉金HDI板',
                     headTime: '日期：17-09-23 21:22',
                     intro: '...',
@@ -159,7 +159,7 @@ export function getHomeInfo (){
                     id: 1,
                     str: 'productShow',
                     tagId: 'phone',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_line05.jpg',
                     headTit: '二阶盲埋沉金HDI',
                     headTime: '日期：13-08-22 04:17',
                     intro: '...',
@@ -200,7 +200,7 @@ export function getHomeInfo (){
                     id: 2,
                     str: 'productShow',
                     tagId: 'phone',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_line06.jpg',
                     headTit: '盲孔HDI板',
                     headTime: '日期：18-08-23 21:22',
                     intro: '...',
@@ -237,7 +237,7 @@ export function getHomeInfo (){
                     id: 3,
                     str: 'productShow',
                     tagId: 'phone',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_line07.jpg',
                     headTit: '6层BGA手机板',
                     headTime: '日期：18-08-23 21:22',
                     intro: '...',
@@ -274,7 +274,7 @@ export function getHomeInfo (){
                     id: 4,
                     str: 'productShow',
                     tagId: 'phone',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_line08.jpg',
                     headTit: '8层沉金HDI板',
                     headTime: '日期：17-09-23 21:22',
                     intro: '...',
@@ -311,7 +311,7 @@ export function getHomeInfo (){
                     id: 1,
                     str: 'productShow',
                     tagId: 'double',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_linetwo_01.jpg',
                     headTit: '双面喷锡板',
                     headTime: '日期：13-08-22 04:17',
                     intro: '...',
@@ -348,7 +348,7 @@ export function getHomeInfo (){
                     id: 2,
                     str: 'productShow',
                     tagId: 'double',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_linetwo_02.jpg',
                     headTit: '双面金手指板',
                     headTime: '日期：13-08-21 07:36',
                     intro: '...',
@@ -361,7 +361,7 @@ export function getHomeInfo (){
                             </h2>
                         </div>
                         <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                            日期：<span>13-08-21 07:36</span>&nbsp;点击：<span>285</span>
+                            日期：<span>13-08-21 07:36</span>&nbsp
                         </div>
                         <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
                             <img src="http://www.mfpcb.com/uploads/201008/20100811180143586.jpg" />
@@ -396,7 +396,7 @@ export function getHomeInfo (){
                     id: 3,
                     str: 'productShow',
                     tagId: 'double',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_linetwo_03.jpg',
                     headTit: '双面绑定板',
                     headTime: '日期：13-08-21 07:35',
                     intro: '...',
@@ -409,7 +409,7 @@ export function getHomeInfo (){
                             </h2>
                         </div>
                         <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                            日期：<span>13-08-21 07:35</span>&nbsp;点击：<span>179</span>
+                            日期：<span>13-08-21 07:35</span>
                         </div>
                         <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
                             <img src="http://www.mfpcb.com/uploads/201008/20100811180056319.jpg" />
@@ -436,7 +436,7 @@ export function getHomeInfo (){
                     id: 4,
                     str: 'productShow',
                     tagId: 'double',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_linetwo_04.jpg',
                     headTit: '双面板',
                     headTime: '日期：13-08-21 07:35',
                     intro: '...',
@@ -449,7 +449,7 @@ export function getHomeInfo (){
                             </h2>
                         </div>
                         <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                            日期：<span>13-08-21 07:35</span>&nbsp;点击：<span>148</span>
+                            日期：<span>13-08-21 07:35</span>
                         </div>
                         <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
                             <img src="http://www.mfpcb.com/uploads/201008/20100811180006686.jpg" />
@@ -467,7 +467,7 @@ export function getHomeInfo (){
                     id: 1,
                     str: 'productShow',
                     tagId: 'double',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_linetwo_05.jpg',
                     headTit: '双面喷锡板',
                     headTime: '日期：13-08-22 04:17',
                     intro: '...',
@@ -504,7 +504,7 @@ export function getHomeInfo (){
                     id: 2,
                     str: 'productShow',
                     tagId: 'double',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_linetwo_06.jpg',
                     headTit: '双面金手指板',
                     headTime: '日期：13-08-21 07:36',
                     intro: '...',
@@ -552,7 +552,7 @@ export function getHomeInfo (){
                     id: 3,
                     str: 'productShow',
                     tagId: 'double',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_linetwo_07.jpg',
                     headTit: '双面绑定板',
                     headTime: '日期：13-08-21 07:35',
                     intro: '...',
@@ -592,7 +592,7 @@ export function getHomeInfo (){
                     id: 4,
                     str: 'productShow',
                     tagId: 'double',
-                    picUrl: '../../../../static/left.png',
+                    picUrl: '../../../../static/index_linetwo_08.jpg',
                     headTit: '双面板',
                     headTime: '日期：13-08-21 07:35',
                     intro: '...',

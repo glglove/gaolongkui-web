@@ -367,9 +367,18 @@ export default {
     &:nth-of-type(1)
       width 30%
       box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)
+      .line-top-ul,.line-bototm-ul
+        li
+          &:hover
+            cursor pointer
+            color red
     &:nth-of-type(3)
       width 30%
       margin-left 10px
+      .el-button
+        &:hover
+          cursor pointer !important
+          background-color #feb252 !important
       .titItem
         &:hover
           cursor pointer

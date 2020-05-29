@@ -16,9 +16,11 @@
 
 
 .secondMenuCmp
-  padding 30px
+  // padding 30px
   box-sizing border-box
   .catContentBox
+    border-top 1px solid #eee
+    padding 20px
     .news_cat
       .itemBox
         .catItem
@@ -49,7 +51,7 @@
               font-size 12px
               line-height 24px
               margin-top 10px
-    .productShow_cat
+    .productShow_cat,.companyDevice_cat
       .itemWrap
         .item
           padding 3px
@@ -63,21 +65,22 @@
 
 <template>
     <div class="secondMenuCmp">
-      strFlag: {{strFlag}}
+      <!-- strFlag: {{strFlag}}
       ----
       </br>
       tagId: {{tagId}}
-      </br>
-      showCatOrDetail_copy: {{showCatOrDetail_copy}}
-      <levelbar-cmp @changeParentData="changeParentData"></levelbar-cmp>
+      </br> -->
+      <!-- showCatOrDetail_copy: {{showCatOrDetail_copy}} -->
+        <levelbar-cmp 
+          @changeParentData="changeParentData"
+        ></levelbar-cmp>
       </br>
 
       <!-- contentList: {{contentList}} -->
+
+      <!------分类展示-------->
       <div class="catContentBox" v-if="showCatOrDetail_copy" v-loading="loading">
-        </br>
-        ----------------------分类显示-----------------
-        </br>
-        <!---新闻资讯--->
+        <!---新闻资讯分类--->
         <div class="news_cat" v-if="strFlag == 'news'">
           <ul class="itemBox">
             <li
@@ -100,7 +103,7 @@
           </ul>
         </div>
 
-        <!---产品展示---->
+        <!---产品展示分类---->
         <div 
           class="productShow_cat" 
           v-if="strFlag == 'productShow'"
@@ -118,56 +121,71 @@
                 <p class="itemTit marginT5 center">{{productShowItem.headTit}}</p>
               </div>
             </li>
-            <!-- <li class="item u-f-column u-f u-f-jst" style="width:30%;margin:10px">
+          </ul>
+        </div>
+
+        <!----公司设备展示分类---->
+        <div 
+          class="companyDevice_cat" 
+          v-if="strFlag == 'companyDevice'"
+          style="font-size: 12px;line-height:24px">
+          <ul class="itemWrap u-f-jst u-f-wrap">
+            <li 
+              v-for="(companyDeviceItem, key) in contentList.data" 
+              :key="key"
+              @click="scanDetail(companyDeviceItem, key)"              
+              class="item u-f-column u-f u-f-jst" 
+              style="width:30%;margin:10px"
+            >
               <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
-                <el-image src="../../../static/left.png" fit="fill"></el-image>
-                <p class="itemTit marginT5 center">单面喷金基板</p>
+                <el-image :src="companyDeviceItem.picUrl" fit="fill"></el-image>
+                <p class="itemTit marginT5 center">{{companyDeviceItem.headTit}}</p>
               </div>
             </li>
-            <li class="item u-f-column u-f u-f-jst" style="width:30%;margin:10px">
-              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
-                <el-image src="../../../static/left.png" fit="fill"></el-image>
-                <p class="itemTit marginT5 center">单面喷金基板</p>
-              </div>
-            </li>
-            <li class="item u-f-column u-f u-f-jst" style="width:30%;margin:10px">
-              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
-                <el-image src="../../../static/left.png" fit="fill"></el-image>
-                <p class="itemTit marginT5 center">单面喷金基板</p>
-              </div>
-            </li>
-            <li class="item u-f-column u-f u-f-jst" style="width:30%;margin:10px">
-              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
-                <el-image src="../../../static/left.png" fit="fill"></el-image>
-                <p class="itemTit marginT5 center">单面喷金基板</p>
-              </div>
-            </li>                                                 -->
           </ul>
         </div>
       </div>
 
       
+      <!---以下显示详情展示--------->
       <div
           v-else 
           class="contentDetailBox" 
-          style="font-size: 12px;line-height:24px">
-        </br>
-        ----------------详情-------------------
-        </br>
+          style="font-size: 12px;line-height:24px;padding:20px;border-top:1px solid #eee">
         <!---about下---->
         <div class="aboutDetail" v-if="strFlag == 'about'">
-          <div style="position:relative" v-html="contentList.data.contentData.content"></div>
+          <div style="position:relative;min-height: 300px" v-html="contentList.data.contentData.content"></div>
         </div>
 
-        <!---news下---->
+        <!---制程能力下---->
+        <div class="processCapabilityDetail" v-if="strFlag == 'processCapability'">
+          <div style="position:relative;min-height: 300px" v-html="contentList.data.contentData.content"></div>
+        </div>      
+
+        <!---生产流程下---->
+        <div class="productionLineDetail" v-if="strFlag == 'productionLine'">
+          <div style="position:relative;min-height: 300px" v-html="contentList.data.contentData.content"></div>
+        </div>    
+
+        <!---联系我们下---->
+        <div class="contactDetail" v-if="strFlag == 'contact'">
+          <div style="position:relative;min-height: 300px" v-html="contentList.data.contentData.content"></div>
+        </div>                
+
+        <!---新闻资讯下---->
         <div class="aboutDetail" v-if="strFlag == 'news'">
-          <div style="position:relative" v-html="currentNewsDetail"></div>
+          <div style="position:relative;min-height: 300px" v-html="currentDetail"></div>
         </div>     
 
-        <!---productShow下---->   
+        <!---产品展示下---->   
         <div class="productShowDetail" v-if="strFlag == 'productShow'">
-          <div style="position:relative" v-html="currentNewsDetail"></div>
-        </div>           
+          <div style="position:relative;min-height: 300px" v-html="currentDetail"></div>
+        </div>    
+
+        <!---公司设备下---->   
+        <div class="companyDevicveDetail" v-if="strFlag == 'companyDevice'">
+          <div style="position:relative;min-height: 300px" v-html="currentDetail"></div>
+        </div>                 
       </div> 
     </div>
 </template>
@@ -211,7 +229,7 @@
       try {
         if(this.$route.query.fromFlag && this.$route.query.fromFlag == 'isfromHomePage'){
           // 从home首页进入到的详情页面 显示详情而不是显示分类详情
-          this.currentNewsDetail = JSON.parse(this.$route.query.contentList).detail.content
+          this.currentDetail = JSON.parse(this.$route.query.contentList).detail.content
           this.changeParentData(false)
         }        
       } catch (error) {
@@ -229,7 +247,7 @@
       return {
         loading: true,
         levelList: null,
-        currentNewsDetail: `<p
+        currentDetail: `<p
                               class="not_found" 
                               style="position:absolute;top:0;left:0;right:0;bottom:0;margin: 0 auto">
                                 
@@ -272,11 +290,13 @@
         debugger
         
         try {
-          if(this.strFlag!='about'){
+          if(this.strFlag!='about' && this.strFlag!='processCapability' && this.strFlag != 'productionLine' 
+            && this.strFlag!= 'contact')
+          {
             if(itemObj.detail.content){
-              this.currentNewsDetail = itemObj.detail.content
+              this.currentDetail = itemObj.detail.content
             }else {
-              this.currentNewsDetail = `<p
+              this.currentDetail = `<p
                                 class="not_found" 
                                 style="position:absolute;top:0;left:0;right:0;bottom:0;margin: 0 auto">
                                   

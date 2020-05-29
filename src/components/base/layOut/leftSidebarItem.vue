@@ -7,7 +7,8 @@
 <template>
   <div class='left-sidebar'>
       <!-- <levelbar-cmp></levelbar-cmp> -->
-    <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳福满电子:{{currentLeftSideBar[0].name}}</h3>
+    <!-- <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子-{{currentLeftSideBar[0].name}}</h3> -->
+    <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子</h3>
     <!-- permissionRouters: {{permissionRouters}} -->
       <!-- currentLeftSideBar: {{currentLeftSideBar}} -->
       <!-- ----
