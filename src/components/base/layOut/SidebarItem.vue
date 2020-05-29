@@ -17,10 +17,11 @@
           active-class="activeClass"
           @mouseover.native="navMouseover(item, key)"
           @mouseout.native="navMouseout(item, key)"
+          :style="item.str==globalStrFlag? currentNavLiStyle: ''"
           >
-          <a class="navitem" :style="key==currentKey? currentStyle: ''">
+          <span class="navitem" :style="item.str==globalStrFlag? currentStyle: ''">
            {{item.name}}
-          </a>
+          </span>
         </router-link>
 
         <!---一级菜单下面有下级菜单的情况---->
@@ -33,17 +34,18 @@
           @mouseover.native="navMouseover(item, key)"
           @mouseout.native="navMouseout(item, key)"
           active-class="activeClass"
-          :style="key==currentKey? currentStyle: ''">
-          <a
+          :style="item.str==globalStrFlag? currentNavLiStyle: ''"
+          >
+          <span
             :class="['navitem',currentLanguage == 'en'? 'en': '']" 
-            :style="key==currentKey? currentStyle: ''">
+            :style="item.str==globalStrFlag? currentStyle: ''">
             <!-- {{item.path}}--- -->
            {{item.name}}
-          </a> 
+          </span> 
 
           <div 
               :class="['firstChildwrap',currentLanguage == 'en'? 'enStyle': 'zhStyle']" 
-              :style="key==currentKey? showSecondNavStyle:''"
+              :style="item.str==globalStrFlag? showSecondNavStyle:''"
           >
             <ul :class="['u-f-nowrap',currentLanguage == 'en'? 'u-fi-jst': 'u-fi-jst']">
               <router-link 
@@ -102,6 +104,8 @@
         parentRoute: {},
         currentLeftSidebar: [],
         currentKey: -1,
+        currentHoverNav: {},
+        currentNavLiStyle: "background-color:#ffffff;color: #CC0000; boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)",
         currentStyle: "display:inline-bolck;color: #CC0000; boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)",
         showSecondNavStyle: 'display: block; color: #DA000D'
       }
@@ -113,7 +117,9 @@
     computed: {
       ...mapGetters([
         'permissionRouters',
-        'currentLanguage'
+        'currentLanguage',
+        'globalStrFlag',
+        'globalTagId'
       ]),      
     },
     watch: {
@@ -130,11 +136,12 @@
     methods: {
       navMouseover(item, key){
         // debugger
-        this.currentKey = key
+        // this.currentKey = key
+        this.currentHoverNav = item
       },
       navMouseout(item, key){
         // debugger
-        this.currentKey = '-1'
+        // this.currentKey = '-1'
       },
       getLeftSideBar(routeInfo){
         debugger
@@ -201,11 +208,13 @@
     height 100%
     line-height 40px  
     cursor pointer
+    font-weight bold
+    color #ffffff    
+    &:hover
+      color #CC0000
     .navitem
       font-size 14px
       margin 0 20px
-      font-weight bold
-      color #ffffff
     .firstChildwrap
       display none
       position absolute

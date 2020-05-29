@@ -7,18 +7,21 @@
 <template>
   <div class='left-sidebar'>
       <!-- <levelbar-cmp></levelbar-cmp> -->
-    <!-- <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子-{{currentLeftSideBar[0].name}}</h3> -->
-    <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子</h3>
+    <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子-<span style="font-size: 14px;color:red">{{currentLeftSideBar[0].name}}</span></h3>
+    <!-- <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子</h3> -->
     <!-- permissionRouters: {{permissionRouters}} -->
       <!-- currentLeftSideBar: {{currentLeftSideBar}} -->
       <!-- ----
       currentLeftParentSideBar: {{currentLeftParentSideBar}} -->
       <!-- routes: {{routes}} -->
+      <!-- globalTagId: {{globalTagId}} -->
     <div class="tabs-view"
         v-for="tag in currentLeftSideBar[0].children"
         :key="tag.path"
         @click="clickLeftSideBar(tag, currentLeftSideBar)"
+        :style="tag.tagId == globalTagId?currentLeftTagStyle:''"
       >
+        <!-- tag.tagId: {{tag.tagId}} -->
         <div class="u-f-jsb">
             <span>{{tag.name}}</span>
             <span class="el-icon-arrow-right"></span>
@@ -56,12 +59,19 @@ export default {
     ...mapGetters([
       'permissionRouters',
       'currentLeftSideBar',
-      'currentLeftParentSideBar'
-    ])
+      'currentLeftParentSideBar',
+      'globalTagId',
+      'globalStrFlag'
+    ]),
+  },
+  watch: {
+
+
   },
   data(){
       return {
-        leftPic: leftPic
+        leftPic: leftPic,
+        currentLeftTagStyle: "background-color:red;color:#ffffff;font-weight:bold"
       }
   },
   methods: {
@@ -98,20 +108,6 @@ export default {
     },
     clickLeftSideBar(tag, allTag){
         debugger
-        switch(tag.path){
-            case 'more':
-            // this.$router.push({
-            //     path: '/productShow/more/productCatList'
-            // })
-            break
-            case 'high':
-                // this.$router.push({
-                //     path: '/productShow/high/productCatList'
-                // })
-                // this.catId = 'high'
-            break
-        }
-
         this.$emit("switchRouter", tag, allTag)
     },
   }
@@ -133,4 +129,6 @@ export default {
       cursor pointer
       &:hover
         background red
+        color #ffffff
+        font-weight bold
 </style>

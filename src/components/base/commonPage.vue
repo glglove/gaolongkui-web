@@ -70,7 +70,8 @@
       </br>
       tagId: {{tagId}}
       </br> -->
-      <!-- showCatOrDetail_copy: {{showCatOrDetail_copy}} -->
+      <!-- showCatOrDetail: {{showCatOrDetail}}
+      showCatOrDetail_copy: {{showCatOrDetail_copy}} -->
         <levelbar-cmp 
           @changeParentData="changeParentData"
         ></levelbar-cmp>
@@ -90,7 +91,7 @@
               @click="scanDetail(newItem, key)"
               >
               <div class="item_left">
-                <el-image class="pic" src="newItem.picUrl" fit="fill" style="width:130px;height:120px"></el-image>
+                <el-image class="pic" :src="newItem.picUrl" fit="fill" style="width:130px;height:120px"></el-image>
               </div>
               <div class="item_right">
                 <div class="top u-f-column u-f-jst">
@@ -108,15 +109,19 @@
           class="productShow_cat" 
           v-if="strFlag == 'productShow'"
           style="font-size: 12px;line-height:24px">
-          <ul class="itemWrap u-f-jst u-f-wrap">
+          <ul 
+            class="itemWrap u-f-jst u-f-wrap" 
+            :class="contentList.data.length>0?'':'not_found'"
+            style="min-height: 300px">
             <li 
+              v-if="contentList.data.length>0"
               v-for="(productShowItem, key) in contentList.data" 
               :key="key"
               @click="scanDetail(productShowItem, key)"              
               class="item u-f-column u-f u-f-jst" 
               style="width:30%;margin:10px"
             >
-              <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
+              <div class="imgBox u-f0 u-f-ajc u-f-column" style="width: 100%;height:205px;border:1px solid silver">
                 <el-image :src="productShowItem.picUrl" fit="fill"></el-image>
                 <p class="itemTit marginT5 center">{{productShowItem.headTit}}</p>
               </div>
@@ -226,7 +231,9 @@
       },
     },
     created () {
+      // window.alert(555)
       try {
+        debugger
         if(this.$route.query.fromFlag && this.$route.query.fromFlag == 'isfromHomePage'){
           // 从home首页进入到的详情页面 显示详情而不是显示分类详情
           this.currentDetail = JSON.parse(this.$route.query.contentList).detail.content
@@ -237,7 +244,7 @@
       }
     },
     mounted(){
-      debugger
+      debugger  
       let _this = this
       setTimeout(() => {
         _this.loading = false
@@ -262,12 +269,15 @@
     watch: {
       tagId: {
         handler(newValue, oldValue){
-          this.showCatOrDetail_copy = true
+          // this.showCatOrDetail_copy = true
+          
+          // this.changeParentData(true)
         }
       },
       strFlag: {
         handler(newValue, oldValue){
-          this.showCatOrDetail_copy = true
+          // this.showCatOrDetail_copy = true
+          // this.changeParentData(true)
         }        
       },
       'contentList.data.length':{

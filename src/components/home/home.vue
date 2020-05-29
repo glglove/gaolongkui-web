@@ -291,7 +291,7 @@ export default {
       this.timer_top = setInterval(() => {
         this.num_top += 10
         let topNode = document.getElementById("line-top-ul")
-        if(this.num_top<=980){
+        if(this.num_top<=980 && topNode){
           topNode.style.transform= 'translateX(-' + this.num_top + 'px)'
           // console.log(topNode.style.transform)    
         }else {
@@ -303,7 +303,7 @@ export default {
       this.timer_bottom = setInterval(() => {
         that.num_bottom += 10
         let bottomNode = document.getElementById("line-bottom-ul")        
-        if(that.num_bottom<=60){
+        if(that.num_bottom<=60 && bottomNode){
           bottomNode.style.transform = 'translateX(-' + that.num_bottom + 'px)'
           // console.log(topNode.style.transform)          
         }else {

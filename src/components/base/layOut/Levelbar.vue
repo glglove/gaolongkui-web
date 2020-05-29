@@ -6,6 +6,7 @@
 -->
 <template>
   <el-breadcrumb class="app-levelbar" separator="/">
+    <span class="el-icon-s-home el-breadcrumb__item" style="dispay:inline-block;margin:18px 5px 0 0;font-size: 14px"></span>
     <el-breadcrumb-item v-for="(item,index)  in levelList" :key="item.path">
       <span 
         v-if='item.redirect==="noredirect"||index==levelList.length-1' 
@@ -72,9 +73,12 @@ export default {
     nav_click(itemObj){
       debugger
       try {
-        // if(this.globalTagId == itemObj.meta.tagId){
+        if(this.globalStrFlag != 'about' && this.globalStrFlag !='productionLine'
+            &&this.globalStrFlag!='processCapability' && this.globalStrFlag != 'contact'
+        )
+        {
           this.$emit("changeParentData", true)
-        // }
+        }
       } catch (error) {
         debugger
       }

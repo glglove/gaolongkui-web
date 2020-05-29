@@ -82,14 +82,18 @@ export default {
   watch: {
     '$route' (to, from) {     
       // this.getBreadcrumb()
+      debugger
+      // window.alert(6666)
+      
     },
     globalStrFlag: {
       handler(newValue, oldValue){
         debugger
         if(newValue == 'about' || newValue == 'processCapability'
-            || newValue == 'productionLine' || newValue == 'contact'){
-          // 
+          || newValue == 'productionLine' || newValue == 'contact'){
           this.showCatOrDetail = false
+        }else {
+          this.showCatOrDetail = true
         }
       },
       immediate: true
@@ -177,9 +181,10 @@ export default {
     },    
     switchRouter(tag, allTag){
         debugger
-        this.showCatOrDetail = true
         if(this.globalStrFlag == 'about'){
           this.showCatOrDetail = false
+        }else {
+          this.showCatOrDetail = true
         }
         switch(tag.path){
             case 'more':
