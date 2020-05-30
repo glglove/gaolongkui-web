@@ -231,6 +231,7 @@ export default {
         })
       },     
       async setChinese(){
+        debugger
         await this.$store.dispatch("setLanguage", 'zh')
         // 主动刷新一下页面
         this.$router.push({
@@ -243,6 +244,7 @@ export default {
         location.reload()         
       },
       async setEnglish(){
+        debugger
         await this.$store.dispatch("setLanguage", 'en')
         // 主动刷新一下页面
         this.$router.push({

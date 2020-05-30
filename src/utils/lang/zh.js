@@ -24,6 +24,6 @@ module.exports = {
         News: '新闻资讯',
         Product: '产品中心',
         Count: '站长统计',
-        copyRight: 'Copyright © 2013 深圳市满福电子有限公司 版权所有   粤ICP备18100547号-1'
+        copyRight: 'Copyright © 2013 深圳市翔翎电子科技有限公司 版权所有   粤ICP备18100547号-1'
     },
 }

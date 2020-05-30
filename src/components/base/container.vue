@@ -22,6 +22,31 @@
                     :contentList.sync="contentList"
                 ></common-page-cmp>
 
+                <!----分页--->
+                <!--1、企业新闻---->
+                <!-- contentList.total:{{contentList.total}}
+                globalTagId: {{globalTagId}} -->
+                <div class="paginationWrap center" 
+                      v-if="showCatOrDetail && globalTagId=='companyNews'
+                          || globalTagId=='hotNews' 
+                          || globalTagId=='industryInformation' 
+                          || globalTagId=='technicalArtical' 
+                          || globalTagId=='more'
+                          || globalTagId=='high'
+                         || globalTagId=='aluminium'
+                         || globalTagId=='phone'
+                          || globalTagId=='double'
+                         || globalTagId=='impedance'
+                         || globalTagId=='special'
+                         || globalTagId=='companyDevice'
+                         || globalTagId=='companyDevice'
+                      ">
+                  <pagination-cmp 
+                    :total="contentList.total||0"
+                    @refreshGetData="refreshGetData"
+                    ></pagination-cmp>
+                </div>
+                                                                                                            
             </el-col>
         </el-row>
     </div>
@@ -30,6 +55,7 @@
 <script>
     import LeftSidebaritemCmp from '@/components/base/layOut/leftSidebarItem'
     import commonPageCmp from '@/components/base/commonPage'
+    import PaginationCmp from '@/components/base/pagination'
     import { mapGetters } from 'vuex'
     import { 
         getAboutCatList
@@ -57,7 +83,8 @@ export default {
     },
   components: {
       LeftSidebaritemCmp,
-      commonPageCmp
+      commonPageCmp,
+      PaginationCmp
   },
   created () {
 
@@ -118,12 +145,16 @@ export default {
       }
       this.levelList = matched
     },
-    _getData(){
+    refreshGetData(pageSize,pageNum){
+      debugger
+      this._getData(pageSize,pageNum)
+    },
+    _getData(pageSize,pageNum){
       debugger
       switch(this.globalStrFlag){
         // 产品展示
         case 'productShow':
-        getProductCatList(this.globalTagId).then(res => {
+        getProductCatList(this.globalTagId,pageSize,pageNum).then(res => {
           debugger
           console.log("-----------",res)
           this.contentList = res
@@ -132,7 +163,7 @@ export default {
 
         // 新闻
         case 'news':
-        getNewsCatList(this.globalTagId).then(res => {
+        getNewsCatList(this.globalTagId,pageSize,pageNum).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -140,7 +171,7 @@ export default {
 
         // 关于我们
         case 'about':
-        getAboutCatList(this.globalTagId).then(res => {
+        getAboutCatList(this.globalTagId,pageSize,pageNum).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -148,7 +179,7 @@ export default {
 
         // 公司设备
         case 'companyDevice':
-        getCompanyDeviceCatList(this.globalTagId).then(res => {
+        getCompanyDeviceCatList(this.globalTagId,pageSize,pageNum).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -156,7 +187,7 @@ export default {
         
         // 制程能力
         case 'processCapability':
-        getProcessCapabilityCatList(this.globalTagId).then(res => {
+        getProcessCapabilityCatList(this.globalTagId,pageSize,pageNum).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })
@@ -164,7 +195,7 @@ export default {
         
         // 生产流程
         case 'productionLine':
-        getProductionLineCatList(this.globalTagId).then(res => {
+        getProductionLineCatList(this.globalTagId,pageSize,pageNum).then(res => {
           console.log("-----------",res)
           this.contentList = res                    
         })

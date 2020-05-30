@@ -533,7 +533,7 @@ export function getNewsCatList (catId) {
                 resolve(
                     {
                         state: 1,
-                        total: 1,
+                        total: 4,
                         data: [
                             {
                                 id: 1,

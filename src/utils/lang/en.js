@@ -24,7 +24,7 @@ module.exports = {
         News: 'News',
         Product: 'Product',
         Count: 'Count',
-        copyRight: 'Copyright © 2013 Shenzhen ManFu Electronics Co., Ltd. all right reserved'
+        copyRight: 'Copyright © 2013 Shenzhen xiangling Electronics Co., Ltd. all right reserved'
     }
     // placeholder: {
     //     enter: 'Please type in your favorite brand'

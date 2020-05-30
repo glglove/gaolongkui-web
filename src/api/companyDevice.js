@@ -6,7 +6,7 @@ export function getCompanyDeviceCatList (catId) {
                 resolve(
                     {
                         state: 1,
-                        total: 2,
+                        total: 8,
                         data: [
                             {
                                 id: 1,
