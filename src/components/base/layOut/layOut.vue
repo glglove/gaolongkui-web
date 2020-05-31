@@ -150,7 +150,10 @@
     </div>
 
 
-        <!--分享(addthis)--->
+    <footer-tab></footer-tab>
+
+
+    <!--分享(addthis)--->
     <div class="shareWrap-addthis" v-if="currentLanguage == 'en'">
       <addthis-hare-cmp v-if="currentLanguage == 'en'"></addthis-hare-cmp>
     </div> 
@@ -161,6 +164,7 @@
 
 // import { Navbar, Sidebar, AppMain, horizontalSidebar } from '@/components/layout'
 import HorizontalSidebar from '@/components/base/layOut/horizontalSidebar'
+import FooterTab from '@/base/footer-tab/footer-tab.vue'
 import { mapGetters } from 'vuex'
 import logoUrl from '../../../../static/logo.png'
 import logoUrl_en from '../../../../static/logo_en.png'
@@ -174,7 +178,8 @@ export default {
         // Navbar,
         // Sidebar,
         // AppMain,
-        HorizontalSidebar
+        HorizontalSidebar,
+        FooterTab
     },
     data() {
         return {

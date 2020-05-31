@@ -15,6 +15,8 @@ import store from './store' // vuex状态管理
 import './icons' // 字体图标
 import './permission' // 权限
 
+// import 'lib-flexible/flexible.js'
+
 import ContainerCmp from '@/components/base/container'
 Vue.component("containerCmp", ContainerCmp)
 

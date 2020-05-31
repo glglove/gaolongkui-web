@@ -98,7 +98,7 @@ export function getProductCatList (catId, pageSize= 10, pageNum=1) {
                 resolve(
                     {
                         state: 1,
-                        total: 4,
+                        total: 6,
                         data: [
                             {
                                 id: 1,

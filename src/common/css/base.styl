@@ -15,7 +15,7 @@ body
 
 .page-wrapper
   width 70%
-  max-width 960px
+  // width 1360px
   margin 0 auto
 
 [v-cloak] 
@@ -102,6 +102,20 @@ body
   -webkit-box-orient vertical  
   -webkit-line-clamp 3
   overflow hidden
+
+// 文字4行打省略号
+.ellipsis4
+  display -webkit-box
+  -webkit-box-orient vertical  
+  -webkit-line-clamp 4
+  overflow hidden  
+
+// 文字5行打省略号
+.ellipsis5
+  display -webkit-box
+  -webkit-box-orient vertical  
+  -webkit-line-clamp 5
+  overflow hidden    
 
 .el-switch__core:after 
   content ""

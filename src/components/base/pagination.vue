@@ -16,7 +16,7 @@
             @prev-click="handleCurrentChange"
             @next-click="handleCurrentChange"
             :current-page="pageNum"
-            :page-sizes="[10, 20, 30, 40]"
+            :page-sizes="[10]"
             :page-size="pageSize"
         >
         </el-pagination>        
@@ -63,7 +63,7 @@ export default {
         handleSizeChange (val) {
             this.pageSize = val
             // this._getComTables()
-            this.$emit("refreshGetData",this.pageSize,this.pageNum)
+            this.$emit("refreshSizeGetData",this.pageSize,this.pageNum)
         },
         // 分页--当前页
         handleCurrentChange (val) {

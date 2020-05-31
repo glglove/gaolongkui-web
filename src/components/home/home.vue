@@ -26,7 +26,7 @@
     </el-row>
 
     <el-row class="newsWrap page-wrapper">
-      <div class="u-f-jsb u-f-ac">
+      <div class="u-f-jsb">
         <div class="newsItem u-f0">
           <p style="font-size: 15px;font-weight:bold;color: red">{{$t("homeContent.lefttit")}}</p>
 
@@ -66,15 +66,19 @@
                 <p class="tipTit center" style="font-size:10px">{{ bottomitem.headTit }}</p>                
               </li>
             </ul>
+            <!-- <bscroll-cmp 
+              :wrapper="line-bottom-ul" 
+              :contentList="LeftContentBottom"
+            ></bscroll-cmp> -->
           </div>          
         </div>
 
 
         <div class="newsItem u-f0" @click="handlerClickMiddle">
           <!-- <el-image :src="middleContentPicUrl" style="height:100px;width:100%"></el-image> -->
-          <img :src="middleContentPicUrl" style="height:100px;width:100%"></img>
-          <h5 class="marginT10" style="font-size:14px;color#909399">{{$t("homeContent.midtit")}}</h5>
-          <p class="marginT10" style="font-size: 12px;line-height:28px">{{midConent.content}}</p>
+          <img :src="middleContentPicUrl" class="pic" style="height:100px;width:100%"></img>
+          <h5 class="marginT10 comTit">{{$t("homeContent.midtit")}}</h5>
+          <p class="marginT10 ellipsis5" style="font-size: 12px;line-height:28px">{{midConent.content}}</p>
           <div class="clearfix" style="margin-top:-5px">
               <el-button 
                 type="text" 
@@ -109,7 +113,7 @@
             <li 
               v-for="(top, key) in rightContentTop"
               :key="key"
-              class="titItem u-f-ac"
+              class="titItem ellipsis1 u-f-ac"
               style="font-size: 12px;line-height: 24px"
               @click="joinDetail(top, key)"
             ><span style="color: silver;font-weight:bold;margin-right: 10px">&gt</span>{{top.headTit}}</li>
@@ -138,7 +142,7 @@
             <li 
               v-for="(bottom, idx) in rightContentBottom"
               :key="idx"
-              class="titItem u-f-ac"
+              class="titItem ellipsis1 u-f-ac"
               style="font-size: 12px;line-height: 24px"
               @click="joinDetail(bottom, idx)"
             ><span style="color: silver;font-weight:bold;margin-right: 10px">&gt</span>{{bottom.headTit}}</li>
@@ -163,11 +167,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import BscrollCmp from '@/components/base/BScroll'
 import {
   getHomeInfo
 } from '@/api/home'
   let that = null
 export default {
+  components: {
+    BscrollCmp
+  },
   data(){
     return {
       tipInfos:[
@@ -200,6 +208,11 @@ export default {
     debugger
     that = this
     this._getHomeInfo()
+  },
+  mounted(){
+    this.$nextTick(() => {
+      // this.scroll = new BScroll()
+    })
   },
   beforeDestroy(){
     if(this.timer_top){
@@ -340,6 +353,8 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+.home 
+  min-height calc(100vh - 420px)
 .el-row.tipWrap
   background-color #8E9094
   .tipBox
@@ -356,11 +371,12 @@ export default {
               cursor pointer
               color red
 .el-row.newsWrap
-  height 380px
+  // height 380px
   margin-top 30px
   .newsItem
-    height 280px
+    // height 280px
     padding 20px
+    box-sizing border-box
     .el-carousel__container
       .el-carousel__item    
         width 80px
@@ -387,6 +403,9 @@ export default {
       width 30%
       margin-left 20px
       box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.1)
+      .comTit
+        color#909399
+        font-size 18px      
       &:hover
         cursor pointer
         color #909399 !important    

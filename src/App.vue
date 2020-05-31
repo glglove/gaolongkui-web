@@ -4,7 +4,6 @@
       <!-- <router-view v-wechat-title="$route.meta.title"></router-view> -->
       <router-view></router-view>
     <!-- </keep-alive>     -->
-    <footer-tab></footer-tab>
   </div>
 </template>
 
@@ -21,4 +20,6 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/css/index"
+  #app 
+    min-height 100vh
 </style>

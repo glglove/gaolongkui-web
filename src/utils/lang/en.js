@@ -13,7 +13,7 @@ module.exports = {
     },
     homeContent: {
         lefttit: 'NEW PRODUCTS',
-        midtit: 'Shenzhen ManFu Electronics',
+        midtit: 'Shenzhen XiangLing Electronics',
         righttit1: 'COMPANY NEWS',
         righttit2: 'INDUSTRY NEWS',
         rightMore: 'MORE',        

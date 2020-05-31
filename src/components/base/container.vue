@@ -27,20 +27,19 @@
                 <!-- contentList.total:{{contentList.total}}
                 globalTagId: {{globalTagId}} -->
                 <div class="paginationWrap center" 
-                      v-if="showCatOrDetail && globalTagId=='companyNews'
-                          || globalTagId=='hotNews' 
-                          || globalTagId=='industryInformation' 
-                          || globalTagId=='technicalArtical' 
-                          || globalTagId=='more'
-                          || globalTagId=='high'
-                         || globalTagId=='aluminium'
-                         || globalTagId=='phone'
-                          || globalTagId=='double'
-                         || globalTagId=='impedance'
-                         || globalTagId=='special'
-                         || globalTagId=='companyDevice'
-                         || globalTagId=='companyDevice'
-                      ">
+                        v-if="(globalTagId=='companyNews'
+                        || globalTagId=='hotNews' 
+                        || globalTagId=='industryInformation' 
+                        || globalTagId=='technicalArtical' 
+                        || globalTagId=='more'
+                        || globalTagId=='high'
+                        || globalTagId=='aluminium' 
+                        || globalTagId=='phone'
+                        || globalTagId=='double'
+                        || globalTagId=='impedance'
+                        || globalTagId=='special'
+                        || globalTagId=='companyDevice')
+                        && showCatOrDetail">
                   <pagination-cmp 
                     :total="contentList.total||0"
                     @refreshGetData="refreshGetData"
@@ -148,6 +147,9 @@ export default {
     refreshGetData(pageSize,pageNum){
       debugger
       this._getData(pageSize,pageNum)
+    },
+    refreshSizeGetData(pageSize, pageNum){
+      debugger
     },
     _getData(pageSize,pageNum){
       debugger
