@@ -18,7 +18,7 @@
         </el-carousel>
 
         <!--分享(bds)--->
-        <div class="shareWrap" style="width: 500px" >
+        <div class="shareWrap">
           <!-- currentLanguage: {{currentLanguage}} -->
           <bds-hare-cmp :hasMore="false" v-if="currentLanguage && currentLanguage == 'zh'"></bds-hare-cmp>
         </div>       
@@ -28,15 +28,15 @@
     <el-row class="newsWrap page-wrapper">
       <div class="u-f-jsb">
         <div class="newsItem u-f0">
-          <p style="font-size: 15px;font-weight:bold;color: red">{{$t("homeContent.lefttit")}}</p>
+          <p class="topTit">{{$t("homeContent.lefttit")}}</p>
 
           <div class="line-top" style="overflow: hidden">
-            <ul class="u-fi-ac" id="line-top-ul">
+            <ul class="u-fi-ac line-top-ul" id="line-top-ul">
               <li 
                 class="marginR10"
                 v-for="(topItem, idx) in LeftContentTop" 
                 :key="idx"
-                :style="currentHoverTopitemKey==idx? 'currentHoverTopStyle':''"
+                :class="currentHoverTopitemKey==idx? 'currentHoverTopStyle':''"
                 @mouseenter="topItemmouseenter (topItem, idx)"
                 @mouseleave="topItemmouseleave(topItem, idx)"
                 @click="joinDetail(topItem, idx)"
@@ -44,26 +44,26 @@
                 <!-- currentHoverTopitemKey: {{currentHoverTopitemKey}}
                 ----
                 idx: {{idx}} -->
-                <el-image :src="topItem.picUrl" fit="fill" style="width: 80px;height: 110px"></el-image>              
-                <p class="tipTit center" style="font-size:10px">{{ topItem.headTit }}</p>                
+                <el-image class="tipPic" :src="topItem.picUrl" fit="fill"></el-image>              
+                <p class="tipTit center">{{ topItem.headTit }}</p>                
               </li>
             </ul>
           </div>
 
 
           <div class="line-bottom marginT10" style="overflow: hidden">
-            <ul class="u-fi-ac" id="line-bottom-ul">
+            <ul class="u-fi-ac line-bottom-ul" id="line-bottom-ul">
               <li 
                 class="marginR10"
-                :style="currentHoverBottomitemKey==index? currentHoverBottomStyle:''"
+                :class="currentHoverBottomitemKey==index? 'currentHoverBottomStyle':''"
                 v-for="(bottomitem, index) in LeftContentBottom" 
                 :key="index"
                 @mouseenter="bottomItemmouseenter (bottomitem, index)"
                 @mouseleave="bottomItemmouseleave(bottomitem, index)"
                 @click="joinDetail(bottomitem, index)"
               >
-                <el-image :src="bottomitem.picUrl" fit="fill" style="width: 80px;height: 110px"></el-image>              
-                <p class="tipTit center" style="font-size:10px">{{ bottomitem.headTit }}</p>                
+                <el-image class="tipPic" :src="bottomitem.picUrl" fit="fill"></el-image>              
+                <p class="tipTit center">{{ bottomitem.headTit }}</p>                
               </li>
             </ul>
             <!-- <bscroll-cmp 
@@ -76,10 +76,10 @@
 
         <div class="newsItem u-f0" @click="handlerClickMiddle">
           <!-- <el-image :src="middleContentPicUrl" style="height:100px;width:100%"></el-image> -->
-          <img :src="middleContentPicUrl" class="pic" style="height:100px;width:100%"></img>
+          <img :src="middleContentPicUrl" class="pic"></img>
           <h5 class="marginT10 comTit">{{$t("homeContent.midtit")}}</h5>
-          <p class="marginT10 ellipsis5" style="font-size: 12px;line-height:28px">{{midConent.content}}</p>
-          <div class="clearfix" style="margin-top:-5px">
+          <p class="marginT10 ellipsis5">{{midConent.content}}</p>
+          <div class="clearfix moreWrap">
               <el-button 
                 type="text" 
                 style="float:right;color:#606266;"
@@ -90,7 +90,7 @@
 
 
         <div class="newsItem u-f0">
-          <p class="clearfix" style="font-size:15px;color:red;font-weight:bold">
+          <p class="clearfix rightTit">
             {{$t("homeContent.righttit1")}}
             <el-button 
               type="text"
@@ -108,18 +108,17 @@
               @click.native="handlerClickMoreBtn('news', 'companyNews')"
             >{{$t("homeContent.rightMore")}}</el-button>
           </p>
-          <ul class="marginT5">
+          <ul class="marginT5 itemWrap">
             <!-- rightContentTop: {{rightContentTop}} -->
             <li 
               v-for="(top, key) in rightContentTop"
               :key="key"
               class="titItem ellipsis1 u-f-ac"
-              style="font-size: 12px;line-height: 24px"
               @click="joinDetail(top, key)"
-            ><span style="color: silver;font-weight:bold;margin-right: 10px">&gt</span>{{top.headTit}}</li>
+            ><span class="pic">&gt</span>{{top.headTit}}</li>
           </ul>
 
-          <p class="clearfix marginT20" style="font-size:15px;color:red;font-weight:bold">
+          <p class="clearfix marginT20 rightTit">
             {{$t("homeContent.righttit2")}}
             <el-button 
               type="text"
@@ -137,15 +136,14 @@
               @click.native="handlerClickMoreBtn('news', 'hotNews')"
             >{{$t("homeContent.rightMore")}}</el-button>
           </p>
-          <ul class="marginT5">
+          <ul class="marginT5 itemWrap">
             <!-- rightContentTop: {{rightContentTop}} -->
             <li 
               v-for="(bottom, idx) in rightContentBottom"
               :key="idx"
               class="titItem ellipsis1 u-f-ac"
-              style="font-size: 12px;line-height: 24px"
               @click="joinDetail(bottom, idx)"
-            ><span style="color: silver;font-weight:bold;margin-right: 10px">&gt</span>{{bottom.headTit}}</li>
+            ><span class="pic">&gt</span>{{bottom.headTit}}</li>
           </ul>          
         </div>
       </div>
@@ -370,6 +368,8 @@ export default {
             &:hover
               cursor pointer
               color red
+    .shareWrap
+      width 500px
 .el-row.newsWrap
   // height 380px
   margin-top 30px
@@ -383,14 +383,42 @@ export default {
     &:nth-of-type(1)
       width 30%
       box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)
-      .line-top-ul,.line-bototm-ul
+      .topTit
+        font-size: 15px
+        font-weight:bold
+        color: red
+        margin-bottom: 10px
+      .line-top-ul,.line-bottom-ul
         li
           &:hover
             cursor pointer
             color red
+          .tipPic
+            width: 80px
+            height: 110px          
+          .tipTit
+            font-size 10px
+          &.currentHoverTopStyle
+            border:1px solid #e2d8d8
+            padding:3px
+          &.currentHoverBottomStyle
+            border:1px solid #e2d8d8
+            padding:3px
     &:nth-of-type(3)
       width 30%
       margin-left 10px
+      .rightTit
+        font-size 15px
+        color red
+        font-weight bold
+      .itemWrap
+        .titItem
+          font-size 12px
+          line-height 24px
+          .pic
+            color silver
+            font-weight bold
+            margin-right 10px            
       .el-button
         &:hover
           cursor pointer !important
@@ -403,6 +431,14 @@ export default {
       width 30%
       margin-left 20px
       box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.1)
+      .pic 
+        width 100%
+        height 100px
+      .ellipsis5
+        font-size: 12px
+        line-height:28px
+      .moreWrap
+        margin-top -5px
       .comTit
         color#909399
         font-size 18px      

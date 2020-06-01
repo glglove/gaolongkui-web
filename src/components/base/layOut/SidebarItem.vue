@@ -17,9 +17,9 @@
           active-class="activeClass"
           @mouseover.native="navMouseover(item, key)"
           @mouseout.native="navMouseout(item, key)"
-          :style="item.str==globalStrFlag? currentNavLiStyle: ''"
+          :class="item.str==globalStrFlag? 'currentNavLiStyle': ''"
           >
-          <span class="navitem" :style="item.str==globalStrFlag? currentStyle: ''">
+          <span class="navitem" :class="item.str==globalStrFlag? 'currentStyle': ''">
            {{item.name}}
           </span>
         </router-link>
@@ -34,18 +34,16 @@
           @mouseover.native="navMouseover(item, key)"
           @mouseout.native="navMouseout(item, key)"
           active-class="activeClass"
-          :style="item.str==globalStrFlag? currentNavLiStyle: ''"
+          :class="item.str==globalStrFlag? 'currentNavLiStyle': ''"
           >
           <span
-            :class="['navitem',currentLanguage == 'en'? 'en': '']" 
-            :style="item.str==globalStrFlag? currentStyle: ''">
-            <!-- {{item.path}}--- -->
+            :class="['navitem',currentLanguage == 'en'? 'en': '', item.str==globalStrFlag? 'currentStyle': '']" 
+          >
            {{item.name}}
           </span> 
 
           <div 
-              :class="['firstChildwrap',currentLanguage == 'en'? 'enStyle': 'zhStyle']" 
-              :style="item.str==globalStrFlag? showSecondNavStyle:''"
+            :class="['firstChildwrap',currentLanguage == 'en'? 'enStyle': 'zhStyle',item.str==globalStrFlag? 'showSecondNavStyle':'']" 
           >
             <ul :class="['u-f-nowrap',currentLanguage == 'en'? 'u-fi-jst': 'u-fi-jst']">
               <router-link 
@@ -203,6 +201,10 @@
     &:hover   
       cursor pointer
       background-color #ffffff
+    &.currentNavLiStyle
+      background-color: #ffffff
+      color: #CC0000
+      boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)
   li
     position relative
     height 100%
@@ -215,12 +217,16 @@
     .navitem
       font-size 14px
       margin 0 20px
+      &.currentStyle
+        display:inline-bolck
+        color: #CC0000
+        boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)
     .firstChildwrap
       display none
       position absolute
       top 40px
       // width 450px
-      box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+      box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)  
       ul
         font-size 0
         background-color #ffffff
@@ -269,6 +275,10 @@
               .tit
                 cursor pointer
                 color #000000
+        &.showSecondNavStyle
+          transition all .1s
+          display block
+          color #DA000D
     &.en
     &:nth-of-type(3)      
       .firstChildwrap
@@ -298,7 +308,11 @@
               color: #DA000D
               .tit
                 cursor pointer
-                color #000000      
+                color #000000   
+        &.showSecondNavStyle
+          transition all .1s
+          display block
+          color #DA000D   
     &.en
     &:nth-of-type(4)      
       .firstChildwrap
@@ -327,7 +341,10 @@
               color: #DA000D
               .tit
                 cursor pointer
-                color #000000                  
-
+                color #000000    
+        &.showSecondNavStyle
+          transition all .1s
+          display block
+          color #DA000D                 
 </style>
 
