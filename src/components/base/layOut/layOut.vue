@@ -51,26 +51,12 @@
               color #000
               font-weight 400 !important
               margin-right 10px
-              &:before
-                display inline-block
-                content ''
-                width 20px
-                height 10px
-                margin-right 3px
-                background url('../../../../static/cn.jpg') no-repeat
               &:hover
                 color #DA000D
                 cursor pointer
             .en
               color #000
-              font-weight 400 !important
-              &:before
-                display inline-block
-                content ''
-                width 20px
-                height 10px
-                margin-right 3px
-                background url('../../../../static/en.jpg') no-repeat              
+              font-weight 400 !important          
               &:hover
                 color #DA000D    
                 cursor pointer 
@@ -119,12 +105,18 @@
                   @click.native="clickLogo"
               ></el-image>                            
               <div class="versionWrap u-f-ajc">
-                <el-button 
-                  type="text" 
-                  class="ch" 
-                  @click.native="setChinese"
-                >中文</el-button>
-                <el-button type="text" class="en" @click.native="setEnglish">English</el-button>
+                <div class="cnWrap u-f-ajc">
+                  <el-image :src="cnPic" fit="fill"></el-image>
+                  <el-button 
+                    type="text" 
+                    class="ch marginL5" 
+                    @click.native="setChinese"
+                  >中文</el-button>
+                </div>
+                <div class="enWrap u-f-ajc">
+                  <el-image :src="enPic" fit="fill"></el-image>
+                  <el-button type="text" class="en marginL5" @click.native="setEnglish">English</el-button>
+                </div>
               </div>
             </div>
             <!--导航区--->
@@ -166,6 +158,8 @@
 import HorizontalSidebar from '@/components/base/layOut/horizontalSidebar'
 import FooterTab from '@/base/footer-tab/footer-tab.vue'
 import { mapGetters } from 'vuex'
+import cnPic from '../../../assets/cn.jpg'
+import enPic from '../../../assets/en.jpg'
 import logoUrl from '../../../../static/logo.png'
 import logoUrl_en from '../../../../static/logo_en.png'
 import ban from '../../../../static/ban.jpg'
@@ -185,6 +179,8 @@ export default {
         return {
             loading: false,
             isChinese: true,
+            cnPic: cnPic,
+            enPic: enPic,
             logoUrl: logoUrl,
             logoUrl_en: logoUrl_en,
             carouselPic: [ban, ban2],
