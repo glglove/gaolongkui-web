@@ -4,7 +4,7 @@
   功能：home页中 顶部 和 左边的导航—— 菜单项目items的组件，被 horizontalFlagSidebar.vue组件 和 leftSidebarItem组件所 引用
 -->
 <template>
-    <div class="menuItemCmp u-fi-jsr page-wrapper" ref="menuItemCmp">
+    <div class="menuItemCmp u-fi-jsr page-wrapper">
       <template 
         class='menu-wrapper'
         v-for="(item,key) in routes">
@@ -220,8 +220,8 @@
       padding 0 10px
       box-sizing border-box
       &.currentStyle
-        display inline-bolck
-        color #CC0000
+        display:inline-bolck
+        color: #CC0000
         boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)
     .firstChildwrap
       display none
@@ -347,55 +347,6 @@
         &.showSecondNavStyle
           transition all .1s
           display block
-          color #DA000D     
-
-
-
-
-@media screen and (max-width: 600px) {
-  .menuItemCmp {
-    position fixed
-    top 40px
-    left -200px
-    display flex
-    justify-content flex-start
-    flex-direction column
-    .menu-nav {
-      &:nth-of-type(2) {
-        .firstChildwrap {
-          position absolute 
-          top 0
-          left 100%          
-          ul {
-            display flex
-            flex-wrap wrap !important
-          }
-        }
-      }
-      &:nth-of-type(3) {
-        .firstChildwrap {
-          position absolute 
-          top 0
-          left 100%          
-          ul {
-            display flex
-            flex-wrap wrap !important
-          }
-        }
-      }
-      &:nth-of-type(4) {
-        .firstChildwrap {
-          position absolute 
-          top 0
-          left 100%          
-          ul {
-            display flex
-            flex-wrap wrap !important
-          }
-        }   
-      }      
-    }
-  }
-} 
+          color #DA000D                 
 </style>
 

@@ -9,6 +9,11 @@
   .horizontal-wrapper {
     height 40px
     text-align center 
+    .mobileNavBtn {
+      display none
+      width 200px
+      height 100px
+    }
     .navTopMenu {
       height 100%
       border-bottom none !important
@@ -18,8 +23,11 @@
 
 @media screen and (max-width: 600px) {
   .horizontal-wrapper {
-    height 180px
-    background blue
+    .mobileNavBtn {
+      display block
+      width 200px
+      height 100px
+    }
   }
 }     
 </style>
@@ -28,6 +36,9 @@
   <div class="horizontal-wrapper">
     <!-- permissionRouters: {{permissionRouters}} -->
     <!-- $route.path: {{$route.path}} -->
+    <div class="mobileNavBtn" @click="showVerticalNav">
+      <el-button icon="el-icon-s-unfold" circle></el-button>
+    </div>
     <el-menu 
       mode="vertical"
       theme="dark"
@@ -87,6 +98,11 @@
       //   }        
       // }        
     },    
+    data(){
+      return {
+        isShowVerticalNav: false
+      }
+    },
     created () {
 
     },
@@ -95,7 +111,16 @@
         this.$store.dispatch('LogOut').then(() => {
           location.reload()
         })
-      },      
+      },
+      showVerticalNav(){
+        debugger
+        console.log( document.getElementsByClassName("menuItemCmp")[0])
+        if(!this.isShowVerticalNav){
+          document.getElementsByClassName("menuItemCmp")[0].style.left = `0`
+        }else {
+          document.getElementsByClassName("menuItemCmp")[0].style.left = `-200px`
+        }
+      }      
     }
   }
 </script>
