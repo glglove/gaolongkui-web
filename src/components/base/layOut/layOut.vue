@@ -26,9 +26,11 @@
           .el-carousel__container
             height 320px !important
       .topBox
+        width 100%
         position absolute
         top 0
         left 50%
+        right 0
         transform translateX(-50%)
         z-index 1000
         .logoBox
@@ -41,12 +43,13 @@
             &:hover
               cursor pointer            
           .logoPic
-            width 320px
+            // width 320px
             height 50px
             &:hover
               cursor pointer
           .versionWrap
             font-size 12px
+            margin-left 10px
             .ch
               color #000
               font-weight 400 !important
@@ -60,6 +63,16 @@
               &:hover
                 color #DA000D    
                 cursor pointer 
+            .cnWrap
+              .el-image
+                height 10px
+                width 15px
+            .enWrap
+              .el-image
+                height 10px
+                width 15px
+        .horizontal-sidebar
+          width 100%
     .containerWrapper
       min-height calc(100vh - 420px)
 </style>
@@ -70,59 +83,61 @@
     ---
     permissionRouters: {{permissionRouters}} -->
     <el-row class="">
-        <div class="horizontal-sidebar-wrap">
-          <div class="carouselBox">
-            <el-carousel 
-              arrow="never"
-              class="carousel">
-              <el-carousel-item v-for="item in carouselPic" :key="item">
-                <!-- <h3 class="small">{{ item }}</h3> -->
-                <el-image class="pic"  style="height:100%;width:100%" fit="fill" :src="item"></el-image>
-              </el-carousel-item>
-            </el-carousel>
-          </div> 
-          <div class="topBox page-wrapper">
-            <!---logo区--->
-            <div class="logoBox u-f-jsb u-f-ac">
-              <!-- <el-image
-                  :src="getLogoUrl"
-                  fit="fill"
-                  :class="['logoPic', !isChinese? 'english':'']"
-                  @click.native="clickLogo"
-              ></el-image> -->
-              <el-image
-                  v-show="currentLanguage == 'zh'"
-                  :src="logoUrl"
-                  fit="fill"
-                  :class="['logoPic']"
-                  @click.native="clickLogo"
-              ></el-image>
-              <el-image
-                  v-show="currentLanguage == 'en'"
-                  :src="logoUrl_en"
-                  fit="fill"
-                  :class="['logoPic', 'english']"
-                  @click.native="clickLogo"
-              ></el-image>                            
-              <div class="versionWrap u-f-ajc">
-                <div class="cnWrap u-f-ajc">
-                  <el-image :src="cnPic" fit="fill"></el-image>
-                  <el-button 
-                    type="text" 
-                    class="ch marginL5" 
-                    @click.native="setChinese"
-                  >中文</el-button>
-                </div>
-                <div class="enWrap u-f-ajc">
-                  <el-image :src="enPic" fit="fill"></el-image>
-                  <el-button type="text" class="en marginL5" @click.native="setEnglish">English</el-button>
+        <el-col :span="24">
+          <div class="horizontal-sidebar-wrap">
+            <div class="carouselBox">
+              <el-carousel 
+                arrow="never"
+                class="carousel">
+                <el-carousel-item v-for="item in carouselPic" :key="item">
+                  <!-- <h3 class="small">{{ item }}</h3> -->
+                  <el-image class="pic"  style="height:100%;width:100%" fit="fill" :src="item"></el-image>
+                </el-carousel-item>
+              </el-carousel>
+            </div> 
+            <div class="topBox page-wrapper">
+              <!---logo区--->
+              <div class="logoBox u-f-jsb u-f-ac">
+                <!-- <el-image
+                    :src="getLogoUrl"
+                    fit="fill"
+                    :class="['logoPic', !isChinese? 'english':'']"
+                    @click.native="clickLogo"
+                ></el-image> -->
+                <el-image
+                    v-show="currentLanguage == 'zh'"
+                    :src="logoUrl"
+                    fit="fill"
+                    :class="['logoPic']"
+                    @click.native="clickLogo"
+                ></el-image>
+                <el-image
+                    v-show="currentLanguage == 'en'"
+                    :src="logoUrl_en"
+                    fit="fill"
+                    :class="['logoPic', 'english']"
+                    @click.native="clickLogo"
+                ></el-image>                            
+                <div class="versionWrap u-f-ajc">
+                  <div class="cnWrap u-f-ajc">
+                    <el-image :src="cnPic" fit="fill"></el-image>
+                    <el-button 
+                      type="text" 
+                      class="ch marginL5" 
+                      @click.native="setChinese"
+                    >中文</el-button>
+                  </div>
+                  <div class="enWrap u-f-ajc">
+                    <el-image :src="enPic" fit="fill"></el-image>
+                    <el-button type="text" class="en marginL5" @click.native="setEnglish">English</el-button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!--导航区--->
-            <horizontal-sidebar class="horizontal-sidebar"></horizontal-sidebar>                
-          </div>             
-        </div>
+              <!--导航区--->
+              <horizontal-sidebar class="horizontal-sidebar"></horizontal-sidebar>                
+            </div>             
+          </div>
+        </el-col>
     </el-row>
 
     <!---顶部导航区下方的内容区域-->

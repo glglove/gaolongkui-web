@@ -31,10 +31,11 @@
             box-sizing border-box
             border 1px solid #ccc
             .pic
-              width 125px
-              height 114px
+              width 130px
+              height 120px              
           .item_right
             margin-left 30px
+            width calc(100% - 160px)
             .top
               font-size 12px
               color #999
@@ -52,14 +53,24 @@
               line-height 24px
               margin-top 10px
     .productShow_cat,.companyDevice_cat
+      font-size 12px
+      line-height 24px
       .itemWrap
+        min-height: 300px
         .item
           padding 3px
           box-sizing border-box
+          width 30%
+          margin 10px
           &:hover
             cursor pointer
             border 1px solid silver
             box-shadow 0px 2px 12px 0px rgba(0, 0, 0, 0.5)
+          .itemBox
+           width 100%
+           height 205px
+           border 1px solid silver
+
 
 </style>
 
@@ -90,15 +101,15 @@
               class="catItem u-f-jst"
               @click="scanDetail(newItem, key)"
               >
-              <div class="item_left">
-                <el-image class="pic" :src="newItem.picUrl" fit="fill" style="width:130px;height:120px"></el-image>
+              <div class="item_left u-f0">
+                <el-image class="pic" :src="newItem.picUrl" fit="fill"></el-image>
               </div>
-              <div class="item_right">
+              <div class="item_right u-f0">
                 <div class="top u-f-column u-f-jst">
-                  <p class="headTit">{{newItem.headTit}}</p>
-                  <p class="headTime"><span>{{newItem.headTime}} </span></p>
+                  <p class="headTit ellipsis1">{{newItem.headTit}}</p>
+                  <p class="headTime ellipsis1"><span>{{newItem.headTime}} </span></p>
                 </div>
-                <p class="intro">{{newItem.intro}}</p>
+                <p class="intro ellipsis3">{{newItem.intro}}</p>
               </div>
             </li>
           </ul>
@@ -108,22 +119,20 @@
         <div 
           class="productShow_cat" 
           v-if="strFlag == 'productShow'"
-          style="font-size: 12px;line-height:24px">
+          style="">
           <ul 
             class="itemWrap u-f-jst u-f-wrap" 
-            :class="contentList.data.length>0?'':'not_found'"
-            style="min-height: 300px">
+            :class="contentList.data.length>0?'':'not_found'">
             <li 
               v-if="contentList.data.length>0"
               v-for="(productShowItem, key) in contentList.data" 
               :key="key"
               @click="scanDetail(productShowItem, key)"              
               class="item u-f-column u-f u-f-jst" 
-              style="width:30%;margin:10px"
             >
-              <div class="imgBox u-f0 u-f-ajc u-f-column" style="width: 100%;height:205px;border:1px solid silver">
+              <div class="imgBox u-f0 u-f-ajc u-f-column">
                 <el-image :src="productShowItem.picUrl" fit="fill"></el-image>
-                <p class="itemTit marginT5 center">{{productShowItem.headTit}}</p>
+                <p class="itemTit marginT5 center ellipsis1">{{productShowItem.headTit}}</p>
               </div>
             </li>
           </ul>
@@ -132,15 +141,13 @@
         <!----公司设备展示分类---->
         <div 
           class="companyDevice_cat" 
-          v-if="strFlag == 'companyDevice'"
-          style="font-size: 12px;line-height:24px">
+          v-if="strFlag == 'companyDevice'">
           <ul class="itemWrap u-f-jst u-f-wrap">
             <li 
               v-for="(companyDeviceItem, key) in contentList.data" 
               :key="key"
               @click="scanDetail(companyDeviceItem, key)"              
               class="item u-f-column u-f u-f-jst" 
-              style="width:30%;margin:10px"
             >
               <div class="imgBox u-f0" style="width: 100%;border:1px solid silver">
                 <el-image :src="companyDeviceItem.picUrl" fit="fill"></el-image>

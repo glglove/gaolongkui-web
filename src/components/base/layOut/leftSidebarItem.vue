@@ -7,7 +7,7 @@
 <template>
   <div class='left-sidebar'>
       <!-- <levelbar-cmp></levelbar-cmp> -->
-    <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子-<span style="font-size: 14px;color:red">{{currentLeftSideBar[0].name}}</span></h3>
+    <h3 class="titBox marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子-<span class="tit">{{currentLeftSideBar[0].name}}</span></h3>
     <!-- <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子</h3> -->
     <!-- permissionRouters: {{permissionRouters}} -->
       <!-- currentLeftSideBar: {{currentLeftSideBar}} -->
@@ -19,7 +19,7 @@
         v-for="tag in currentLeftSideBar[0].children"
         :key="tag.path"
         @click="clickLeftSideBar(tag, currentLeftSideBar)"
-        :style="tag.tagId == globalTagId?currentLeftTagStyle:''"
+        :class="tag.tagId == globalTagId?'currentLeftTagStyle':''"
       >
         <!-- tag.tagId: {{tag.tagId}} -->
         <div class="u-f-jsb">
@@ -71,7 +71,6 @@ export default {
   data(){
       return {
         leftPic: leftPic,
-        currentLeftTagStyle: "background-color:red;color:#ffffff;font-weight:bold"
       }
   },
   methods: {
@@ -116,9 +115,13 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
   .left-sidebar
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 10px;
+    display inline-block
+    vertical-align top
+    margin-left 10px
+    .titBox
+      .tit
+        font-size 14px
+        color red      
     .tabs-view
       font-size 12px
       margin-left 10px
@@ -129,6 +132,10 @@ export default {
       cursor pointer
       &:hover
         background red
+        color #ffffff
+        font-weight bold
+      &.currentLeftTagStyle
+        background-color red
         color #ffffff
         font-weight bold
 </style>

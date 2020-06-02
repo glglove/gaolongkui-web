@@ -17,7 +17,7 @@
           fit="fill" 
           :src="logoUrl_en"></el-image>          
       </div>
-      <div class="textBox marginL20">
+      <div class="textBox marginL10">
         <div class="catBox u-f">
           <span class="catTit" @click="handlerClickTit('contact','contact')">{{$t("footer.contact")}}</span>
           <span class="catTit" @click="handlerClickTit('companyDevice','companyDevice')">{{$t("footer.Equipment")}}</span>

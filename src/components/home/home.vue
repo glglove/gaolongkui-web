@@ -372,10 +372,11 @@ export default {
       width 500px
 .el-row.newsWrap
   // height 380px
+  padding 5px
   margin-top 30px
   .newsItem
     // height 280px
-    padding 20px
+    padding 5px
     box-sizing border-box
     .el-carousel__container
       .el-carousel__item    

@@ -216,7 +216,9 @@
       color #CC0000
     .navitem
       font-size 14px
-      margin 0 20px
+      // margin 0 10px
+      padding 0 10px
+      box-sizing border-box
       &.currentStyle
         display:inline-bolck
         color: #CC0000

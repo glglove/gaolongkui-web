@@ -5,12 +5,23 @@
   功能：home页面 顶部的 横向导航组件
 -->
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-.horizontal-wrapper
-  height 40px
-  text-align center
-  .navTopMenu
-    height 100%
-    border-bottom none !important
+@media screen and (min-width: 600px) {
+  .horizontal-wrapper {
+    height 40px
+    text-align center 
+    .navTopMenu {
+      height 100%
+      border-bottom none !important
+    }
+  }
+} 
+
+@media screen and (max-width: 600px) {
+  .horizontal-wrapper {
+    height 180px
+    background blue
+  }
+}     
 </style>
 
 <template>
