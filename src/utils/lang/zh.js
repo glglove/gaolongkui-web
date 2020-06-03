@@ -2,6 +2,7 @@
 module.exports = {
     message: {
         hello: '好好学习！',
+        menuBtn: "菜单",
         keyWords: '关键词：',
         more: '多层板',
         high: '高频板',

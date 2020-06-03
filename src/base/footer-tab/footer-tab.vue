@@ -18,9 +18,9 @@
           :src="logoUrl_en"></el-image>          
       </div>
       <div class="textBox marginL10">
-        <div class="catBox u-f">
+        <div class="catBox u-f-ac">
           <span class="catTit" @click="handlerClickTit('contact','contact')">{{$t("footer.contact")}}</span>
-          <span class="catTit" @click="handlerClickTit('companyDevice','companyDevice')">{{$t("footer.Equipment")}}</span>
+          <span class="catTit " @click="handlerClickTit('companyDevice','companyDevice')">{{$t("footer.Equipment")}}</span>
           <span class="catTit" @click="handlerClickTit('companyNews','news')">{{$t("footer.News")}}</span>
           <span class="catTit" @click="handlerClickTit('more','productShow')">{{$t("footer.Product")}}</span>
           <span class="catTit" @click="handlerClickTit('#','#')">{{$t("footer.Count")}}</span>
@@ -33,8 +33,8 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import logoUrl from '../../../static/foot_logo.png'
-  import logoUrl_en from '../../../static/foot_logo_en.png'
+  import logoUrl from '../../../static/foot_xiangzh_logo.png'
+  import logoUrl_en from '../../../static/foot_logoxiang_en.png'
   export default {
     computed: {
       ...mapGetters([

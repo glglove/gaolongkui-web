@@ -2,6 +2,7 @@
 module.exports = {
     message: {
         hello: 'good good sduty',
+        menuBtn: "Menu",
         keyWords: 'keywords:',
         more: 'Multiply wood',
         high: ' High frequency board',

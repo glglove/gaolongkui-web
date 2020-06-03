@@ -7,6 +7,7 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 @media screen and (min-width: 600px) {
   .horizontal-wrapper {
+    position relative
     height 40px
     text-align center 
     .mobileNavBtn {
@@ -23,10 +24,12 @@
 
 @media screen and (max-width: 600px) {
   .horizontal-wrapper {
-    .mobileNavBtn {
-      display block
-      width 200px
-      height 100px
+    position relative
+    height 40px    
+    position relative
+    .navTopMenu {
+      height 100%
+      border-bottom none !important
     }
   }
 }     
@@ -36,9 +39,6 @@
   <div class="horizontal-wrapper">
     <!-- permissionRouters: {{permissionRouters}} -->
     <!-- $route.path: {{$route.path}} -->
-    <div class="mobileNavBtn" @click="showVerticalNav">
-      <el-button icon="el-icon-s-unfold" circle></el-button>
-    </div>
     <el-menu 
       mode="vertical"
       theme="dark"
@@ -71,13 +71,6 @@
   import SidebarItem from './SidebarItem'
   import iconSvg from '@/base/Icon-svg/index'
   export default {
-    data () {
-      return {
-        horizontalFlag: true,
-        // message: 'pc-message',
-        // email: 'pc-email'
-      }
-    },
     components: {
       SidebarItem,
       iconSvg
@@ -100,8 +93,10 @@
     },    
     data(){
       return {
-        isShowVerticalNav: false
-      }
+        horizontalFlag: true,
+        // message: 'pc-message',
+        // email: 'pc-email'
+      }        
     },
     created () {
 
@@ -111,16 +106,7 @@
         this.$store.dispatch('LogOut').then(() => {
           location.reload()
         })
-      },
-      showVerticalNav(){
-        debugger
-        console.log( document.getElementsByClassName("menuItemCmp")[0])
-        if(!this.isShowVerticalNav){
-          document.getElementsByClassName("menuItemCmp")[0].style.left = `0`
-        }else {
-          document.getElementsByClassName("menuItemCmp")[0].style.left = `-200px`
-        }
-      }      
+      },     
     }
   }
 </script>

@@ -8,7 +8,7 @@
     <div class="Comprehensive-share-cmp" >
         <!-- currentLanguage: {{currentLanguage}} -->
         <div 
-            class="addthis_toolbox u-f-ac u-f-wrap animated fadeInLeft addthis_default_style addthis_32x32_style" 
+            class="addthis_toolbox u-f-ac u-f-wrap animated fadeInRight addthis_default_style addthis_32x32_style" 
         >
             <a class="addthis_button_linkedin"></a>
             <a class="addthis_button_twitter"></a>
@@ -76,9 +76,26 @@ export default {
 .addthis_toolbox {
     width 40px
     position fixed
-    top 25%
-    left 0 
+    top 15%
+    right 0 !important 
     transform translateY(-50%) !important
     z-index 2000
+    a {
+        margin-bottom 0 !important
+    }
 }
+@media screen and (max-width: 600px) {
+    .addthis_toolbox {
+        width 40px
+        position fixed
+        top 25%
+        right 0 !important 
+        transform translateY(-50%) !important
+        z-index 2000
+        a {
+            margin-bottom 0 !important
+        }        
+    }
+}   
+
 </style>

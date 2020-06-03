@@ -34,7 +34,7 @@
         transform translateX(-50%)
         z-index 1000
         .logoBox
-          margin 20px 20px 30px 20px
+          margin 20px 20px 0 20px
           .logoPic.english
             opacity 1
             width 500px
@@ -176,7 +176,7 @@ import { mapGetters } from 'vuex'
 import cnPic from '../../../assets/cn.jpg'
 import enPic from '../../../assets/en.jpg'
 import logoUrl from '../../../../static/logo_xiang.png'
-import logoUrl_en from '../../../../static/logo_en.png'
+import logoUrl_en from '../../../../static/logo_xiang_en.png'
 import ban from '../../../../static/ban.jpg'
 import ban2 from '../../../../static/ban2.jpg'
 import router from '../../../router'

@@ -5,6 +5,11 @@
 -->
 <template>
     <div class="menuItemCmp u-fi-jsr page-wrapper" ref="menuItemCmp">
+
+      <div class="mobileNavBtn" @click="showVerticalNav">
+        <el-button :icon="currentIcon" class="navBtn">{{$t("message.menuBtn")}}</el-button>
+      </div>   
+
       <template 
         class='menu-wrapper'
         v-for="(item,key) in routes">
@@ -103,14 +108,27 @@
         currentLeftSidebar: [],
         currentKey: -1,
         currentHoverNav: {},
-        currentNavLiStyle: "background-color:#ffffff;color: #CC0000; boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)",
-        currentStyle: "display:inline-bolck;color: #CC0000; boxShowdow: 0 -10px 10px 10px rgba(0, 0, 0, 0.1)",
-        showSecondNavStyle: 'display: block; color: #DA000D'
+        isShowVerticalNav: false,
+        currentIcon: 'el-icon-d-arrow-right'
       }
     },
     created () {
       // debugger
       // console.log(this.routes)
+    },
+    mounted(){
+      let node = document.getElementsByClassName("menuItemCmp")[0]   
+      if(this.currentLanguage == 'zh'){
+        if(node.className.indexOf('en') > -1){
+          node.classList.remove("en")
+        }  
+        node.classList.add("zh")
+      }else if(this.currentLanguage == 'en'){
+        if(node.className.indexOf('zh') > -1){
+          node.classList.remove("zh")
+        } 
+        node.classList.add("en")
+      }
     },
     computed: {
       ...mapGetters([
@@ -126,7 +144,7 @@
         if(to.path && to.path != '/' && to.path != '/index'){
           this.getLeftSideBar(to)
         }        
-      }        
+      },      
     },    
     components: {
       iconSvg
@@ -140,6 +158,26 @@
       navMouseout(item, key){
         // debugger
         // this.currentKey = '-1'
+      },
+      showVerticalNav(){
+        debugger
+        console.log( document.getElementsByClassName("menuItemCmp")[0])
+        let node = document.getElementsByClassName("menuItemCmp")[0]
+        if(this.isShowVerticalNav){
+          node.style.transition = 'all .2s'
+          node.style.left = '-' + node.offsetWidth + 'px'
+          node.classList.remove("show")
+          this.currentIcon = 'el-icon-d-arrow-right'
+          this.isShowVerticalNav = false
+        }else {
+          node.style.transition = 'all .2s'
+          node.style.left = 0
+          node.classList.add("show")
+          this.currentIcon = 'el-icon-d-arrow-left'
+          this.isShowVerticalNav = true
+        }
+        this.$store.dispatch("setGlobalStrFlag",'')
+        this.$store.dispatch("setGlobalTagId",'')
       },
       getLeftSideBar(routeInfo){
         debugger
@@ -194,6 +232,18 @@
     line-height 40px !important
 .menuItemCmp
   font-size 0
+  .mobileNavBtn 
+    display none
+    position absolute
+    right -200px
+    width 200px
+    height 80px
+    .navBtn 
+      border-radius 20px
+      font-weight bold !important
+      &:hover 
+        border 1px solid #feb252
+        color #feb252
   .menu-nav
     color #ffffff
     font-weight bold 
@@ -354,12 +404,39 @@
 
 @media screen and (max-width: 600px) {
   .menuItemCmp {
-    position fixed
-    top 40px
-    left -200px
+    position absolute
+    top 0
     display flex
+    transition all .2s
     justify-content flex-start
     flex-direction column
+    &.zh {
+      left -92px
+      transition all .2s
+    }
+    &.en {
+      left -140px
+      transition all .2s
+    }  
+    &.show {
+      left 0
+      transition all .2s
+    }  
+    .mobileNavBtn {
+      display block
+      position absolute
+      right -200px
+      width 200px
+      height 80px
+      .navBtn {
+        border-radius 20px
+        font-weight bold !important
+        &:hover {
+          border 1px solid #feb252
+          color #feb252
+        }
+      }
+    }    
     .menu-nav {
       &:nth-of-type(2) {
         .firstChildwrap {
