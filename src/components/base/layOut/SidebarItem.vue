@@ -6,7 +6,7 @@
 <template>
     <div class="menuItemCmp u-fi-jsr page-wrapper" ref="menuItemCmp">
 
-      <div class="mobileNavBtn" @click="showVerticalNav">
+      <div class="mobileNavBtn">
         <el-button :icon="currentIcon" class="navBtn">{{$t("message.menuBtn")}}</el-button>
       </div>   
 
@@ -129,6 +129,18 @@
         } 
         node.classList.add("en")
       }
+
+      // document.getElementsByClassName("menuItemCmp")[0].addEventListener("click", (e) => {
+      //   e.stopPropagation()
+      // })
+      // document.getElementsByClassName("mobileNavBtn")[0].addEventListener("click", (e) => {
+      //   e.stopPropagation()
+      //   this.showVerticalNav()
+      // })
+      // document.addEventListener("click", (e) => {
+      //   e.stopPropagation()
+      //   this.showVerticalNav()
+      // })      
     },
     computed: {
       ...mapGetters([

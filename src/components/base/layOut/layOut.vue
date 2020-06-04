@@ -240,6 +240,9 @@ export default {
     created(){
       debugger
     },
+    mounted(){
+
+    },
     methods: {
       clickLogo(){
         this.$router.push({
