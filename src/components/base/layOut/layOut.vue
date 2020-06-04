@@ -5,12 +5,22 @@
 -->
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/css/sidebar"
+  .backTop
+    height 100%
+    width 100%
+    background-color #f2f5f6
+    box-shadow 0 0 6px rgba(0,0,0, .12)
+    text-align center
+    font-size 12px
+    line-height 40px
+    color red    
   .app-wrapper
     position relative
     height 100%
     width 100%
     // min-width 1024px
     font-size 16px
+    overflow auto
     .horizontal-sidebar-wrap
       position relative
       height 320px
@@ -164,6 +174,14 @@
     <div class="shareWrap-addthis" v-if="currentLanguage == 'en'">
       <addthis-hare-cmp v-if="currentLanguage == 'en'"></addthis-hare-cmp>
     </div> 
+
+
+    <el-backtop target=".app-wrapper" :bottom="100">
+      <div class="backTop"
+      >
+        {{$t("message.backTop")}}
+      </div>
+    </el-backtop>    
 	</div>
 </template>
 
@@ -175,10 +193,10 @@ import FooterTab from '@/base/footer-tab/footer-tab.vue'
 import { mapGetters } from 'vuex'
 import cnPic from '../../../assets/cn.jpg'
 import enPic from '../../../assets/en.jpg'
-import logoUrl from '../../../../static/logo_xiang.png'
+import logoUrl from '../../../../static/logo.png'
 import logoUrl_en from '../../../../static/logo_xiang_en.png'
-import ban from '../../../../static/ban.jpg'
-import ban2 from '../../../../static/ban2.jpg'
+// import ban from '../../../../static/ban.jpg'
+// import ban2 from '../../../../static/ban2.jpg'
 import router from '../../../router'
 
 export default {
@@ -198,7 +216,8 @@ export default {
             enPic: enPic,
             logoUrl: logoUrl,
             logoUrl_en: logoUrl_en,
-            carouselPic: [ban, ban2],
+            // carouselPic: [ban, ban2],
+            carouselPic: ['https://zry-wuhan.oss-cn-beijing.aliyuncs.com/picture/2006041056737217.jpg', 'https://zry-wuhan.oss-cn-beijing.aliyuncs.com/picture/2006041114583893.jpg'],
             parentRoute:{},
             currentLeftSidebar: [],
             strFlag: '',

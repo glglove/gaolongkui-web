@@ -11,6 +11,7 @@ module.exports = {
         double: '双面板',
         impedance: '阻抗板',
         special: '特殊工艺板',
+        backTop: "返回"
     },
     homeContent: {
         lefttit: '最新产品',

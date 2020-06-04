@@ -225,15 +225,16 @@ export default {
       'currentLanguage'
     ]),    
     LeftContentTop(){
-      let newArr = this.LeftContent.slice(3)
+      let newArr = this.LeftContent.slice(7)
       return newArr
     },
     LeftContentBottom(){
-      let newArr = this.LeftContent.slice(-4)
+      let newArr = this.LeftContent.slice(-8)
       return newArr
     }, 
     middleContentPicUrl(){
-      return this.midConent.picUrl
+      // return this.midConent.picUrl
+      return 'https://zry-wuhan.oss-cn-beijing.aliyuncs.com/picture/2006041158118411.jpg'
     },
     rightContentTop(){
       let newArr = this.rightContent.slice(3)
@@ -270,13 +271,18 @@ export default {
       })
     },
     _getHomeInfo(){
+      debugger
       getHomeInfo().then(res => {
         debugger
         this.LeftContent = res.leftInfoNewProductInfo
         this.midConent = res.midInfoCompanyInfo
         this.rightContent = res.rightContentInfo.data
-        this.starBottom()
-        this.starTop()
+        if(!this.timer_top){
+          this.starTop()
+        }
+        if(!this.timer_bottom){
+          this.starBottom()
+        }
       })
     },
     handlerClickMiddle(){
@@ -300,27 +306,29 @@ export default {
     starTop(){
       debugger
       this.timer_top = setInterval(() => {
-        this.num_top += 10
+        this.num_top += 1
         let topNode = document.getElementById("line-top-ul")
-        if(this.num_top<=980 && topNode){
+        if(this.num_top<=650 && topNode){
           topNode.style.transform= 'translateX(-' + this.num_top + 'px)'
           // console.log(topNode.style.transform)    
         }else {
+          topNode.style.transition = 'all .2s'
           this.num_top = 0
         }
-      },300)
+      },50)
     },
     starBottom(){
       this.timer_bottom = setInterval(() => {
-        that.num_bottom += 10
+        that.num_bottom += 1
         let bottomNode = document.getElementById("line-bottom-ul")        
-        if(that.num_bottom<=60 && bottomNode){
+        if(that.num_bottom<=650 && bottomNode){
           bottomNode.style.transform = 'translateX(-' + that.num_bottom + 'px)'
           // console.log(topNode.style.transform)          
         }else {
+          bottomNode.style.transition = 'all .2s'
           this.num_bottom = 0
         }
-      },300)
+      },50)
     },    
     topItemmouseenter (item, key){
       // debugger
@@ -329,7 +337,9 @@ export default {
     }, 
     topItemmouseleave(item, key){
       // debugger
+      // if(!this.timer_top){
         this.starTop()
+      // }
     },      
     bottomItemmouseenter (item, key){
       debugger
@@ -441,8 +451,8 @@ export default {
       .moreWrap
         margin-top -5px
       .comTit
-        color#909399
-        font-size 18px      
+        color #000000
+        font-size 14px      
       &:hover
         cursor pointer
         color #909399 !important    

@@ -703,7 +703,7 @@ export function getProductCatList (catId, pageSize= 10, pageNum=1) {
                 if(pageNum == 1){
                     resolve({
                         state: 1,
-                        total: 13,
+                        total: 25,
                         data: [
                             {
                                 id: 1,
@@ -946,46 +946,9 @@ export function getProductCatList (catId, pageSize= 10, pageNum=1) {
                                     <br />
                                 </p>`
                                 }
-                            },  
-                            {
-                                id: 8,
-                                str: 'productShow',
-                                tagId: 'special',
-                                picUrl: 'static/special_07.jpg',
-                                headTit: '六层+沉金+单面密集 BGA33mil线',
-                                headTime: '日期：18-08-23 21:19',
-                                intro: '...',
-                                detail: {
-                                    content: 
-                                    `<p>
-                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        <h2>
-                                            六层+沉金+单面密集 BGA33mil线
-                                        </h2>
-                                    </div>
-                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        日期：<span>18-08-23 21:17</span>&nbsp;
-                                    </div>
-                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR3211K90-L.jpg" />
-                                    </div>
-                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        <strong>产品详细说明</strong>
-                                    </div>
-                                    <div class="content" style="margin:0px;padding:0px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        &emsp;&emsp;
-                                    </div>
-                                    <div class="boxoff" style="margin:0px;padding:0px;font-size:0px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        <strong>----------------------------------</strong>
-                                    </div>
-                                </p>
-                                <p>
-                                    <br />
-                                </p>`
-                                }
                             },    
                             {
-                                id: 9,
+                                id: 8,
                                 str: 'productShow',
                                 tagId: 'special',
                                 picUrl: 'static/special_08.jpg',
@@ -1016,7 +979,7 @@ export function getProductCatList (catId, pageSize= 10, pageNum=1) {
                                 }
                             },    
                             {
-                                id: 10,
+                                id: 9,
                                 str: 'productShow',
                                 tagId: 'special',
                                 picUrl: 'static/special_09.jpg',
@@ -1045,16 +1008,9 @@ export function getProductCatList (catId, pageSize= 10, pageNum=1) {
                                     <br />
                                 </p>`
                                 }
-                            },                                                                                                                                                                                                                                                                                             
-                        ]                     
-                    }) 
-                }else if(pageNum== 2){
-                    resolve({
-                        state: 1,
-                        total: 13,
-                        data: [
+                            }, 
                             {
-                                id: 11,
+                                id: 10,
                                 str: 'productShow',
                                 tagId: 'special',
                                 picUrl: 'static/special_10.jpg',
@@ -1083,9 +1039,16 @@ export function getProductCatList (catId, pageSize= 10, pageNum=1) {
                                     <br />
                                 </p>`
                                 }
-                            },                              
+                            },                                                                                                                                                                                                                                                                                                                           
+                        ]                     
+                    }) 
+                }else if(pageNum== 2){
+                    resolve({
+                        state: 1,
+                        total: 25,
+                        data: [
                             {
-                                id: 12,
+                                id: 11,
                                 str: 'productShow',
                                 tagId: 'special',
                                 picUrl: 'static/special_11.jpg',
@@ -1116,7 +1079,7 @@ export function getProductCatList (catId, pageSize= 10, pageNum=1) {
                                 }
                             },  
                             {
-                                id: 13,
+                                id: 12,
                                 str: 'productShow',
                                 tagId: 'special',
                                 picUrl: 'static/special_12.jpg',
@@ -1148,9 +1111,419 @@ export function getProductCatList (catId, pageSize= 10, pageNum=1) {
                                     <br />
                                 </p>`
                                 }
-                            },                                                                                                                                                                                                                                                                                             
+                            }, 
+                            {
+                                id: 13,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_13.jpg',
+                                headTit: '单面沉金陶瓷板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            单面沉金陶瓷板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:14</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32115120-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            }, 
+                            {
+                                id: 14,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_14.jpg',
+                                headTit: '单面OSP金属铜基板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            单面OSP金属铜基板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:14</span>
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32114390-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },       
+                            {
+                                id: 15,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_15.jpg',
+                                headTit: '16层智能家居板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            16层智能家居板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:14</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32114100-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },  
+                            {
+                                id: 16,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_16.jpg',
+                                headTit: '12层沉金板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            12层沉金板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:13</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32113510-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },   
+                            {
+                                id: 17,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_17.jpg',
+                                headTit: '10层BGA沉金板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            10层BGA沉金板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:13</span>
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32113290-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },    
+                            {
+                                id: 18,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_18.jpg',
+                                headTit: '8层埋孔喷锡板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            8层埋孔喷锡板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:12</span>
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32113070-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },      
+                            {
+                                id: 19,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_19.jpg',
+                                headTit: '8层BGA阻抗',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            8层BGA阻抗
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:12</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32112460-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },  
+                            {
+                                id: 20,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_20.jpg',
+                                headTit: '6层沉金阻抗板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            6层沉金阻抗板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:11</span>
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32112050-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
                         ]                     
                     })                     
+                }else if (pageNum == 3){
+                    resolve({
+                        state: 1,
+                        total: 25,
+                        data: [
+                            {
+                                id: 21,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_21.jpg',
+                                headTit: '6层BGA板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            6层BGA板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:11</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32111210-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },  
+                            {
+                                id: 22,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_22.jpg',
+                                headTit: '4层阻抗板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            4层阻抗板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:10</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32110580-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            }, 
+                            {
+                                id: 23,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_23.jpg',
+                                headTit: '4层金板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            4层金板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:10</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32110410-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            }, 
+                            {
+                                id: 24,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_24.jpg',
+                                headTit: '4层沉金阻抗',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            4层沉金阻抗
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:10</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32110210-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },       
+                            {
+                                id: 25,
+                                str: 'productShow',
+                                tagId: 'special',
+                                picUrl: 'static/special_25.jpg',
+                                headTit: '4层沉金显卡板',
+                                headTime: '日期：18-08-23 21:19',
+                                intro: '...',
+                                detail: {
+                                    content: 
+                                    `<p>
+                                    <div class="title" style="margin:0px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <h2>
+                                            4层沉金显卡板
+                                        </h2>
+                                    </div>
+                                    <div class="info" style="margin:0px 0px 30px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        日期：<span>18-08-23 21:09</span>&nbsp;
+                                    </div>
+                                    <div class="picview" style="margin:0px 0px 40px;padding:0px;text-align:center;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <img src="http://www.mfpcb.com/uploads/allimg/180823/1-1PR32109350-L.jpg" />
+                                    </div>
+                                    <div class="labeltitle" style="margin:0px;padding:0px;font-size:14px;color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
+                                        <strong>产品详细说明</strong>
+                                    </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>`
+                                }
+                            },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                        ]                     
+                    })                      
                 }
             break              
             

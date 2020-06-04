@@ -251,6 +251,8 @@
     &:hover   
       cursor pointer
       background-color #ffffff
+      .firstChildwrap
+        display block
     &.currentNavLiStyle
       background-color: #ffffff
       color: #CC0000
@@ -277,6 +279,7 @@
       display none
       position absolute
       top 40px
+      font-weight 400
       // width 450px
       box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)  
       ul
@@ -288,11 +291,11 @@
           font-size 12px
           text-align center
           // min-width 80px
-          margin 0px 5px
+          margin 0px 10px
           &:hover
           a
             display inline-block
-            min-width 80px
+            // min-width 80px
             color: #DA000D
             .tit
               cursor pointer
@@ -322,7 +325,7 @@
             &:hover
             a
               display inline-block
-              min-width 80px
+              // min-width 80px
               color: #DA000D
               .tit
                 cursor pointer
@@ -356,7 +359,7 @@
             &:hover
             a
               display inline-block
-              min-width 80px
+              // min-width 60px
               color: #DA000D
               .tit
                 cursor pointer
