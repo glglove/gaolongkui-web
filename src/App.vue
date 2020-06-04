@@ -21,5 +21,5 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/css/index"
   #app 
-    min-height 100vh
+    height 100vh
 </style>

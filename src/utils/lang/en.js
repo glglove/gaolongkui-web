@@ -10,7 +10,8 @@ module.exports = {
         phone: ' Mobile board',
         double: 'Doubling plate',
         impedance: ' Impedance board',
-        special: 'special board',        
+        special: 'special board',   
+        backTop: 'UP'     
     },
     homeContent: {
         lefttit: 'NEW PRODUCTS',

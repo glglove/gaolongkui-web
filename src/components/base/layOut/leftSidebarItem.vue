@@ -15,14 +15,14 @@
       currentLeftParentSideBar: {{currentLeftParentSideBar}} -->
       <!-- routes: {{routes}} -->
       <!-- globalTagId: {{globalTagId}} -->
-    <div class="tabs-view"
+    <div class="tabs-view u-f-ajc u-f-colomn"
         v-for="tag in currentLeftSideBar[0].children"
         :key="tag.path"
         @click="clickLeftSideBar(tag, currentLeftSideBar)"
         :class="tag.tagId == globalTagId?'currentLeftTagStyle':''"
       >
         <!-- tag.tagId: {{tag.tagId}} -->
-        <div class="u-f-jsb">
+        <div class="item u-f-jsb u-f-ac">
             <span>{{tag.name}}</span>
             <span class="el-icon-arrow-right"></span>
         </div>
@@ -123,9 +123,11 @@ export default {
         font-size 14px
         color red      
     .tabs-view
+      height 40px
       font-size 12px
       margin-left 10px
       padding 10px 5px
+      margin-top 5px
       border-bottom 1px solid #f1ecec
       box-sizing border-box
       background-color #ffffff
@@ -138,4 +140,7 @@ export default {
         background-color red
         color #ffffff
         font-weight bold
+      .item 
+        height 100%
+        width 100%
 </style>
