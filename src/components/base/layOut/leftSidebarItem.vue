@@ -15,7 +15,9 @@
       currentLeftParentSideBar: {{currentLeftParentSideBar}} -->
       <!-- routes: {{routes}} -->
       <!-- globalTagId: {{globalTagId}} -->
-    <div class="tabs-view u-f-ajc u-f-colomn"
+    <div 
+        class="tabs-view u-f-ajc u-f-colomn"
+        v-if="!tag.hidden"
         v-for="tag in currentLeftSideBar[0].children"
         :key="tag.path"
         @click="clickLeftSideBar(tag, currentLeftSideBar)"

@@ -31,6 +31,7 @@
                         || globalTagId=='hotNews' 
                         || globalTagId=='industryInformation' 
                         || globalTagId=='technicalArtical' 
+                        || globalTagId=='total'
                         || globalTagId=='more'
                         || globalTagId=='high'
                         || globalTagId=='aluminium' 

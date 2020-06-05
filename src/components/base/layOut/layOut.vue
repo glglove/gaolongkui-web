@@ -23,7 +23,7 @@
     overflow auto
     .horizontal-sidebar-wrap
       position relative
-      height 320px
+      height 360px
       width 100%
       .carouselBox
         width 100%
@@ -34,7 +34,7 @@
         .el-carousel
           height 100% !important
           .el-carousel__container
-            height 320px !important
+            height 100% !important
       .topBox
         width 100%
         position absolute
@@ -83,6 +83,7 @@
                 width 15px
         .horizontal-sidebar
           width 100%
+          margin-top 20px
     .containerWrapper
       min-height calc(100vh - 420px)
 </style>
@@ -193,7 +194,7 @@ import FooterTab from '@/base/footer-tab/footer-tab.vue'
 import { mapGetters } from 'vuex'
 import cnPic from '../../../assets/cn.jpg'
 import enPic from '../../../assets/en.jpg'
-import logoUrl from '../../../../static/logo.png'
+import logoUrl from '../../../../static/logo_xiang.png'
 import logoUrl_en from '../../../../static/logo_xiang_en.png'
 // import ban from '../../../../static/ban.jpg'
 // import ban2 from '../../../../static/ban2.jpg'

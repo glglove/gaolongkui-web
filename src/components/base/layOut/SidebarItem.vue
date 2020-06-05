@@ -4,7 +4,7 @@
   功能：home页中 顶部 和 左边的导航—— 菜单项目items的组件，被 horizontalFlagSidebar.vue组件 和 leftSidebarItem组件所 引用
 -->
 <template>
-    <div class="menuItemCmp u-fi-jsr page-wrapper" ref="menuItemCmp">
+    <div class="menuItemCmp u-f-jsr page-wrapper" ref="menuItemCmp">
 
       <div class="mobileNavBtn">
         <el-button :icon="currentIcon" class="navBtn">{{$t("message.menuBtn")}}</el-button>
@@ -57,7 +57,7 @@
                 class="first-item white-space-nowrap"
                 :to="{path: item.path +'/' + item.children[key].path, query: {tagId: firstChild.tagId, str: firstChild.str}}"
               >
-                <a class="tit">{{firstChild.name}}</a>
+                <a class="tit" v-if="!firstChild.hidden">{{firstChild.name}}</a>
               </router-link>
             </ul>
           </div>         
@@ -244,6 +244,7 @@
     line-height 40px !important
 .menuItemCmp
   font-size 0
+  height 100%
   .mobileNavBtn 
     display none
     position absolute
@@ -291,12 +292,14 @@
       display none
       position absolute
       top 40px
+      height 40px
       font-weight 400
       // width 450px
-      box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)  
+      box-shadow 0px 5px 10px 0px rgb(183, 140, 140) 
       ul
         font-size 0
         background-color #ffffff
+        border-radius 5px
       &.zhStyle       
         .first-item
           display inline-block
@@ -318,9 +321,10 @@
         display none
         position absolute
         top 40px
+        height 40px
         // width 500px
         // box-shadow 0 2px 1px 1px blue
-        box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+        box-shadow 0px 5px 10px 0px rgb(183, 140, 140)   
         z-index 1000
         ul
           font-size 0
@@ -354,7 +358,7 @@
         top 40px
         // width 500px
         // box-shadow 0 2px 1px 1px blue
-        box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)   
+        box-shadow 0px 5px 10px 0px rgb(183, 140, 140)    
         z-index 1000 
         ul
           font-size 0
@@ -387,7 +391,7 @@
         position absolute
         top 40px
         // width 750px
-        box-shadow 0 5px 10px 1px rgba(0, 0, 0, 0.1)    
+        box-shadow 0px 5px 10px 0px rgb(183, 140, 140)     
         z-index 1000
         ul
           font-size 0

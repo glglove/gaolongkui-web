@@ -115,7 +115,7 @@ export const asyncRouterMap = [
         path: 'companyNews',
         component: () => import('@/components/base/container'),
         name: '企业新闻',
-        noDropdown: false,
+        noDropdown: true,
         icon: 'notice',
         hidden: false,
         str: 'news',
@@ -125,7 +125,7 @@ export const asyncRouterMap = [
         path: 'hotNews',
         component: () => import('@/components/base/container'),        
         name: '热点资讯',
-        noDropdown: false,
+        noDropdown: true,
         icon: 'notice',
         hidden: false,
         str: 'news',
@@ -135,7 +135,7 @@ export const asyncRouterMap = [
         path: 'industryInformation',
         component: () => import('@/components/base/container'),        
         name: '行业资讯',
-        noDropdown: false,
+        noDropdown: true,
         icon: 'notice',
         hidden: false,
         str: 'news',
@@ -145,7 +145,7 @@ export const asyncRouterMap = [
         path: 'technicalArtical',
         component: () => import('@/components/base/container'),        
         name: '技术文章',
-        noDropdown: false,
+        noDropdown: true,
         icon: 'notice',
         hidden: false,
         str: 'news',
@@ -156,20 +156,34 @@ export const asyncRouterMap = [
   {
     path: '/productShow',
     component: () => import('@/components/base/layOut/layOut'),
-    redirect: '/productShow/more',
+    redirect: '/productShow/total',
     name: '产品展示',
     noDropdown: false,
     icon: 'notice',
     hidden: false,
     str: 'productShow',
-    tagId: 'more',
+    tagId: 'total',
     children: [
+      {
+        path: 'total',
+        component: () => import('@/components/products/total'),
+        name: '所有产品',
+        hidden: true,
+        noDropdown: true,
+        icon: 'notice',
+        str: 'productShow',
+        tagId: 'total',
+        meta: {
+          str: 'productShow',
+          tagId: 'total',
+        },                 
+      },      
       {
         path: 'more',
         component: () => import('@/components/products/more'),
         name: '多层板',
-        hidden: true,
-        noDropdown: false,
+        hidden: false,
+        noDropdown: true,
         icon: 'notice',
         str: 'productShow',
         tagId: 'more'       
@@ -178,8 +192,8 @@ export const asyncRouterMap = [
         path: 'high',
         component: () => import('@/components/products/high'),
         name: '高频板',
-        hidden: true,
-        noDropdown: false,
+        hidden: false,
+        noDropdown: true,
         icon: 'notice',
         str: 'productShow',
         tagId: 'high'         
@@ -188,8 +202,8 @@ export const asyncRouterMap = [
         path: 'aluminium',
         component: () => import('@/components/products/aluminium'),
         name: '铝基板',
-        hidden: true,
-        noDropdown: false,
+        hidden: false,
+        noDropdown: true,
         icon: 'notice',
         str: 'productShow',
         tagId: 'aluminium'           
@@ -198,8 +212,8 @@ export const asyncRouterMap = [
         path: 'phone',
         component: () => import('@/components/products/phone'),
         name: '手机板',
-        hidden: true,
-        noDropdown: false,
+        hidden: false,
+        noDropdown: true,
         icon: 'notice',
         str: 'productShow',
         tagId: 'phone'          
@@ -208,8 +222,8 @@ export const asyncRouterMap = [
         path: 'double',
         component: () => import('@/components/products/double'),
         name: '双面板',
-        hidden: true,
-        noDropdown: false,
+        hidden: false,
+        noDropdown: true,
         icon: 'notice',
         str: 'productShow',
         tagId: 'double'        
@@ -218,8 +232,8 @@ export const asyncRouterMap = [
         path: 'impedance',
         component: () => import('@/components/products/impedance'),
         name: '阻抗板',
-        hidden: true,
-        noDropdown: false,
+        hidden: false,
+        noDropdown: true,
         icon: 'notice',
         str: 'productShow',
         tagId: 'impedance'          
@@ -228,8 +242,8 @@ export const asyncRouterMap = [
         path: 'special',
         component: () => import('@/components/products/special'),
         name: '特殊工艺板类',
-        hidden: true,
-        noDropdown: false,
+        hidden: false,
+        noDropdown: true,
         icon: 'notice',
         str: 'productShow',
         tagId: 'special'          
@@ -252,8 +266,8 @@ export const asyncRouterMap = [
         component: () => import('@/components/companyDevice/index'),
         name: '公司设备',
         icon: 'people',
-        noDropdown: true,
-        hidden: true,        
+        hidden: true,
+        noDropdown: true,     
         meta: {
           title: '公司设备-首页'
         }
@@ -301,7 +315,7 @@ export const asyncRouterMap = [
         name: '生产流程',
         icon: 'people',
         noDropdown: true,
-        hidden: false,        
+        hidden: true,        
         meta: {
           title: '生产流程-首页'
         }
@@ -325,7 +339,7 @@ export const asyncRouterMap = [
         name: '联系我们',
         icon: 'people',
         noDropdown: true,
-        hidden: false,        
+        hidden: true,        
         meta: {
           title: '联系我们-首页'
         }

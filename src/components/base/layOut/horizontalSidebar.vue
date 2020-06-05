@@ -17,6 +17,7 @@
     }
     .navTopMenu {
       height 100%
+      width 100%
       border-bottom none !important
     }
   }
@@ -29,6 +30,7 @@
     position relative
     .navTopMenu {
       height 100%
+      width 0
       border-bottom none !important
     }
   }
@@ -47,7 +49,7 @@
       active-text-color="#ffffff"
       unique-opened
       :default-active="$route.path"
-      class="navTopMenu u-fi-jst"
+      class="navTopMenu"
     >
       <!--菜单项目items的组件-->
       <sidebar-item :routes='permissionRouters' :horizontalFlag="horizontalFlag"></sidebar-item>
