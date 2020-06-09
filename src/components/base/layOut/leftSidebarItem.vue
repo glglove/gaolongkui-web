@@ -7,8 +7,8 @@
 <template>
   <div class='left-sidebar'>
       <!-- <levelbar-cmp></levelbar-cmp> -->
-    <h3 class="titBox marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子-<span class="tit">{{currentLeftSideBar[0].name}}</span></h3>
-    <!-- <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎电子</h3> -->
+    <h3 class="titBox marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳市翔翎精密电子-<span class="tit">{{currentLeftSideBar[0].name}}</span></h3>
+    <!-- <h3 class="marginT30 marginB20" v-if="currentLeftSideBar[0].name">深圳翔翎精密电子</h3> -->
     <!-- permissionRouters: {{permissionRouters}} -->
       <!-- currentLeftSideBar: {{currentLeftSideBar}} -->
       <!-- ----
@@ -121,8 +121,9 @@ export default {
     vertical-align top
     margin-left 10px
     .titBox
+      font-size 14px
       .tit
-        font-size 14px
+        font-size 12px
         color red      
     .tabs-view
       height 40px

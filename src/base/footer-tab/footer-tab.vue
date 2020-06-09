@@ -33,8 +33,11 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import logoUrl from '../../../static/foot_xiangzh_logo.png'
-  import logoUrl_en from '../../../static/foot_logoxiang_en.png'
+  // import logoUrl from '../../../static/foot_xiangzh_logo.png'
+  // import logoUrl from '../../../static/foot_logo_xiang.png'
+  import logoUrl from '../../../static/foot_text_ch.png'
+  // import logoUrl_en from '../../../static/foot_logoxiang_en.png'
+  import logoUrl_en from '../../../static/foot_text_en.png'
   export default {
     computed: {
       ...mapGetters([
@@ -97,11 +100,11 @@
     text-align center
     font-size 16px
     .picBox
-      width 160px
+      // width 200px
       height 80px
       .el-image
-        width 160px
-        height 50px
+        // width 160px
+        // height 50px
     .textBox
       font-size 12px
       color #595959

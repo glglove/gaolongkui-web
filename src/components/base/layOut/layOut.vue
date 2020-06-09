@@ -48,13 +48,13 @@
           .logoPic.english
             opacity 1
             width 500px
-            height 50px
+            height 25px
             transition  all .5s
             &:hover
               cursor pointer            
           .logoPic
             // width 320px
-            height 50px
+            height 25px
             &:hover
               cursor pointer
           .versionWrap
@@ -89,7 +89,7 @@
 </style>
 
 <template>
-	<div class="app-wrapper">
+	<div class="app-wrapper amimated fadeInLeft fast">
     <!-- currentLanguage: {{currentLanguage}}
     ---
     permissionRouters: {{permissionRouters}} -->
@@ -176,6 +176,11 @@
       <addthis-hare-cmp v-if="currentLanguage == 'en'"></addthis-hare-cmp>
     </div> 
 
+    <!--分享(bds)--->
+    <div class="shareWrap" style="display: none">
+      <bds-hare-cmp :hasMore="false" v-if="currentLanguage && currentLanguage == 'zh'"></bds-hare-cmp>
+    </div>        
+
 
     <el-backtop target=".app-wrapper" :bottom="100">
       <div class="backTop"
@@ -194,8 +199,10 @@ import FooterTab from '@/base/footer-tab/footer-tab.vue'
 import { mapGetters } from 'vuex'
 import cnPic from '../../../assets/cn.jpg'
 import enPic from '../../../assets/en.jpg'
-import logoUrl from '../../../../static/logo_xiang.png'
-import logoUrl_en from '../../../../static/logo_xiang_en.png'
+// import logoUrl from '../../../../static/logo_xiangl.png'
+import logoUrl from '../../../../static/logo_text_top_ch.png'
+// import logoUrl_en from '../../../../static/logo_xiang_en.png'
+import logoUrl_en from '../../../../static/logo_text_top_en.png'
 // import ban from '../../../../static/ban.jpg'
 // import ban2 from '../../../../static/ban2.jpg'
 import router from '../../../router'

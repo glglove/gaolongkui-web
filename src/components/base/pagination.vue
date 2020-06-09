@@ -16,7 +16,7 @@
             @prev-click="handleCurrentChange"
             @next-click="handleCurrentChange"
             :current-page="pageNum"
-            :page-sizes="[10]"
+            :page-sizes="[12]"
             :page-size="pageSize"
         >
         </el-pagination>        
