@@ -19,7 +19,6 @@
 
         <!--分享(bds)--->
         <div class="shareWrap">
-          <!-- currentLanguage: {{currentLanguage}} -->
           <bds-hare-cmp :hasMore="false" v-if="currentLanguage && currentLanguage == 'zh'"></bds-hare-cmp>
         </div>       
       </div>
