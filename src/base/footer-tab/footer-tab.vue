@@ -6,8 +6,8 @@
 
 <template>
   <div class="footer-tab">
-    <div class="page-wrapper u-f-ajc">
-      <div class="picBox u-f-ac">
+    <div class="page-wrapper u-f-ajc footlogoWrap">
+      <!-- <div class="picBox u-f-ac">
         <el-image 
           v-show="currentLanguage=='zh'"
           fit="fill" 
@@ -16,6 +16,14 @@
           v-show="currentLanguage=='en'"
           fit="fill" 
           :src="logoUrl_en"></el-image>          
+      </div> -->
+      <div class="foot_logo_text">
+        <span class="tit" v-show="currentLanguage == 'zh'">
+          深圳市翔翎精密电子
+        </span>
+        <span class="tit" v-show="currentLanguage == 'en'">
+          Shenzhen XiangLing Electronics
+        </span>  
       </div>
       <div class="textBox marginL10">
         <div class="catBox u-f-ac">
@@ -99,59 +107,66 @@
     background rgba(227,227,227,.4)
     text-align center
     font-size 16px
-    .picBox
-      // width 200px
-      height 80px
-      .el-image
-        // width 160px
-        // height 50px
-    .textBox
-      font-size 12px
-      color #595959
-      .catBox
-        .catTit
-          margin 0 10px
-          cursor pointer
-          &:hover
-            color red
-          &:nth-of-type(2)
-            position relative
-            &:before
-              position absolute
-              left -7px
-              display block
-              content ''
-              width 1px 
-              height 100% 
-              background-color #909399
-          &:nth-of-type(3)
-            position relative
-            &:before
-              position absolute
-              left -7px
-              display block
-              content ''
-              width 1px 
-              height 100% 
-              background-color #909399       
-          &:nth-of-type(4)
-            position relative
-            &:before
-              position absolute
-              left -7px
-              display block
-              content ''
-              width 1px 
-              height 100% 
-              background-color #909399 
-          &:nth-of-type(5)
-            position relative
-            &:before
-              position absolute
-              left -7px
-              display block
-              content ''
-              width 1px 
-              height 100% 
-              background-color #909399                                  
+    .footlogoWrap
+      height 100%
+      .picBox
+        // width 200px
+        height 80px
+        .el-image
+          // width 160px
+          // height 50px
+      .foot_logo_text
+        .tit
+          font-size 14px
+          color #e90000
+          font-weight bold          
+      .textBox
+        font-size 12px
+        color #595959
+        .catBox
+          .catTit
+            margin 0 10px
+            cursor pointer
+            &:hover
+              color red
+            &:nth-of-type(2)
+              position relative
+              &:before
+                position absolute
+                left -7px
+                display block
+                content ''
+                width 1px 
+                height 100% 
+                background-color #909399
+            &:nth-of-type(3)
+              position relative
+              &:before
+                position absolute
+                left -7px
+                display block
+                content ''
+                width 1px 
+                height 100% 
+                background-color #909399       
+            &:nth-of-type(4)
+              position relative
+              &:before
+                position absolute
+                left -7px
+                display block
+                content ''
+                width 1px 
+                height 100% 
+                background-color #909399 
+            &:nth-of-type(5)
+              position relative
+              &:before
+                position absolute
+                left -7px
+                display block
+                content ''
+                width 1px 
+                height 100% 
+                background-color #909399                                  
 </style>

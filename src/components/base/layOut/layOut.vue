@@ -35,6 +35,8 @@
           height 100% !important
           .el-carousel__container
             height 100% !important
+        .el-carousel--horizontal
+          overflow-x  visible
       .topBox
         width 100%
         position absolute
@@ -44,7 +46,12 @@
         transform translateX(-50%)
         z-index 1000
         .logoBox
-          margin 20px 20px 0 20px
+          margin 20px 0 
+          .logoText
+            .tit  
+              font-size 28px
+              color #e90000
+              font-weight bold
           .logoPic.english
             opacity 1
             width 500px
@@ -93,10 +100,17 @@
     <!-- currentLanguage: {{currentLanguage}}
     ---
     permissionRouters: {{permissionRouters}} -->
+    <!-- isShowVerticalNav: {{isShowVerticalNav}}
+    --
+      --------{{isPc || (!isPc && isShowVerticalNav)}}
+
+    ---
+    isPc: {{isPc}} -->
     <el-row class="">
         <el-col :span="24">
           <div class="horizontal-sidebar-wrap">
             <div class="carouselBox">
+
               <el-carousel 
                 arrow="never"
                 class="carousel">
@@ -110,12 +124,6 @@
               <!---logo区--->
               <div class="logoBox u-f-jsb u-f-ac">
                 <!-- <el-image
-                    :src="getLogoUrl"
-                    fit="fill"
-                    :class="['logoPic', !isChinese? 'english':'']"
-                    @click.native="clickLogo"
-                ></el-image> -->
-                <el-image
                     v-show="currentLanguage == 'zh'"
                     :src="logoUrl"
                     fit="fill"
@@ -128,7 +136,15 @@
                     fit="fill"
                     :class="['logoPic', 'english']"
                     @click.native="clickLogo"
-                ></el-image>                            
+                ></el-image>                             -->
+                <div class="logoText">
+                  <span class="tit" v-show="currentLanguage == 'zh'">
+                    深圳市翔翎精密电子有限公司
+                  </span>
+                  <span class="tit" v-show="currentLanguage == 'en'">
+                    Shenzhen XiangLing Electronics Co., Ltd.
+                  </span>                  
+                </div>
                 <div class="versionWrap u-f-ajc">
                   <div class="cnWrap u-f-ajc">
                     <el-image :src="cnPic" fit="fill"></el-image>
@@ -218,25 +234,27 @@ export default {
     },
     data() {
         return {
-            loading: false,
-            isChinese: true,
-            cnPic: cnPic,
-            enPic: enPic,
-            logoUrl: logoUrl,
-            logoUrl_en: logoUrl_en,
-            // carouselPic: [ban, ban2],
-            carouselPic: ['https://zry-wuhan.oss-cn-beijing.aliyuncs.com/picture/2006041056737217.jpg', 'https://zry-wuhan.oss-cn-beijing.aliyuncs.com/picture/2006041114583893.jpg'],
-            parentRoute:{},
-            currentLeftSidebar: [],
-            strFlag: '',
-            currentTagId: ''
+          loading: false,
+          isChinese: true,
+          cnPic: cnPic,
+          enPic: enPic,
+          logoUrl: logoUrl,
+          logoUrl_en: logoUrl_en,
+          // carouselPic: [ban, ban2],
+          carouselPic: ['https://zry-wuhan.oss-cn-beijing.aliyuncs.com/picture/2006041056737217.jpg', 'https://zry-wuhan.oss-cn-beijing.aliyuncs.com/picture/2006041114583893.jpg'],
+          parentRoute:{},
+          currentLeftSidebar: [],
+          strFlag: '',
+          currentTagId: ''
         }
     },
     computed: {
       ...mapGetters([
         'currentLanguage',
         'permissionRouters',
-        'addRouters'
+        'addRouters',
+        'isShowVerticalNav',
+        'isPc'
       ]),
       getLogoUrl(){
         if(this.currentLanguage == 'zh'){
@@ -262,20 +280,74 @@ export default {
         } catch (error) {
           
         }   
+      },
+      currentTagId: {
+        handler(newValue, oldValue){
+          debugger
+          // this.$store.dispatch("setVerticalNavShow", false)
+          if(!this.isPc){
+            this.showVerticalNav()
+          }
+        },
+        immediate: true
       }
     },
     created(){
       debugger
+      this.browserRedirect()
+      window.onresize = this.refresh
     },
     mounted(){
 
     },
     methods: {
+      refresh(){
+        // console.log(4444)
+        location.reload()
+      },
+      browserRedirect() {
+        let sUserAgent = navigator.userAgent.toLowerCase();
+        let bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        let bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        let bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        let bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        let bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        let bIsAndroid = sUserAgent.match(/android/i) == "android";
+        let bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        let bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            // return true;    // 移动设备
+            this.$store.dispatch("setIsPc", false)
+        } else {
+            // return false;    // PC
+            this.$store.dispatch("setIsPc", true)
+        }
+      },      
       clickLogo(){
         this.$router.push({
           path: '/about'
         })
-      },     
+      },  
+      showVerticalNav(){
+        debugger
+        console.log( document.getElementsByClassName("menuItemCmp")[0])
+        let node = document.getElementsByClassName("menuItemCmp")[0]
+        if(this.isShowVerticalNav){
+          node.style.transition = 'all .2s'
+          node.style.left = '-' + node.offsetWidth + 'px'
+          node.classList.remove("show")
+          this.currentIcon = 'el-icon-d-arrow-right'
+          this.$store.dispatch("setVerticalNavShow", false)
+        }else {
+          node.style.transition = 'all .2s'
+          node.style.left = 0
+          node.classList.add("show")
+          this.currentIcon = 'el-icon-d-arrow-left'
+          this.$store.dispatch("setVerticalNavShow", true)
+        }
+        // this.$store.dispatch("setGlobalStrFlag",'')
+        // this.$store.dispatch("setGlobalTagId",'')
+      },         
       async setChinese(){
         debugger
         await this.$store.dispatch("setLanguage", 'zh')

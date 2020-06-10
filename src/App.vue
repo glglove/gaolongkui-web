@@ -14,7 +14,7 @@
     created () {},
     components: {
       FooterTab
-    }
+    },
   }
 </script>
 

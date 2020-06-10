@@ -3,6 +3,7 @@ import * as types from '../mutation-types'
 
 const app = {
   state: {
+    isPc: true,
     sidebar: {
       opened: !+Cookies.get('sidebarStatus')
     },
@@ -12,8 +13,12 @@ const app = {
     globalTagId: '',
     leftSidebar: [],
     leftParentSidebar: null,
+    isShowVerticalNav: false, 
   },
   mutations: {
+    [types.SET_ISPC] (state, flag) {
+      state.isPc = flag
+    },
     [types.SET_TOGGLE_SIDEBAR] (state, sidebarStatus) {
       state.sidebar.opened = sidebarStatus
     },
@@ -34,9 +39,15 @@ const app = {
     },
     [types.SET_GLOBAL_TAGID] (state, tagId) {
       state.globalTagId = tagId
-    }    
+    },
+    [types.SET_VERTICAL_NAV_SHOW] (state, flag) {
+      state.isShowVerticalNav = flag
+    }   
   },
   actions: {
+    setIsPc ( {commit, state}, flag) {
+      commit(types.SET_ISPC, flag)
+    },
     // 切换左侧导航栏
     ToggleSideBar ({ commit, state }) {
       if (state.sidebar.opened) {
@@ -89,6 +100,10 @@ const app = {
     // 设置当前的 strFlag
     setGlobalTagId ({ commit, state }, tagId) {
       commit(types.SET_GLOBAL_TAGID, tagId)
+    },
+    // 设置 手机端当前是否显示导航菜单
+    setVerticalNavShow ( {commit, state}, flag ) {
+      commit(types.SET_VERTICAL_NAV_SHOW, flag)
     } 
   }
 }

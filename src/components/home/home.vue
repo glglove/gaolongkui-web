@@ -25,6 +25,7 @@
     </el-row>
 
     <el-row class="newsWrap page-wrapper">
+      <!-- LeftContent: {{LeftContent}} -->
       <div class="u-f-jsb">
         <div class="newsItem u-f0">
           <p class="topTit">{{$t("homeContent.lefttit")}}</p>
@@ -193,6 +194,8 @@ export default {
       midConent: {},
       num_top: 0,
       num_bottom: 0,
+      topToLeft: true,  
+      bottomToLeft: true,
       timer_top: null,
       timer_bottom: null,
       currentHoverTopitemKey: '',
@@ -224,7 +227,7 @@ export default {
       'currentLanguage'
     ]),    
     LeftContentTop(){
-      let newArr = this.LeftContent.slice(7)
+      let newArr = this.LeftContent.slice(0,8)
       return newArr
     },
     LeftContentBottom(){
@@ -305,27 +308,44 @@ export default {
     starTop(){
       debugger
       this.timer_top = setInterval(() => {
-        this.num_top += 1
         let topNode = document.getElementById("line-top-ul")
-        if(this.num_top<=650 && topNode){
+        if(0<=this.num_top && this.num_top<=470 && topNode && that.topToLeft){
+          this.num_top += 1
           topNode.style.transform= 'translateX(-' + this.num_top + 'px)'
-          // console.log(topNode.style.transform)    
+          // console.log(topNode.style.transform) 
+          if(that.num_top == 470){
+            that.topToLeft = false
+          }             
         }else {
-          topNode.style.transition = 'all .2s'
-          this.num_top = 0
+          that.num_top = that.num_top - 1
+          // console.log("------------",that.num_top)
+          topNode.style.transform = 'translateX(-' + that.num_top + 'px)'
+          if(that.num_top == 0){
+            that.topToLeft = true
+          }
         }
       },50)
     },
     starBottom(){
       this.timer_bottom = setInterval(() => {
-        that.num_bottom += 1
         let bottomNode = document.getElementById("line-bottom-ul")        
-        if(that.num_bottom<=650 && bottomNode){
+        if(0 <= that.num_bottom && that.num_bottom<=470 && bottomNode && that.bottomToLeft){
+          that.num_bottom += 1    
           bottomNode.style.transform = 'translateX(-' + that.num_bottom + 'px)'
           // console.log(topNode.style.transform)          
+          if(that.num_bottom == 470){
+            that.bottomToLeft = false
+          }
         }else {
-          bottomNode.style.transition = 'all .2s'
-          this.num_bottom = 0
+          // debugger
+          that.num_bottom = that.num_bottom - 1
+          // console.log("------------",that.num_bottom)
+          bottomNode.style.transform = 'translateX(-' + that.num_bottom + 'px)'
+          if(that.num_bottom == 0){
+            that.bottomToLeft = true
+          }
+          // bottomNode.style.transition = 'all .1s'
+          // this.num_bottom = 0
         }
       },50)
     },    
@@ -410,10 +430,10 @@ export default {
             font-size 10px
           &.currentHoverTopStyle
             border:1px solid #e2d8d8
-            padding:3px
+            // padding:3px
           &.currentHoverBottomStyle
             border:1px solid #e2d8d8
-            padding:3px
+            // padding:3px
     &:nth-of-type(3)
       width 30%
       margin-left 10px

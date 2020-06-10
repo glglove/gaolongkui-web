@@ -54,7 +54,7 @@ export function getAboutCatList (catId) {
                                         &nbsp;
                                     </div>
                                     <p style="color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        &nbsp; &nbsp; 今天，翔翎电路板有限公司的网站正式与大家见面了。因为有了网站，我们之间的距离不再遥远，亲爱的朋友，不管您现在身处何方，我都真诚地感谢您登陆我们企业的网站，和我们一起分享成长和收获的快乐！
+                                        &nbsp; &nbsp; 今天，翔翎精密电子有限公司的网站正式与大家见面了。因为有了网站，我们之间的距离不再遥远，亲爱的朋友，不管您现在身处何方，我都真诚地感谢您登陆我们企业的网站，和我们一起分享成长和收获的快乐！
                                     </p>
                                     <p style="color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
                                         <br />

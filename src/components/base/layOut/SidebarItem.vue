@@ -5,9 +5,12 @@
 -->
 <template>
     <div class="menuItemCmp u-f-jsr page-wrapper" ref="menuItemCmp">
-
       <div class="mobileNavBtn">
-        <el-button :icon="currentIcon" class="navBtn">{{$t("message.menuBtn")}}</el-button>
+        <el-button 
+          :icon="currentIcon" 
+          class="navBtn"
+          @click.native="showVerticalNav"
+        >{{$t("message.menuBtn")}}</el-button>
       </div>   
 
       <template 
@@ -49,6 +52,7 @@
 
           <div 
             :class="['firstChildwrap',currentLanguage == 'en'? 'enStyle': 'zhStyle',item.str==globalStrFlag? 'showSecondNavStyle':'']" 
+            v-if="isPc || (!isPc && isShowVerticalNav)"
           >
             <ul :class="['u-f-nowrap',currentLanguage == 'en'? 'u-fi-jst': 'u-fi-jst']">
               <router-link 
@@ -108,7 +112,7 @@
         currentLeftSidebar: [],
         currentKey: -1,
         currentHoverNav: {},
-        isShowVerticalNav: false,
+        // isShowVerticalNav: false,
         currentIcon: 'el-icon-d-arrow-right'
       }
     },
@@ -147,7 +151,9 @@
         'permissionRouters',
         'currentLanguage',
         'globalStrFlag',
-        'globalTagId'
+        'globalTagId',
+        'isShowVerticalNav',
+        'isPc'
       ]),      
     },
     watch: {
@@ -180,16 +186,16 @@
           node.style.left = '-' + node.offsetWidth + 'px'
           node.classList.remove("show")
           this.currentIcon = 'el-icon-d-arrow-right'
-          this.isShowVerticalNav = false
+          this.$store.dispatch("setVerticalNavShow", false)
         }else {
           node.style.transition = 'all .2s'
           node.style.left = 0
           node.classList.add("show")
           this.currentIcon = 'el-icon-d-arrow-left'
-          this.isShowVerticalNav = true
+          this.$store.dispatch("setVerticalNavShow", true)
         }
-        this.$store.dispatch("setGlobalStrFlag",'')
-        this.$store.dispatch("setGlobalTagId",'')
+        // this.$store.dispatch("setGlobalStrFlag",'')
+        // this.$store.dispatch("setGlobalTagId",'')
       },
       getLeftSideBar(routeInfo){
         debugger

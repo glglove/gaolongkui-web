@@ -12,6 +12,10 @@ export const globalStrFlag = state => state.app.globalStrFlag
 
 export const globalTagId = state => state.app.globalTagId
 
+export const isShowVerticalNav = state => state.app.isShowVerticalNav
+
+export const isPc = state => state.app.isPc
+
 
 
 
