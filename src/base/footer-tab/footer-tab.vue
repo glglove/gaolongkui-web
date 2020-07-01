@@ -33,7 +33,7 @@
           <span class="catTit" @click="handlerClickTit('more','productShow')">{{$t("footer.Product")}}</span>
           <span class="catTit" @click="handlerClickTit('#','#')">{{$t("footer.Count")}}</span>
         </div>
-        <div class="marginT10">{{$t("footer.copyRight")}}</div>
+        <div class="beian marginT10" @click="handerClickBeian">{{$t("footer.copyRight")}}</div>
       </div>
     </div>
   </div>
@@ -89,7 +89,10 @@
           }
         })
         
-      },    
+      },
+      handerClickBeian(){
+        window.open("http://www.beian.miit.gov.cn")
+      }    
     }
   }
 </script>
@@ -168,5 +171,9 @@
                 content ''
                 width 1px 
                 height 100% 
-                background-color #909399                                  
+                background-color #909399    
+        .beian
+          &:hover
+            cursor pointer   
+            color red                               
 </style>
