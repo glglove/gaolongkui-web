@@ -15,7 +15,7 @@ module.exports = {
     },
     homeContent: {
         lefttit: '最新产品',
-        midtit: '深圳市翔翎精密电子有限公司',
+        midtit: '深圳市翔翎电子有限公司',
         righttit1: '新闻动态',
         righttit2: '行业资讯',
         rightMore: '更多',
@@ -26,6 +26,6 @@ module.exports = {
         News: '新闻资讯',
         Product: '产品中心',
         Count: '站长统计',
-        copyRight: 'Copyright © 2013 深圳市翔翎精密电子有限公司 版权所有   粤ICP备18100547号-1'
+        copyRight: 'Copyright © 2013 深圳市翔翎电子有限公司 版权所有   粤ICP备20052864号-1'
     },
 }

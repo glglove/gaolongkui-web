@@ -19,7 +19,7 @@
       </div> -->
       <div class="foot_logo_text">
         <span class="tit" v-show="currentLanguage == 'zh'">
-          深圳市翔翎精密电子
+          深圳市翔翎电子
         </span>
         <span class="tit" v-show="currentLanguage == 'en'">
           Shenzhen XiangLing Electronics

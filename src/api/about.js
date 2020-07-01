@@ -19,7 +19,7 @@ export function getAboutCatList (catId) {
                                             &nbsp;
                                         </p>
                                         <p style="color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                            <span style="font-size:14px;"><span style="font-family:arial, helvetica, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp;翔翎精密电子有限公司坐落于惠州市国家级的高新技术开发区，成立于2013年，是一家高新技术企业。于2013年6月开始组建生产，投资资金1亿人民币。年销售达1.5亿到2亿人民币， 厂区占地面积为25000平方米，厂房面积为15000平方米，印制线路板生产能力每月达60000平方米。拥有积极进取，诚信负责，经验丰富的经营管理团队，公司快速反应。品质优先.客户至上的理念为核心经营理念。<br />
+                                            <span style="font-size:14px;"><span style="font-family:arial, helvetica, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp;翔翎电子有限公司坐落于惠州市国家级的高新技术开发区，成立于2013年，是一家高新技术企业。于2013年6月开始组建生产，投资资金1亿人民币。年销售达1.5亿到2亿人民币， 厂区占地面积为25000平方米，厂房面积为15000平方米，印制线路板生产能力每月达60000平方米。拥有积极进取，诚信负责，经验丰富的经营管理团队，公司快速反应。品质优先.客户至上的理念为核心经营理念。<br />
                                         <br />
                                         &nbsp; &nbsp; &nbsp;公司以单.双层铝基多层到（4-32）层板制作生产，公司核心产品主要用于汽车电子.新能源及汽车智能电子.通讯及网络.工控能源及消费等领域，产品主要分布在欧美，亚洲等地区。</span></span><br />
                                         <br />
@@ -54,13 +54,13 @@ export function getAboutCatList (catId) {
                                         &nbsp;
                                     </div>
                                     <p style="color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        &nbsp; &nbsp; 今天，翔翎精密电子有限公司的网站正式与大家见面了。因为有了网站，我们之间的距离不再遥远，亲爱的朋友，不管您现在身处何方，我都真诚地感谢您登陆我们企业的网站，和我们一起分享成长和收获的快乐！
+                                        &nbsp; &nbsp; 今天，翔翎电子有限公司的网站正式与大家见面了。因为有了网站，我们之间的距离不再遥远，亲爱的朋友，不管您现在身处何方，我都真诚地感谢您登陆我们企业的网站，和我们一起分享成长和收获的快乐！
                                     </p>
                                     <p style="color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
                                         <br />
                                     </p>
                                     <p style="color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
-                                        &nbsp; &nbsp; &nbsp; 翔翎精密电子有限公司于2013年诞生于惠州大亚湾之畔，是惠州市国资委属下以线路板为主的惠州市大型企业。成立以来，翔翎始终肩负着市委市政府赋予的国有资产保值增值、增强核心竞争力的重任，肩负着优化产业结构、不断改革发展的使命，不断助力惠州经济发展。
+                                        &nbsp; &nbsp; &nbsp; 翔翎电子有限公司于2013年诞生于惠州大亚湾之畔，是惠州市国资委属下以线路板为主的惠州市大型企业。成立以来，翔翎始终肩负着市委市政府赋予的国有资产保值增值、增强核心竞争力的重任，肩负着优化产业结构、不断改革发展的使命，不断助力惠州经济发展。
                                     </p>
                                     <p style="color:#595959;font-family:Verdana, Arial;background-color:#FFFFFF;">
                                         <br />

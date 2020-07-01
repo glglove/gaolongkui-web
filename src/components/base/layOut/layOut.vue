@@ -28,6 +28,7 @@
       .carouselBox
         width 100%
         // min-width 1024px
+        overflow hidden
         height 100%
         margin 0 auto
         background-color rgba(0,0,0,.2)
